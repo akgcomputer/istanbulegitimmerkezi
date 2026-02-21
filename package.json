@@ -1,17 +1,16 @@
 {
   "name": "istegitim",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.17.1",
-    "resend": "^6.9.2",
-    "tailwindcss": "^4.1.18"
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^4.16.18",
+    "resend": "^4.0.0",
+    "tailwindcss": "^3.4.19"
   }
 }

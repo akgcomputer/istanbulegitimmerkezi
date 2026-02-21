@@ -1,5 +1,6 @@
 ---
 // egitmen/[slug].astro
+
 import Layout from '../../layouts/Layout.astro';
 import ContactButtons from '../../components/ContactButtons.astro';
 
@@ -12,63 +13,59 @@ import { courses as sporCourses } from '../../data/courses-spor';
 import { courses as sanatCourses } from '../../data/courses-sanat';
 import { courses as genelCourses } from '../../data/courses-genel';
 
-// DEBUG: Importların geldiğini kontrol et
-console.log('Bilişim kurs sayısı:', bilisimCourses?.length);
-console.log('Dil kurs sayısı:', dilCourses?.length);
+// Tüm kursları tek bir dizide topla
+const tumKurslar = [
+  ...bilisimCourses,
+  ...dilCourses,
+  ...ilkogretimCourses,
+  ...liseCourses,
+  ...sporCourses,
+  ...sanatCourses,
+  ...genelCourses
+];
+
+// Tüm eğitmenleri topla (benzersiz)
+const tumEgitmenler = [];
+const egitmenSlugSet = new Set();
+
+tumKurslar.forEach(kurs => {
+  if (kurs.instructors && Array.isArray(kurs.instructors)) {
+    kurs.instructors.forEach(egitmen => {
+      if (!egitmenSlugSet.has(egitmen.slug)) {
+        egitmenSlugSet.add(egitmen.slug);
+        
+        // Eğitmenin verdiği tüm kursları bul
+        const verdigiKurslar = tumKurslar.filter(k => 
+          k.instructors && Array.isArray(k.instructors) && 
+          k.instructors.some(i => i.slug === egitmen.slug)
+        ).map(k => ({
+          slug: k.slug,
+          title: k.title,
+          category: k.category,
+          breadcrumb: k.breadcrumb,
+          image: k.image,
+          instructorInfo: k.instructors.find(i => i.slug === egitmen.slug)
+        }));
+        
+        tumEgitmenler.push({
+          ...egitmen,
+          verdigiKurslar
+        });
+      }
+    });
+  }
+});
 
 export async function getStaticPaths() {
-  // Tüm kursları tek bir dizide topla (burada tanımla)
-  const tumKurslar = [
-    ...bilisimCourses,
-    ...dilCourses,
-    ...ilkogretimCourses,
-    ...liseCourses,
-    ...sporCourses,
-    ...sanatCourses,
-    ...genelCourses
-  ];
-
-  // Tüm eğitmenleri ve onların kurslarını topla
-  const tumEgitmenler = [];
-  const egitmenSlugSet = new Set();
-
-  tumKurslar.forEach(kurs => {
-    if (kurs.instructors && Array.isArray(kurs.instructors)) {
-      kurs.instructors.forEach(egitmen => {
-        if (!egitmenSlugSet.has(egitmen.slug)) {
-          egitmenSlugSet.add(egitmen.slug);
-          
-          // Eğitmenin verdiği tüm kursları bul
-          const verdigiKurslar = tumKurslar.filter(k => 
-            k.instructors && Array.isArray(k.instructors) && 
-            k.instructors.some(i => i.slug === egitmen.slug)
-          ).map(k => ({
-            slug: k.slug,
-            title: k.title,
-            category: k.category,
-            breadcrumb: k.breadcrumb,
-            image: k.image,
-            instructorInfo: k.instructors.find(i => i.slug === egitmen.slug)
-          }));
-          
-          tumEgitmenler.push({
-            ...egitmen,
-            verdigiKurslar
-          });
-        }
-      });
-    }
-  });
-
-  // Şimdi tumEgitmenler'i kullanarak path'leri oluştur
   return tumEgitmenler.map((egitmen) => ({
     params: { slug: egitmen.slug },
     props: { egitmen },
   }));
 }
 
-// Props olarak gelen eğitmen
-const { egitmen } = Astro.props;
+// BU KISMI DEĞİŞTİR - 2. koddaki mantıkla!
+const { slug } = Astro.params;
+const egitmen = tumEgitmenler.find(e => e.slug === slug);
 
 // Eğer eğitmen bulunamazsa 404'e yönlendir
 if (!egitmen) {

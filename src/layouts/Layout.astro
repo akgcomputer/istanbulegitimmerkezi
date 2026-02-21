@@ -3,7 +3,6 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-
 export interface Props {
   title: string;
   description?: string;
@@ -19,29 +18,17 @@ const { title, description = "İstanbul Eğitim Merkezi – Bilişim ve teknoloj
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://istanbulegitimmerkezi.com" />
-    <meta property="og:image" content="/images/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
-
+    
+        
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-
   </head>
   <body class="flex flex-col min-h-screen">
-    <!-- Header bileşeni -->
     <Header />
-
-    <!-- Ana İçerik -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
       <slot />
     </main>
-
-    <!-- Footer bileşeni -->
     <Footer />
   </body>
 </html>
