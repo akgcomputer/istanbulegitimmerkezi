@@ -2,15 +2,12 @@
   "name": "istegitim",
   "version": "0.0.1",
   "type": "module",
- "scripts": {
-  "dev": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "cf-build": "astro build"
-}
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^11.2.0",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^4.16.18",
     "resend": "^4.0.0",
