@@ -1,17 +1,538 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { courses as bilisimCourses } from '../data/courses-bilisim';
+import { courses as dilCourses } from '../data/courses-dil';
+import { courses as ilkogretimCourses } from '../data/courses-ilkogretim';
+import { courses as sporCourses } from '../data/courses-spor';
+import { courses as sanatCourses } from '../data/courses-sanat';
+import { courses as sinavCourses } from '../data/courses-lise';
+import { courses as digerCourses } from '../data/courses-genel';
 
+// Tüm kursları tek bir diziye topla
+const allCourses = [
+  ...bilisimCourses,
+  ...dilCourses,
+  ...ilkogretimCourses,
+  ...sporCourses,
+  ...sanatCourses,
+  ...sinavCourses,
+  ...digerCourses
+];
+
+// Rastgele 12 kurs seç (sayfa her yenilendiğinde değişir)
+const randomCourses = allCourses.sort(() => 0.5 - Math.random()).slice(0, 12);
+
+// Rastgele 6 popüler kurs (popülerlik varsayılan, rastgele seçtik)
+const popularCourses = allCourses.sort(() => 0.5 - Math.random()).slice(0, 6);
+
+// Rastgele 5 eğitmen seç (slider için)
+const allInstructors = allCourses.flatMap(course => 
+  course.instructors.map(instructor => ({
+    ...instructor,
+    courseTitle: course.title
+  }))
+);
+const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0, 5);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="İstanbul Eğitim Merkezi – Eğitim Pazaryeri">
+  <!-- Hero Bölümü -->
+  <section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full opacity-10 blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-white rounded-full opacity-10 blur-3xl"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 py-20 sm:py-28 text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight animate-fade-in">
+        Eğitmenler <span class="text-yellow-300">Öğretmenler</span> Hocalar
+      </h1>
+	  
+	  <p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto animate-fade-in delay-200">
+		Bilgi paylaştıkça çoğalır; şimdi sıra kazancı çoğaltmakta.
+      <p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto">
+        Siz nasıl isterseniz öyle olsun dedik,
+		<br>Türkiye'nin ilk eğitim pazaryerinde, komisyonsuz kazanç ile fırsat sunuyoruz!
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/dersler" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          Kursları Keşfet
+        </a>
+        <a href="/egitmen-basvuru" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1">
+          Eğitmen Ol
+        </a>
+      </div>
+      <p class="mt-8 text-indigo-200 text-sm">
+        ⭐ Değerli Eğitim Gönüllüsü Arkadaşım Sizi de Aramızda Görmek İsteriz!
+      </p>
+    </div>
+  </section>
+
+  <!-- Eğitmen Slider'ı (manuel kaydırma butonlu) -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+      <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
+      Öne Çıkan Eğitmenler
+    </h2>
+    <p class="text-gray-600 mb-8">Alanında uzman eğitmenlerimizle tanışın.</p>
+
+    <div class="relative">
+      <div id="instructor-slider" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 pb-4">
+        {randomInstructors.map((instructor, index) => {
+          const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500', 'bg-purple-500'];
+          const colorClass = colors[index % colors.length];
+          return (
+            <a 
+              href={`/egitmen/${instructor.slug}`} 
+              class="min-w-[280px] sm:min-w-[320px] flex-shrink-0 snap-start group"
+            >
+              <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-6 border border-gray-100">
+                <div class="flex items-center gap-4">
+                  <div class={`w-16 h-16 rounded-full ${colorClass} animate-pulse flex items-center justify-center text-white text-2xl font-bold shadow-lg`}>
+                    {instructor.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-800 group-hover:text-indigo-600">{instructor.name}</h3>
+                    <p class="text-sm text-gray-500">{instructor.courseTitle}</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center text-yellow-400 text-lg">
+                  {'★'.repeat(Math.floor(instructor.rating))}
+                  <span class="text-gray-600 text-sm ml-2">({instructor.rating})</span>
+                </div>
+                <p class="text-sm text-gray-600 mt-3 line-clamp-2">{instructor.bio || "Uzman eğitmen"}</p>
+                <div class="mt-4 flex items-center justify-between text-sm">
+                  <span class="text-gray-500">{instructor.location}</span>
+                  <span class="font-bold text-indigo-600">{instructor.privatePrice}₺/saat</span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+      <!-- Kaydırma butonları (opsiyonel) -->
+      <button id="slide-left" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition hidden sm:block">←</button>
+      <button id="slide-right" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition hidden sm:block">→</button>
+    </div>
+  </section>
+
+
+  <!-- Eğitmenler İçin Fırsat Bölümü -->
+<section class="bg-gray-900 text-white py-16 my-12 rounded-3xl">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Eğitmen misiniz? <span class="text-orange-400">%0 Komisyon</span> ile derslerinizi yayınlayın!
+      </h2>
+      <p class="text-gray-300 text-lg mb-6">
+        Platformumuzda binlerce öğrenciye ulaşın, hiçbir komisyon ödemeden gelir elde edin. İlk eğitiminizi hemen oluşturun.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/egitmen-basvuru" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl">
+          Hemen Başvur
+        </a>
+        <a href="/egitmenler" class="bg-transparent border border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition">
+          Eğitmenlerimizi Keşfedin
+        </a>
+      </div>
+      <p class="text-sm text-gray-400 mt-4">
+        * Eğitime destek için birlikte olalım.
+      </p>
+    </div>
+    <div class="md:w-1/3 flex justify-center">
+      <div class="bg-orange-500/20 p-6 rounded-full">
+        <svg class="w-32 h-32 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 5.01a.75.75 0 01-.726.93H3.524a.75.75 0 01-.726-.93L5 14.5" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Popüler Kurslar (grid 3'lü) -->
+  <section class="max-w-7xl mx-auto px-4 py-16 bg-gray-50">
+    <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+      <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
+      Popüler Kurslar
+    </h2>
+    <p class="text-gray-600 mb-8">En çok ilgi gören eğitimlerimiz.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {popularCourses.map(course => {
+        const minPrice = Math.min(...course.instructors.map(i => i.privatePrice));
+        const maxPrice = Math.max(...course.instructors.map(i => i.privatePrice));
+        const priceText = minPrice === maxPrice ? `${minPrice}₺` : `${minPrice}₺ - ${maxPrice}₺`;
+        return (
+          <a href={`/kurs/${course.slug}`} class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
+            <img src={course.image} alt={course.title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-gray-800 group-hover:text-indigo-600 line-clamp-2">{course.title}</h3>
+              <p class="text-sm text-gray-500 mt-2 line-clamp-2">{course.description}</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">{priceText}</span>
+                <span class="text-xs text-gray-400">{course.instructors.length} eğitmen</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+
+  
+
+  <!-- Başarı Hikayeleri Bölümü -->
+<section class="bg-gray-800 text-white py-16 my-12 rounded-3xl">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+      Öğrenciler <span class="text-indigo-400">Ne Dediler</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Yorum 1 -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-16 h-16 rounded-full bg-indigo-500 flex items-center justify-center text-2xl font-bold">
+            A
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Simge Yılmaz</h3>
+            <p class="text-gray-300 text-sm">Python Kursu Mezunu</p>
+          </div>
+        </div>
+        <p class="text-gray-200 italic">
+          "Bu platform sayesinde yazılım kariyerime başladım. Hocamın referansı ile şu anda büyük bir firmada full-stack developer olarak çalışıyorum."
+        </p>
+        <div class="mt-4 text-yellow-400">
+          ★★★★★
+        </div>
+      </div>
+      <!-- Yorum 2 -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center text-2xl font-bold">
+            Z
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Sude Kaya</h3>
+            <p class="text-gray-300 text-sm">Dijital Pazarlama Uzmanı</p>
+          </div>
+        </div>
+        <p class="text-gray-200 italic">
+          "Eğitmenim çok ilgiliydi. Aldığım SEO eğitimi sayesinde kendi ajansımı kurdum. Hocam da ne zaman soru sorsam kırmıyor beni, iyi ki var dediğim bir platform."
+        </p>
+        <div class="mt-4 text-yellow-400">
+          ★★★★★
+        </div>
+      </div>
+      <!-- Yorum 3 -->
+      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center text-2xl font-bold">
+            M
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Berk Demir</h3>
+            <p class="text-gray-300 text-sm">Unity Oyun Geliştiricisi</p>
+          </div>
+        </div>
+        <p class="text-gray-200 italic">
+          "Oyun geliştirme kursuyla hayalimdeki mesleğe adım attım. Şimdi kendi oyunumu tasarlamaya başladım, çalışmadan da olmaz hocamın lafı selam olsun emeği büyük."
+        </p>
+        <div class="mt-4 text-yellow-400">
+          ★★★★★
+        </div>
+      </div>
+    </div>
+    <!-- Daha fazla butonu -->
+    <div class="text-center mt-10">
+     
+	  <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/dersler" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          Kursları Keşfet
+        </a>
+        <a href="/iletisim" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1">
+          İletişime Geç
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+  <!-- Tüm Kurslar (rastgele 12'li) -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+      <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
+      En Yeni Eğitimler
+    </h2>
+    <p class="text-gray-600 mb-8">Her seviyeye uygun, güncel müfredatlar.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {randomCourses.map(course => {
+        const minPrice = Math.min(...course.instructors.map(i => i.privatePrice));
+        return (
+          <a href={`/kurs/${course.slug}`} class="group bg-white rounded-xl shadow hover:shadow-lg transition-all border border-gray-100 overflow-hidden">
+            <img src={course.image} alt={course.title} class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600 line-clamp-1">{course.title}</h3>
+              <p class="text-xs text-gray-500 mt-1 line-clamp-2">{course.description}</p>
+              <div class="mt-2 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold text-sm">{minPrice}₺'den</span>
+                <span class="text-xs text-gray-400">{course.instructors.length} eğitmen</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/dersler" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full transition shadow-md hover:shadow-lg">
+        Tüm Eğitimleri Gör
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Neden Biz? (Güven ve avantaj bölümü) -->
+  <section class="bg-indigo-50 py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Neden İstanbul Eğitim Merkezi?</h2>
+      <p class="text-gray-600 text-center mb-12">Eğitmen ve öğrenci dostu avantajlarımızla fark yaratıyoruz.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+          <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">💰</div>
+          <h3 class="text-xl font-semibold mb-2">%0 Komisyon</h3>
+          <p class="text-gray-600">Eğitmenler ilk eğitimden itibaren hiçbir komisyon ödemez. Tüm kazanç sizin!</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+          <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce delay-100">👥</div>
+          <h3 class="text-xl font-semibold mb-2">Butik Eğitim</h3>
+          <p class="text-gray-600">Sınırlı sayıda katılımcı ile birebir ilgi, kalıcı öğrenme.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+          <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce delay-200">⭐</div>
+          <h3 class="text-xl font-semibold mb-2">Yıldızlı Eğitmenler</h3>
+          <p class="text-gray-600">Kaliteyi garantileyen puanlama sistemi, doğru eğitmeni bulun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Dil Eğitimleri Section -->
+<section class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+    <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
+    Dil Eğitimleri
+  </h2>
+  <p class="text-gray-600 mb-8">Her dilde uzman eğitmenler, birebir online dersler.</p>
+
+  <!-- Dil kartları grid (5 sütun, responsive) -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+    <!-- Türkçe (Yabancılar için) -->
+    <a href="/dil-egitimleri?dil=turkce" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-star-and-crescent"></i>
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Türkçe <span class="text-xs text-gray-500 block">(Yabancılar için Türkçe)</span></h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1, A2,</p>
+        <p>Konuşma Kulübü, Mesleki Türkçe</p>
+      </div>
+    </a>
+
+    <!-- İngilizce -->
+    <a href="/dil-egitimleri?dil=ingilizce" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-black-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-clock"></i> <!-- Big Ben simgesi -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">İngilizce</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1-C2 Tüm Seviyeler</p>
+        <p>Konuşma Kulübü, Mesleki İngilizce</p>
+      </div>
+    </a>
+
+    <!-- İspanyolca -->
+    <a href="/dil-egitimleri?dil=ispanyolca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-church"></i> <!-- Katedral -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">İspanyolca</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1-C2 Tüm Seviyeler</p>
+        <p>Konuşma Kulübü, Mesleki İspanyolca</p>
+      </div>
+    </a>
+
+    <!-- Fransızca -->
+    <a href="/dil-egitimleri?dil=fransizca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-landmark"></i> <!-- Eyfel olmadığından genel yapı -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Fransızca</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1-C2 Tüm Seviyeler</p>
+        <p>Konuşma Kulübü, Mesleki Fransızca</p>
+      </div>
+    </a>
+
+    <!-- Almanca -->
+    <a href="/dil-egitimleri?dil=almanca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-yellow-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-archway"></i> <!-- Brandenburg Kapısı -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Almanca</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1-C2 Tüm Seviyeler</p>
+        <p>Konuşma Kulübü, Mesleki Almanca</p>
+      </div>
+    </a>
+
+    <!-- İtalyanca -->
+    <a href="/dil-egitimleri?dil=italyanca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-university"></i> <!-- Pisa Kulesi yerine genel bir yapı -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">İtalyanca</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1-C2 Tüm Seviyeler</p>
+        <p>Konuşma Kulübü, Mesleki İtalyanca</p>
+      </div>
+    </a>
+
+    <!-- Çince -->
+    <a href="/dil-egitimleri?dil=cin" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-dragon"></i> <!-- Çin simgesi -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Çince</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1, A2, Geneksel Çince</p>
+        <p>Konuşma Kulübü, Mesleki Çince</p>
+      </div>
+    </a>
+
+    <!-- Arapça -->
+    <a href="/dil-egitimleri?dil=arapca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-pink-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-mosque"></i> <!-- Cami -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Arapça</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1-C2 Tüm Seviyeler</p>
+        <p>Konuşma Kulübü, Mesleki Arapça</p>
+      </div>
+    </a>
+
+    <!-- Japonca -->
+    <a href="/dil-egitimleri?dil=japonca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-sun"></i> <!-- Japon bayrağındaki güneş -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Japonca</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1, A2</p>
+        <p>Konuşma Kulübü, Mesleki Japonca</p>
+      </div>
+    </a>
+
+    <!-- Portekizce -->
+    <a href="/dil-egitimleri?dil=portekizce" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
+      <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+        <i class="fas fa-ship"></i> <!-- Portekiz keşif gemisi -->
+      </div>
+      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Portekizce</h3>
+      <div class="mt-2 text-xs text-gray-500 space-y-1">
+        <p>A1, A2</p>
+        <p>Konuşma Kulübü, Mesleki Portekizce</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Kurumsal vurgu -->
+  <div class="mt-16 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-3xl p-8 md:p-10 border border-indigo-100">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+      <div class="lg:max-w-2xl">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Şirketler için kurumsal dil eğitimi</h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          İstanbul Eğitim Merkezi'nin kurumsal dil eğitimi, yüz yüze ve online öğretmenlerle kişiye özel dil öğrenimi sunar,
+		  dilerseniz şirket merkezinizde dilerseniz de eğitim kurumunda eğitim alabilirsiniz, 
+		  iserseniz bir kişi dilerseniz grup olarak eğitim alabilirsiniz,
+		  <br><strong> Karar Sizin! </strong>Ekipler ve şirketler için tasarlanmıştır. 
+		  <br>Daha fazla bilgi almak için 
+          <a href="/kurumsal-tanitim" class="text-indigo-600 font-semibold underline hover:text-indigo-800">tanıtım talep et</a>.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-6">
+          <a href="/ders-ucreti-isveren" class="bg-white border border-indigo-300 text-indigo-700 hover:bg-indigo-50 px-6 py-3 rounded-full font-medium transition shadow-sm flex items-center gap-2">
+            <i class="fas fa-briefcase"></i> Ders ücretlerini işvereninin ödemesini ister misin?
+          </a>
+          <a href="/sirketine-oner" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-medium transition shadow-sm flex items-center gap-2">
+            <i class="fas fa-star"></i> Bizi şirketine öner!
+          </a>
+        </div>
+      </div>
+      <div class="flex-shrink-0">
+        <div class="w-32 h-32 bg-orange-200 rounded-full flex items-center justify-center text-5xl text-indigo-700">
+          <i class="fas fa-building"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+</Layout>
+
+<!-- JavaScript: Slider kaydırma butonları -->
+<script>
+  const slider = document.getElementById('instructor-slider');
+  const leftBtn = document.getElementById('slide-left');
+  const rightBtn = document.getElementById('slide-right');
+
+  if (leftBtn && rightBtn && slider) {
+    leftBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    rightBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  }
+</script>
+
+<style>
+  /* Scrollbar'ı gizle (Chrome, Safari) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Tailwind'de olmayan animasyonlar */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  /* line-clamp için */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

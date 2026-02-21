@@ -1,0 +1,88 @@
+---
+// online-akademi-sartlari.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Online Akademi Şartları | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi Online Akademi kullanım şartları, katılım koşulları ve teknik gereksinimler.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Online Akademi Şartları</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    <p class="text-sm text-gray-500 mb-8">Son Güncelleme: 15 Mart 2025</p>
+    
+    <div class="prose prose-lg max-w-none">
+      <h2>1. Online Akademi Nedir?</h2>
+      <p>İstanbul Eğitim Merkezi Online Akademi, öğrencilerimizin uzman eğitmenler eşliğinde canlı online dersler alabildiği, dilediği yerden eğitimine devam edebildiği dijital eğitim platformudur.</p>
+      
+      <h2>2. Katılım Koşulları</h2>
+      <ul>
+        <li>Online akademi derslerine katılabilmek için internet bağlantısı olan bir cihaz (bilgisayar, tablet veya telefon) gereklidir.</li>
+        <li>Dersler Zoom/Teams platformu üzerinden gerçekleştirilir, bu nedenle ilgili uygulamaların cihazınızda yüklü olması önerilir.</li>
+        <li>Ders bağlantı linki, ders başlamadan önce e-posta ve SMS ile iletilir.</li>
+      </ul>
+      
+      <h2>3. Teknik Gereksinimler</h2>
+      <ul>
+        <li><strong>İnternet Hızı:</strong> En az 5 Mbps download, 2 Mbps upload hızı önerilir.</li>
+        <li><strong>Donanım:</strong> Kamera ve mikrofon (bilgisayarınızda yoksa harici kullanabilirsiniz)</li>
+        <li><strong>Yazılım:</strong> Zoom, Teams veya eğitmenin tercih ettiği platform</li>
+        <li><strong>Tarayıcı:</strong> Güncel Chrome, Firefox, Safari veya Edge</li>
+      </ul>
+      
+      <h2>4. Ders Kuralları</h2>
+      <ul>
+        <li>Derslere zamanında katılım sağlanmalıdır. 15 dakikadan fazla gecikme durumunda ders iptal sayılabilir.</li>
+        <li>Ders sırasında kameranızın açık olması, eğitmen-öğrenci etkileşimi için önemlidir.</li>
+        <li>Ders kayıtları, kişisel kullanım içindir; izinsiz paylaşılması yasaktır.</li>
+        <li>Ders sırasında uygunsuz davranışlar (arka plan gürültüsü, uygunsuz görüntü vb.) eğitmen tarafından uyarı ile sonuçlanır.</li>
+      </ul>
+      
+      <h2>5. Ders İptali ve Yeniden Planlama</h2>
+      <ul>
+        <li>Ders iptalleri, ders saatinden en az 24 saat önce yapılmalıdır.</li>
+        <li>24 saat içinde yapılan iptallerde ders hakkı kullanılmış sayılır (sağlık raporu gibi istisnai durumlar hariç).</li>
+        <li>Eğitmen kaynaklı iptallerde, ders yeniden planlanır veya iade edilir.</li>
+        <li>Teknik sorunlar (elektrik kesintisi, internet kopması) durumunda, taraflar durumu birbirine bildirmeli ve yeni bir tarih belirlenmelidir.</li>
+      </ul>
+      
+      <h2>6. Kayıt ve Telif Hakları</h2>
+      <ul>
+        <li>Ders kayıtları, derse katılan öğrencilerle sınırlı olarak paylaşılır.</li>
+        <li>Kayıtların izinsiz çoğaltılması, dağıtılması veya ticari amaçla kullanılması yasaktır.</li>
+        <li>Eğitmenin ders içinde paylaştığı materyallerin telif hakları eğitmene aittir.</li>
+      </ul>
+      
+      <h2>7. Devamsızlık ve Katılım</h2>
+      <ul>
+        <li>Düzenli katılım, başarı için önemlidir.</li>
+        <li>Üst üste 3 derse katılmama durumunda, eğitmen durumu platforma bildirir ve gerekli aksiyonlar alınır.</li>
+        <li>Yoğun devamsızlık durumunda, kursiyerin kaydı askıya alınabilir.</li>
+      </ul>
+      
+      <h2>8. Değerlendirme ve Sertifika</h2>
+      <ul>
+        <li>Online akademi derslerinde başarı, derse katılım, ödevler ve varsa sınavlara göre değerlendirilir.</li>
+        <li>Başarılı olan kursiyerlere, İstanbul Eğitim Merkezi onaylı katılım sertifikası verilir.</li>
+        <li>Sertifikalar, eğitimin türüne göre MEYAD gibi işbirliği yapılan kurumların logosunu da taşıyabilir.</li>
+      </ul>
+      
+      <h2>9. İletişim ve Destek</h2>
+      <p>Online derslerle ilgili teknik destek ve sorularınız için:</p>
+      <ul>
+        <li>E-posta: online@istanbulegitim.com</li>
+        <li>Telefon: 0212 444 0 123</li>
+        <li>WhatsApp Destek Hattı: 0555 555 55 55</li>
+      </ul>
+      
+      <div class="mt-8 p-4 bg-blue-50 border-l-4 border-blue-400">
+        <p class="text-sm text-blue-800">
+          <strong>Online Akademi Avantajları:</strong> Coğrafi sınır yok, esnek saatler, kayıtlı dersleri tekrar izleme imkanı, birebir eğitmen iletişimi.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,497 @@
+---
+// mobbing-egitimi.astro
+import Layout from '../layouts/Layout.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+// Meta bilgiler
+const meta = {
+  title: 'İşyerinde Mobbing Farkındalık ve Müdahale Eğitimi | İstanbul Eğitim Merkezi',
+  description: 'Kurumsal psikolojik taciz önleme programı - Sağlıklı çalışma ortamı için profesyonel çözümler. MEYAD işbirliğiyle mobbing farkındalık eğitimi.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <!-- Hero Section - Mobil öncelikli tasarım -->
+  <section class="md:py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-12 md:py-20">
+      <!-- Badge'ler - Mobilde yan yana değil alt alta dizilebilir -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-6">
+        <span class="bg-orange-500 px-4 py-1.5 rounded-full text-sm font-semibold inline-block w-fit">MEYAD İşbirliği</span>
+        <span class="bg-yellow-500 px-4 py-1.5 rounded-full text-sm font-semibold inline-block w-fit">Kurumsal Program</span>
+      </div>
+      
+      <!-- Başlık - Mobilde daha küçük punto -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+        İşyerinde Mobbing Farkındalık ve Müdahale Eğitimi
+      </h1>
+      
+      <!-- Alt başlık -->
+      <p class="text-lg md:text-xl text-indigo-200 mb-4 max-w-2xl">
+        Kurumsal psikolojik taciz önleme programı - Sağlıklı çalışma ortamı için profesyonel çözümler
+      </p>
+      
+      <!-- Vurgu metni -->
+      <p class="text-base md:text-lg text-indigo-300 mb-6 pl-4">
+        <span class="font-bold text-black">Mobbing ile mücadele eden kuruluşlar arasında yerini al</span><br>
+        İş Yerinde Çalışma Verimini Arttırmak İçin Mobbing'e Karşı Dur<br>
+        <span class="font-bold text-yellow-400">Ve İşyerinde Üretkenliği %50-60 Arttır</span>
+      </p>
+      
+      <!-- ContactButtons component'i - Mobilde dikey -->
+      <div class="mb-8">
+        <ContactButtons courseTitle="Mobbing Farkındalık Eğitimi" />
+        <p class="text-sm text-indigo-300 italic mt-2">
+          * WhatsApp hattımızdan bilgi alabilir, Ders Kaydol butonuna tıklayarak başvuru formunu doldurabilirsiniz.
+        </p>
+      </div>
+      
+      <!-- İstatistikler - Mobilde grid 2 sütun -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+          <div class="text-2xl font-bold text-white-400">%55</div>
+          <div class="text-xs text-indigo-200">çalışan mobbing yaşadı</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+          <div class="text-2xl font-bold text-white-400">%38</div>
+          <div class="text-xs text-indigo-200">şu an mağdur</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+          <div class="text-2xl font-bold text-white-400">%70</div>
+          <div class="text-xs text-indigo-200">yöneticiden geliyor</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl p-3 text-center border border-white/10">
+          <div class="text-2xl font-bold text-white-400">%43</div>
+          <div class="text-xs text-indigo-200">işten ayrılma nedeni</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Uyarı İşaretleri - Daha mobil dostu -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+          ⚠️ İşletmenizde Mobbing Var Mı?
+        </h2>
+        <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+          Aşağıdaki işaretler kurumunuzda mobbing riskine işaret ediyor olabilir
+        </p>
+      </div>
+      
+      <!-- Mobilde 1 sütun, tablette 2, masaüstünde 4 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">📉</span>
+          <span class="text-sm sm:text-base">Belirli çalışanlarda performans düşüşü</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">🏥</span>
+          <span class="text-sm sm:text-base">Sık sık rapor alınması</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">😔</span>
+          <span class="text-sm sm:text-base">İzole olan, sosyalleşmeyen çalışanlar</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">🚪</span>
+          <span class="text-sm sm:text-base">Yüksek işten ayrılma oranı</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">🤐</span>
+          <span class="text-sm sm:text-base">Sessizlik ve paylaşmama kültürü</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">😠</span>
+          <span class="text-sm sm:text-base">Departmanlar arası gerginlik</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">💬</span>
+          <span class="text-sm sm:text-base">Dedikodu ve gruplaşmalar</span>
+        </div>
+        <div class="bg-red-50 p-3 rounded-xl flex items-start gap-2">
+          <span class="text-xl flex-shrink-0">📧</span>
+          <span class="text-sm sm:text-base">Formal iletişimin yerini alması</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitim Programları - Mobilde dikey kartlar -->
+  <section class="py-12 md:py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+        Kurumunuz İçin Özel Eğitim Programları
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Yöneticilere Özel -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-4 md:p-6">
+            <div class="flex items-center gap-2 md:gap-3 mb-1">
+              <span class="text-2xl md:text-3xl">👔</span>
+              <h3 class="text-xl md:text-2xl font-bold">Yöneticilere Özel Mobbing Eğitimi</h3>
+            </div>
+            <p class="text-indigo-200 text-sm md:text-base">1 Gün - 7 Saat</p>
+          </div>
+          <div class="p-4 md:p-6">
+            <div class="mb-4">
+              <h4 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Sabah Oturumu: Yönetici Olarak Mobbing (3,5 Saat)</h4>
+              <ul class="space-y-1 text-xs md:text-sm text-gray-700">
+                <li class="flex items-start gap-2">• Yöneticilerin yasal sorumlulukları</li>
+                <li class="flex items-start gap-2">• İş hukuku ve tazminat riskleri</li>
+                <li class="flex items-start gap-2">• Mobbing davranışlarını erken tespit</li>
+                <li class="flex items-start gap-2">• Uyarı sinyallerini fark etme</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Öğleden Sonra: Müdahale ve Çözüm (3,5 Saat)</h4>
+              <ul class="space-y-1 text-xs md:text-sm text-gray-700">
+                <li class="flex items-start gap-2">• Şikayet dinleme teknikleri</li>
+                <li class="flex items-start gap-2">• Tarafsız soruşturma yöntemleri</li>
+                <li class="flex items-start gap-2">• Belgelendirme ve kayıt tutma</li>
+                <li class="flex items-start gap-2">• Adil karar verme süreci</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tüm Çalışanlara Yönelik -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="bg-gradient-to-r from-purple-600 to-purple-800 text-white p-4 md:p-6">
+            <div class="flex items-center gap-2 md:gap-3 mb-1">
+              <span class="text-2xl md:text-3xl">👥</span>
+              <h3 class="text-xl md:text-2xl font-bold">Tüm Çalışanlara Yönelik Eğitim</h3>
+            </div>
+            <p class="text-purple-200 text-sm md:text-base">Yarım Gün - 4 Saat</p>
+          </div>
+          <div class="p-4 md:p-6">
+            <div class="mb-4">
+              <h4 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Oturum 1: Mobbing'i Tanıma (2 Saat)</h4>
+              <ul class="space-y-1 text-xs md:text-sm text-gray-700">
+                <li class="flex items-start gap-2">• Mobbing nedir, ne değildir?</li>
+                <li class="flex items-start gap-2">• Mobbing türleri (dikey, yatay, yukarı)</li>
+                <li class="flex items-start gap-2">• 45 mobbing davranışı listesi</li>
+                <li class="flex items-start gap-2">• Normal çatışma vs mobbing</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Oturum 2: Korunma ve Mücadele (2 Saat)</h4>
+              <ul class="space-y-1 text-xs md:text-sm text-gray-700">
+                <li class="flex items-start gap-2">• Mobbing mağduru olmamak için</li>
+                <li class="flex items-start gap-2">• Haklarınızı bilmek</li>
+                <li class="flex items-start gap-2">• Şikayet ve başvuru yolları</li>
+                <li class="flex items-start gap-2">• Belgelendirme önerileri</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sektöre Özel İçerik - Mobilde dikey -->
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="bg-indigo-50 rounded-xl p-4">
+          <span class="text-2xl block mb-2">🏥</span>
+          <h4 class="font-bold text-indigo-900 mb-1">Sağlık Sektörü</h4>
+          <p class="text-xs md:text-sm text-indigo-800">Yoğun tempo ve stres altında mobbing, hiyerarşik yapıda dikey mobbing</p>
+        </div>
+        <div class="bg-indigo-50 rounded-xl p-4">
+          <span class="text-2xl block mb-2">🏦</span>
+          <h4 class="font-bold text-indigo-900 mb-1">Bankacılık ve Finans</h4>
+          <p class="text-xs md:text-sm text-indigo-800">Performans baskısı ve mobbing, hedef odaklı çalışma ortamı</p>
+        </div>
+        <div class="bg-indigo-50 rounded-xl p-4">
+          <span class="text-2xl block mb-2">🏭</span>
+          <h4 class="font-bold text-indigo-900 mb-1">Üretim ve İmalat</h4>
+          <p class="text-xs md:text-sm text-indigo-800">İşçi-ustabaşı-mühendis dinamiği, vardiya sistemi zorlukları</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitim Formatları - Mobilde dikey -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+        📚 Eğitim Formatları ve Esneklik
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="border border-gray-200 rounded-xl p-5 text-center hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🏢</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Şirket İçi Eğitim</h3>
+          <p class="text-sm text-gray-600 mb-2">Toplantı salonunuzda, rahat ve tanıdık ortamda</p>
+          <div class="text-xs text-indigo-600">Grup: 10-30 kişi • Esnek zaman • Ekip bütünlüğü</div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-5 text-center hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">💻</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Online Canlı Eğitim</h3>
+          <p class="text-sm text-gray-600 mb-2">Zoom/Teams üzerinden, coğrafi sınır yok</p>
+          <div class="text-xs text-purple-600">HD video • Canlı soru-cevap • Kayıt ve tekrar</div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-5 text-center hover:shadow-lg transition md:col-span-2 lg:col-span-1">
+          <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🔄</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Hibrit Model</h3>
+          <p class="text-sm text-gray-600 mb-2">Esnek kombinasyon - yöneticiler yüz yüze, çalışanlar online</p>
+          <div class="text-xs text-orange-600">Ön hazırlık e-learning • Uygulamalı atölyeler • Esnek katılım</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ölçülebilir Faydalar - Mobilde dikey -->
+  <section class="py-12 md:py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+        📈 Ölçülebilir Faydalar
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-5 md:p-8 shadow-md">
+          <h3 class="text-xl md:text-2xl font-bold text-indigo-700 mb-4 flex items-center gap-2">💰 Maliyet Tasarrufu</h3>
+          <ul class="space-y-3">
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center border-b border-gray-100 pb-2">
+              <span class="text-sm md:text-base">Tazminat davaları önlenir :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base"> 500.000-1.000.000 TL risk</span>
+            </li>
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center border-b border-gray-100 pb-2">
+              <span class="text-sm md:text-base">Sağlık giderleri :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base">%30 azalır</span>
+            </li>
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center border-b border-gray-100 pb-2">
+              <span class="text-sm md:text-base">İşe alım maliyeti :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base">düşer</span>
+            </li>
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center">
+              <span class="text-sm md:text-base">Ortalama ROI< :/span>
+              <span class="font-bold text-green-600 text-sm md:text-base">6-12 ay</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-xl p-5 md:p-8 shadow-md">
+          <h3 class="text-xl md:text-2xl font-bold text-purple-700 mb-4 flex items-center gap-2">📊 Performans Artışı</h3>
+          <ul class="space-y-3">
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center border-b border-gray-100 pb-2">
+              <span class="text-sm md:text-base">Çalışan bağlılığı :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base">%30-40 artar</span>
+            </li>
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center border-b border-gray-100 pb-2">
+              <span class="text-sm md:text-base">Verimlilik :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base">%15-30 yükselir</span>
+            </li>
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center border-b border-gray-100 pb-2">
+              <span class="text-sm md:text-base">İşten ayrılma :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base">%40-60 azalır</span>
+            </li>
+            <li class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center">
+              <span class="text-sm md:text-base">Raporlu günler :</span>
+              <span class="font-bold text-green-600 text-sm md:text-base">%30 düşer</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden Biz - Mobilde 2 sütun -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+        ✅ Neden Bizimle Çalışmalısınız?
+      </h2>
+      
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="text-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl md:text-3xl">11+</div>
+          <h3 class="font-bold text-gray-900 text-sm md:text-base">Yıl</h3>
+          <p class="text-xs text-gray-600">Kurumsal Eğitim Deneyimi</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl md:text-3xl">150+</div>
+          <h3 class="font-bold text-gray-900 text-sm md:text-base">Kuruma</h3>
+          <p class="text-xs text-gray-600">eğitim, 8000+ katılımcı</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl md:text-3xl">%98</div>
+          <h3 class="font-bold text-gray-900 text-sm md:text-base">Memnuniyet</h3>
+          <p class="text-xs text-gray-600">katılımcı memnuniyeti</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl md:text-3xl">⚖️</div>
+          <h3 class="font-bold text-gray-900 text-sm md:text-base">Uzman Kadro</h3>
+          <p class="text-xs text-gray-600">İş hukuku avukatları, klinik psikologlar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Başarı Hikayeleri - Mobilde dikey -->
+  <section class="py-12 md:py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+        💼 Başarı Hikayeleri
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-xl shadow-md">
+          <p class="text-sm md:text-base text-gray-700 italic mb-3">"Grup şirketlerimizde 1200 çalışana kademeli eğitim verdik. 8 aylık süreçte mobbing şikayetleri %80 azaldı."</p>
+          <p class="font-bold text-gray-900 text-sm">Holding Şirketi</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl shadow-md">
+          <p class="text-sm md:text-base text-gray-700 italic mb-3">"Fabrikamızda vardiya amirleri büyük sorundu. Yönetici eğitiminden sonra işçi memnuniyeti rekor seviyede."</p>
+          <p class="font-bold text-gray-900 text-sm">Üretim Firması</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl shadow-md">
+          <p class="text-sm md:text-base text-gray-700 italic mb-3">"Sağlık çalışanlarımıza özel eğitim çok etkiliydi. Devamsızlık %40 azaldı."</p>
+          <p class="font-bold text-gray-900 text-sm">Özel Hastane</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobbing Nedir? - Mobilde düzenli -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6">
+        Mobbing Nedir?
+      </h2>
+      <div class="bg-indigo-50 rounded-2xl p-5 md:p-8 mb-6">
+        <p class="text-sm md:text-lg text-gray-800 leading-relaxed">
+          Mobbing (psikolojik taciz), işyerinde bir veya birden fazla kişi tarafından, belirli bir çalışana yönelik 
+          <span class="font-bold text-indigo-700">sistematik, düzenli ve uzun süreli</span> olarak yapılan yıldırma, dışlama, 
+          aşağılama ve psikolojik baskı davranışlarıdır.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Mobbing'in Özellikleri</h3>
+          <ul class="space-y-1 text-xs md:text-sm">
+            <li class="flex items-start gap-2">• Sistematik: Tesadüfi değil, planlanmış ve düzenli</li>
+            <li class="flex items-start gap-2">• Tekrarlayan: Tek seferlik değil, süreklilik arz eden</li>
+            <li class="flex items-start gap-2">• Uzun Süreli: En az 6 ay boyunca devam eden</li>
+            <li class="flex items-start gap-2">• Kasıtlı: Bilinçli olarak yapılan davranışlar</li>
+            <li class="flex items-start gap-2">• Yıkıcı: Kişinin ruh sağlığını ve iş performansını bozan</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3">Mobbing Türleri</h3>
+          <ul class="space-y-1 text-xs md:text-sm">
+            <li class="flex items-start gap-2">🔻 Dikey Mobbing (Yukarıdan Aşağıya) - En yaygın tür</li>
+            <li class="flex items-start gap-2">🔼 Yukarı Doğru Mobbing - Astlardan üste</li>
+            <li class="flex items-start gap-2">↔️ Yatay Mobbing - Aynı seviyedeki çalışanlar arası</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detaylı Eğitim İçeriği - Mobilde dikey -->
+  <section class="py-12 md:py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+        Mobbing Eğitim Programımız
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🎯</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Eğitim Hedefleri</h3>
+          <ul class="space-y-1 text-xs">
+            <li>• Mobbing kavramını öğrenme</li>
+            <li>• Davranışları tanıyabilme</li>
+            <li>• Etkilerini anlama</li>
+            <li>• Ne yapılacağını bilme</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">👥</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Hedef Kitle</h3>
+          <ul class="space-y-1 text-xs">
+            <li>• Tüm Çalışanlar</li>
+            <li>• Yöneticiler</li>
+            <li>• İK Departmanı</li>
+            <li>• Sendika Temsilcileri</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">📋</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Modül 1: Mobbing'i Tanımak</h3>
+          <ul class="space-y-1 text-xs">
+            <li>• Mobbing nedir? Tarihçesi ve tanımı</li>
+            <li>• Mobbing türleri ve örnekler</li>
+            <li>• Mobbing ile çatışma farkı</li>
+            <li>• Türkiye ve dünyada istatistikler</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🔍</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Modül 2: Mobbing Davranışları</h3>
+          <ul class="space-y-1 text-xs">
+            <li>• 45 mobbing davranışı (Leymann listesi)</li>
+            <li>• İletişim engelleme</li>
+            <li>• Sosyal ilişkileri engelleme</li>
+            <li>• İtibar saldırıları</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">💔</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Modül 3: Mobbing'in Etkileri</h3>
+          <ul class="space-y-1 text-xs">
+            <li>• Psikolojik etkiler</li>
+            <li>• Fiziksel sağlık sorunları</li>
+            <li>• Aile ve sosyal hayata etkiler</li>
+            <li>• Kuruma ekonomik maliyet</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">⚖️</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Modül 4: Yasal Boyut</h3>
+          <ul class="space-y-1 text-xs">
+            <li>• Türk hukukunda mobbing</li>
+            <li>• İlgili kanunlar ve yönetmelikler</li>
+            <li>• Yargıtay kararları</li>
+            <li>• Dava süreci ve ispat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Butonları - ContactButtons ile -->
+  <section class="py-12 md:py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+        Kurumunuzda Mobbing'i Önlemeye Hazır Mısınız?
+      </h2>
+      <p class="text-base md:text-xl text-indigo-100 mb-6">
+        Sağlıklı çalışma ortamı için profesyonel destek alın
+      </p>
+      
+      <!-- ContactButtons component'i ile iletişim -->
+      <div class="mb-4">
+        <ContactButtons courseTitle="Mobbing Farkındalık Eğitimi" />
+      </div>
+      
+      <!-- Ek butonlar -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-4">
+        <a href="/meyad-istanbul-egitim-merkezi" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition text-sm md:text-base">
+          Protokol Detayları
+        </a>
+      </div>
+      
+      <p class="text-xs text-indigo-200 italic mt-4">
+        * WhatsApp hattımızdan bilgi alabilir, Ders Kaydol butonuna tıklayarak başvuru formunu doldurabilirsiniz.
+      </p>
+    </div>
+  </section>
+</Layout>

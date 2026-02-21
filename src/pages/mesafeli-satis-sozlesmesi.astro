@@ -1,0 +1,65 @@
+---
+// mesafeli-satis-sozlesmesi.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Mesafeli Satış Sözleşmesi | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi mesafeli satış sözleşmesi, ön bilgilendirme formu ve tüketici hakları.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Mesafeli Satış Sözleşmesi</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="prose prose-lg max-w-none">
+      <h2><b><b>MADDE 1 - TARAFLAR</b></b></h2>
+      <p><strong>SATICI:</strong> İstanbul Eğitim Merkezi<br>
+     
+      E-posta: iletisim @ istanbulEgitimMerkezi.com<br>
+      
+      <p><strong>ALICI:</strong><br>
+      Ad, Soyad: [Müşteri adı soyadı]<br>
+      E-posta: [Müşteri e-posta adresi]<br>
+      Telefon: [Müşteri telefon numarası]</p>
+      
+      <h2><b>MADDE 2 - SÖZLEŞMENİN KONUSU</b></h2>
+      <p>İşbu sözleşmenin konusu, ALICI'nın SATICI'ya ait internet sitesinden elektronik ortamda sipariş verdiği aşağıda nitelikleri ve satış fiyatı belirtilen ürün/eğitim hizmetinin satışı ve teslimi ile ilgili 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümleri gereğince tarafların hak ve yükümlülüklerini düzenlemektir.</p>
+      
+      <h2><b>MADDE 3 - SÖZLEŞME KONUSU EĞİTİM BİLGİLERİ</b></h2>
+      <p>İşbu sözleşme, ALICI'nın SATICI'ya ait platform üzerinden satın aldığı eğitim hizmetini kapsar. Eğitimin türü, süresi, başlangıç tarihi ve ücreti, eğitmen tarafından belirlenir ve sipariş anında ALICI'ya bildirilir.</p>
+      
+      <h2><b>MADDE 4 - GENEL HÜKÜMLER</b></h2>
+      <p>4.1. ALICI, SATICI'ya ait internet sitesinde sözleşme konusu eğitimin temel nitelikleri, satış fiyatı ve ödeme şekli ile teslimata ilişkin ön bilgileri okuyup bilgi sahibi olduğunu ve elektronik ortamda gerekli teyidi verdiğini beyan eder.</p>
+      
+      <p>4.2. Sözleşme konusu eğitim hizmeti, ALICI'nın ödeme işlemini tamamlamasının ardından, eğitmen tarafından belirlenen tarihte başlar.</p>
+      
+      <p>4.3. Eğitim hizmeti, online veya yüz yüze olarak, ALICI ve eğitmen arasında kararlaştırılan şekilde gerçekleştirilir.</p>
+      
+      <p>4.4. ALICI, eğitim hizmetini satın aldıktan sonra, eğitmen ile iletişime geçerek ders programını oluşturur.</p>
+      
+      <p>4.5. Eğitmen, ders programında değişiklik yapma hakkını saklı tutar. Değişiklik durumunda ALICI bilgilendirilir.</p>
+      
+      <h2><b>MADDE 5 - CAYMA HAKKI</b></h2>
+      <p>5.1. ALICI, eğitim hizmetinin satın alındığı tarihten itibaren 14 (on dört) gün içerisinde herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin sözleşmeden cayma hakkına sahiptir.</p>
+      
+      <p>5.2. Ancak, ALICI'nın talebi üzerine, cayma hakkı süresi dolmadan eğitim hizmetinin ifasına başlanmışsa, ALICI cayma hakkını kullanamaz. Eğitim hizmeti, ALICI'nın onayı ile cayma hakkı süresi içinde başlatılabilir.</p>
+      
+      <p>5.3. Cayma hakkının kullanılması için 14 gün içinde SATICI'ya yazılı bildirimde bulunulması gereklidir.</p>
+      
+      <h2><b>MADDE 6 - TEMERRÜT HALİ</b></h2>
+      <p>ALICI, ödeme işlemini zamanında gerçekleştirmezse, temerrüde düşmüş sayılır. Bu durumda ALICI, gecikme faizi ödemekle yükümlüdür.</p>
+      
+      <h2><b>MADDE 7 - YETKİLİ MAHKEME</b></h2>
+      <p>İşbu sözleşmeden doğan uyuşmazlıklarda, ALICI'nın yerleşim yerindeki Tüketici Hakem Heyetleri ve Tüketici Mahkemeleri yetkilidir.</p>
+      
+      <h2><b>MADDE 8 - YÜRÜRLÜK</b></h2>
+      <p>ALICI, işbu sözleşmeyi elektronik ortamda onayladığı andan itibaren sözleşme hükümlerini kabul etmiş sayılır. SATICI, siparişin gerçekleşmesi halinde işbu sözleşmenin bir nüshasını ALICI'ya iletir.</p>
+      
+      <div class="mt-8 p-4 bg-gray-100 rounded-lg">
+        <p class="text-sm text-gray-600">Bu sözleşme, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümlerine uygun olarak hazırlanmıştır.</p>
+      </div>
+    </div>
+  </div>
+</Layout>

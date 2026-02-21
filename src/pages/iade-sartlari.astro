@@ -1,0 +1,72 @@
+---
+// iade-sartlari.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'İade Şartları | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi iade ve para iade politikası. Ders iptali ve iade koşulları hakkında detaylı bilgi.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">İade Şartları</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="prose prose-lg max-w-none">
+      <h2><b>Genel İade Politikası</b></h2>
+      <p>İstanbul Eğitim Merkezi olarak müşteri memnuniyetini ön planda tutuyoruz. İade süreçlerinizi kolaylaştırmak için aşağıdaki politikaları uyguluyoruz.</p>
+      
+      <h2><b>Eğitim Hizmetlerinde İade Koşulları</b></h2>
+      
+      <h3>1. Cayma Hakkı (14 Gün)</h3>
+      <p>Eğitim hizmeti satın aldıktan sonra 14 gün içinde cayma hakkınız bulunmaktadır. Ancak, eğitim hizmeti cayma hakkı süresi içinde başlatılmışsa, bu hak kullanılamaz.</p>
+      
+      <h3>2. Eğitim Başlamadan İptal</h3>
+      <p>Eğitim başlamadan önce iptal durumunda, ödediğiniz ücretin tamamı iade edilir. İade işlemi, iptal talebinizin onaylanmasından itibaren 10 iş günü içinde gerçekleştirilir.</p>
+      
+      <h3>3. Eğitim Başladıktan Sonra İptal</h3>
+      <p>Eğitim başladıktan sonra yapılan iptallerde, kullanılmayan derslerin ücreti iade edilir. Kullanılan dersler için ödeme yapılmış sayılır. İade tutarı, toplam ödemeden kullanılan derslerin düşülmesiyle hesaplanır.</p>
+      
+      <h3>4. Eğitmen Kaynaklı İptaller</h3>
+      <p>Eğitmenin dersi iptal etmesi durumunda, iptal edilen ders için ücret iadesi yapılır veya alternatif bir tarihe ertelenir. Eğitmenin sürekli iptalleri durumunda, kullanılmayan tüm derslerin ücreti iade edilir.</p>
+      
+      <h3>5. Platform Kaynaklı Sorunlar</h3>
+      <p>Teknik sorunlar nedeniyle dersin gerçekleşememesi durumunda, ders ücreti iade edilir veya başka bir tarihe ertelenir.</p>
+      
+      <h2><b>İade Süreci</b></h2>
+      <ol>
+        <li>İade talebinizi info@istanbulegitim.com adresine e-posta göndererek veya müşteri hizmetlerini arayarak iletebilirsiniz.</li>
+        <li>İade talebiniz incelenir ve uygun bulunursa onaylanır.</li>
+        <li>İade tutarı, ödeme yaptığınız kaynağa 10 iş günü içinde aktarılır.</li>
+        <li>İade işlemi tamamlandığında e-posta ile bilgilendirilirsiniz.</li>
+      </ol>
+      
+      <h2><b>İade Talebi İçin Gerekli Bilgiler</b></h2>
+      <ul>
+        <li>Adınız ve soyadınız</li>
+        <li>Sipariş numaranız</li>
+        <li>İptal etmek istediğiniz ders/dersler</li>
+        <li>İade talebinizin nedeni</li>
+      </ul>
+      
+      <h2><b>İade Edilemeyecek Durumlar</b></h2>
+      <ul>
+        <li>Tamamlanmış ve bitmiş dersler</li>
+        <li>14 günlük cayma hakkı süresi geçmiş ve eğitim başlamış dersler</li>
+        <li>Üçüncü şahıslara aktarılmış ders hakları</li>
+      </ul>
+      
+      <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+        <p class="text-sm text-yellow-800">
+          <strong>Önemli Not:</strong> İade işlemlerinde ödeme yönteminize bağlı olarak banka/ödeme kuruluşu kaynaklı gecikmeler yaşanabilir. Bu durumda bankanızla iletişime geçmeniz gerekmektedir.
+        </p>
+      </div>
+      
+      <h2><b>İletişim</b></h2>
+      <p>İade ile ilgili sorularınız için:<br>
+      E-posta: iletisim @ istanbulEgitimMerkezi.com<br>
+     
+    </div>
+  </div>
+</Layout>

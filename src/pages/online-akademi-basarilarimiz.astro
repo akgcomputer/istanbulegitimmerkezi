@@ -1,0 +1,129 @@
+---
+// online-akademi-basarilarimiz.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Online Akademi Başarılarımız | İstanbul Eğitim Merkezi',
+  description: 'Online akademi öğrencilerimizin başarı hikayeleri, sınav sonuçları ve referanslar.'
+};
+
+const basariHikayeleri = [
+  {
+    name: "Ayşe Yılmaz",
+    program: "İngilizce Online Kursu",
+    basari: "TOEFL\'den 110 aldı, ABD\'de üniversite kazandı",
+    image: "👩‍🎓",
+    quote: "3 aylık online eğitimle İngilizcemi C1 seviyesine çıkardım. Eğitmenim çok destek oldu."
+  },
+  {
+    name: "Mehmet Demir",
+    program: "Yazılım Geliştirme",
+    basari: "Kendi startup'ını kurdu",
+    image: "👨‍💻",
+    quote: "Python ve web geliştirme dersleriyle kendi projemi hayata geçirdim."
+  },
+  {
+    name: "Zeynep Kaya",
+    program: "Almanca Kursu",
+    basari: "Goethe Sertifikası B2 aldı",
+    image: "👩‍🏫",
+    quote: "Almanya'da iş bulma hayalimi gerçekleştirmek için çok iyi bir temel oluşturdum."
+  },
+  {
+    name: "Can Yıldız",
+    program: "Matematik Özel Ders",
+    basari: "TYT Matematik'te 40/40 yaptı",
+    image: "🧮",
+    quote: "TYT'de matematiği fulleyerek istediğim bölüme yerleştim."
+  },
+  {
+    name: "Elif Aksoy",
+    program: "Fransızca Kursu",
+    basari: "DELF B2 aldı, Fransa'da yüksek lisans",
+    image: "🇫🇷",
+    quote: "Fransa'da eğitim hayalime kavuştum."
+  },
+  {
+    name: "Burak Şahin",
+    program: "Siber Güvenlik",
+    basari: "CEH Sertifikası aldı",
+    image: "🔒",
+    quote: "Siber güvenlik alanında kariyerime sağlam bir adım attım."
+  }
+];
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Online Akademi Başarılarımız</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <p class="text-lg text-gray-700 mb-8 max-w-3xl">
+      Online akademimizde binlerce öğrenci hedeflerine ulaştı, sınavlarda başarı elde etti ve kariyerinde yeni sayfalar açtı. 
+      İşte birkaç başarı hikayesi...
+    </p>
+    
+    <!-- İstatistikler -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-indigo-50 rounded-xl p-4 text-center">
+        <div class="text-3xl font-bold text-indigo-600">8000+</div>
+        <div class="text-sm text-gray-600">Online Öğrenci</div>
+      </div>
+      <div class="bg-indigo-50 rounded-xl p-4 text-center">
+        <div class="text-3xl font-bold text-indigo-600">%98</div>
+        <div class="text-sm text-gray-600">Memnuniyet Oranı</div>
+      </div>
+      <div class="bg-indigo-50 rounded-xl p-4 text-center">
+        <div class="text-3xl font-bold text-indigo-600">1500+</div>
+        <div class="text-sm text-gray-600">Sertifika</div>
+      </div>
+      <div class="bg-indigo-50 rounded-xl p-4 text-center">
+        <div class="text-3xl font-bold text-indigo-600">16</div>
+        <div class="text-sm text-gray-600">Dil</div>
+      </div>
+    </div>
+    
+    <!-- Başarı Hikayeleri Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {basariHikayeleri.map((hikaye) => (
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100">
+          <div class="text-5xl mb-4">{hikaye.image}</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-1">{hikaye.name}</h3>
+          <p class="text-indigo-600 text-sm font-semibold mb-2">{hikaye.program}</p>
+          <p class="text-green-600 text-sm font-bold mb-3">{hikaye.basari}</p>
+          <p class="text-gray-600 text-sm italic">"{hikaye.quote}"</p>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Video Referanslar -->
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-8">
+      <h2 class="text-2xl font-bold mb-4">Onlarca örnek arasına katılın</h2>
+      <p class="mb-6">Sizleri de kendi alanlarınızda kariyerlerinize katacak değerli deneyimler kazandırmayı hedefliyoruz</p>
+      <div class="flex gap-4">
+        <a href="/dersler" class="bg-white text-indigo-600 font-semibold py-2 px-6 rounded-full hover:bg-indigo-50 transition">
+          Dersleri incele
+        </a>
+      </div>
+    </div>
+    
+    <!-- Sınav Başarıları -->
+    <div class="bg-white rounded-2xl shadow-md p-6">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Sınav Başarılarımız</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="text-center p-3">
+          <div class="text-3xl font-bold text-indigo-600">120+</div>
+          <div class="text-sm text-gray-600">YDS/YÖKDİL'de 70+ puan</div>
+        </div>
+        <div class="text-center p-3">
+          <div class="text-3xl font-bold text-indigo-600">85+</div>
+          <div class="text-sm text-gray-600">TOEFL 100+ alan öğrenci</div>
+        </div>
+        <div class="text-center p-3">
+          <div class="text-3xl font-bold text-indigo-600">200+</div>
+          <div class="text-sm text-gray-600">TYT Matematik fulleyen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sayfa Bulunamadı | İstanbul Eğitim Merkezi">
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div class="max-w-3xl mx-auto text-center">
+      <!-- 404 Görseli / İkonu -->
+      <div class="mb-8 flex justify-center">
+        <div class="relative">
+          <div class="w-40 h-40 bg-indigo-100 rounded-full flex items-center justify-center animate-pulse">
+            <span class="text-6xl font-bold text-indigo-600">404</span>
+          </div>
+          <div class="absolute -top-2 -right-2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl animate-bounce">
+            🧐
+          </div>
+        </div>
+      </div>
+
+      <!-- Ana Mesaj -->
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Görünüşe göre aradığınız bağlantı çalışmıyor!
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Belki sayfa taşınmış, silinmiş ya da hiç var olmamış olabilir. 
+        <br>Ama merak etmeyin, size yardımcı olabiliriz.
+      </p>
+
+      <!-- Yönlendirme Seçenekleri -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
+        <a href="/egitmenler" class="group bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-gray-100">
+          <div class="text-4xl mb-3">👨‍🏫</div>
+          <h3 class="font-bold text-lg text-gray-900 group-hover:text-indigo-600">Bir eğitmen mi arıyorsunuz?</h3>
+          <p class="text-gray-500 text-sm mt-1">Tüm eğitmenlerimizi keşfedin</p>
+        </a>
+        <a href="/dersler" class="group bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-gray-100">
+          <div class="text-4xl mb-3">📚</div>
+          <h3 class="font-bold text-lg text-gray-900 group-hover:text-indigo-600">Dersleri mi keşfetmek istiyorsunuz?</h3>
+          <p class="text-gray-500 text-sm mt-1">Kategorilere göre tüm eğitimler</p>
+        </a>
+      </div>
+
+
+     
+       <!-- Eğitmenler İçin Fırsat Bölümü -->
+<section class="bg-gray-900 text-white py-16 my-12 rounded-3xl">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Eğitmen misiniz? <span class="text-orange-400">Cevabınız Evet ise</span> şimdi profilinizi yayınlayın!
+      </h2>
+      <p class="text-gray-300 text-lg mb-6">
+        Platformumuzda binlerce öğrenciye ulaşın, hiçbir komisyon ödemeden gelir elde edin. İlk eğitiminizi hemen oluşturun.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/egitmen-basvuru" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl">
+          Hemen Başvur
+        </a>
+        <a href="/" class="bg-transparent border border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition">
+          Ana Sayfaya Git
+        </a>
+      </div>
+      <p class="text-sm text-gray-400 mt-4">
+        * Eğitime destek için birlikte olalım.
+      </p>
+    </div>
+    <div class="md:w-1/3 flex justify-center">
+      <div class="bg-orange-500/20 p-6 rounded-full">
+        <svg class="w-32 h-32 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 5.01a.75.75 0 01-.726.93H3.524a.75.75 0 01-.726-.93L5 14.5" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+      
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,80 @@
+---
+// sirketine-oner.astro
+import Layout from '../layouts/Layout.astro';
+
+// Meta bilgiler
+const meta = {
+  title: 'Şirketinize Özel Dil Eğitimi | İstanbul Eğitim Merkezi',
+  description: 'Şirketiniz için en uygun dil eğitimi paketini keşfedin. Kurumsal çözümler, esnek ödeme seçenekleri ve özel indirimler.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <!-- Hero - Kısa ve Net -->
+  <section class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          Şirketinize Özel Dil Eğitimi
+        </h1>
+        <p class="text-xl text-indigo-100 mb-8">
+          Ekibinizin uluslararası başarısı için en doğru adres.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/derse-kaydol?tip=kurumsal" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition">
+            Hemen Teklif Al
+          </a>
+          <a href="/ders-ucreti-isveren" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-indigo-900 font-semibold py-3 px-6 rounded-full transition">
+            İşveren Bilgilendirme
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden Şirketiniz İçin İdeal? - 3 Madde (Çok Kısa) -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center p-4">
+          <div class="text-4xl mb-2">💰</div>
+          <h3 class="font-semibold text-gray-800 mb-1">%40'a Varan İndirim</h3>
+          <p class="text-sm text-gray-600">Kurumsal paketlerde özel fiyatlandırma</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-4xl mb-2">📊</div>
+          <h3 class="font-semibold text-gray-800 mb-1">Detaylı Raporlama</h3>
+          <p class="text-sm text-gray-600">Yönetici paneli ile anlık takip</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-4xl mb-2">🎯</div>
+          <h3 class="font-semibold text-gray-800 mb-1">Sektöre Özel İçerik</h3>
+          <p class="text-sm text-gray-600">Çalışanlarınızın mesleğine uygun eğitim</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Yönlendirme Butonları (Ana Hedef) -->
+  <section class="py-12 bg-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Hemen Harekete Geçin
+      </h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/derse-kaydol?tip=kurumsal" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition">
+          📝 Derse Kaydol
+        </a>
+        <a href="/ders-ucreti-isveren" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition">
+          💼 İşveren Bilgilendirme
+        </a>
+      </div>
+      <p class="text-sm text-gray-500 mt-4">
+        Kurumsal danışmanlarımız size en kısa sürede dönüş yapacaktır.
+      </p>
+    </div>
+  </section>
+
+  
+</Layout>

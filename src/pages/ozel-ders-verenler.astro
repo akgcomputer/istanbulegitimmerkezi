@@ -1,0 +1,84 @@
+---
+// ozel-ders-verenler.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Özel Ders Verenler | İstanbul Eğitim Merkezi',
+  description: 'Onlarca uzman eğitmen arasından size en uygun özel ders veren eğitmeni bulun. Matematik, İngilizce, Almanca ve daha fazlası.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Özel Ders Verenler</h1>
+      <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        İstanbul Eğitim Merkezi'nde Onlarca uzman eğitmen, size özel ders vermek için hazır. 
+        Alanında deneyimli eğitmenlerimizle birebir özel ders imkanı.
+      </p>
+    </div>
+
+    <!-- Kategoriler -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <a href="/egitmenler" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100 group">
+        <span class="text-4xl mb-3 block">👨‍🏫</span>
+        <h2 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 mb-2">Tüm Eğitmenler</h2>
+        <p class="text-gray-600 text-sm">Tüm branşlardaki eğitmenlerimizi keşfedin</p>
+      </a>
+      
+      <a href="/egitmenler-bilisim" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100 group">
+        <span class="text-4xl mb-3 block">💻</span>
+        <h2 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 mb-2">Bilişim Eğitmenleri</h2>
+        <p class="text-gray-600 text-sm">Yazılım, programlama, web tasarım, siber güvenlik</p>
+      </a>
+      
+      <a href="/egitmenler-dil" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100 group">
+        <span class="text-4xl mb-3 block">🗣️</span>
+        <h2 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 mb-2">Dil Eğitmenleri</h2>
+        <p class="text-gray-600 text-sm">İngilizce, Almanca, Fransızca, İspanyolca ve daha fazlası</p>
+      </a>
+      
+      <a href="/egitmenler-lise" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100 group">
+        <span class="text-4xl mb-3 block">📚</span>
+        <h2 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 mb-2">Lise Eğitmenleri</h2>
+        <p class="text-gray-600 text-sm">Matematik, fizik, kimya, biyoloji, edebiyat</p>
+      </a>
+      
+      <a href="/egitmenler-ilkogretim" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100 group">
+        <span class="text-4xl mb-3 block">📘</span>
+        <h2 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 mb-2">İlköğretim Eğitmenleri</h2>
+        <p class="text-gray-600 text-sm">Temel dersler, ödev yardımı, sınav hazırlık</p>
+      </a>
+      
+      <a href="/egitmenler-sanat" class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition border border-gray-100 group">
+        <span class="text-4xl mb-3 block">🎨</span>
+        <h2 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 mb-2">Sanat Eğitmenleri</h2>
+        <p class="text-gray-600 text-sm">Resim, müzik, heykel, fotoğrafçılık, tiyatro</p>
+      </a>
+    </div>
+
+    <!-- Popüler Branşlar -->
+    <div class="bg-indigo-50 rounded-2xl p-8 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Popüler Branşlar</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="/dersler" class="bg-white p-3 rounded-lg text-center hover:shadow-md transition">📐 Matematik</a>
+        <a href="/dersler" class="bg-white p-3 rounded-lg text-center hover:shadow-md transition"> İngilizce</a>
+        <a href="/dersler " class="bg-white p-3 rounded-lg text-center hover:shadow-md transition"> Almanca</a>
+        <a href="/dersler" class="bg-white p-3 rounded-lg text-center hover:shadow-md transition"> Fransızca</a>
+        <a href="/dersler" class="bg-white p-3 rounded-lg text-center hover:shadow-md transition"> İspanyolca</a>
+        <a href="/dersler" class="bg-white p-3 rounded-lg text-center hover:shadow-md transition">📊 Matematik</a>
+        <a href="/dersler" class="bg-white p-3 rounded-lg text-center hover:shadow-md transition">📝 İngilizce</a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <h3 class="text-xl font-bold text-gray-900 mb-4">Siz de özel ders vermeye başlayın</h3>
+      <a href="/egitmen-basvuru" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition">
+        Özel Ders Vermeye Başla
+      </a>
+    </div>
+  </div>
+</Layout>

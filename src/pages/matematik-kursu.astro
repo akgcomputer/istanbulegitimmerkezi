@@ -1,0 +1,71 @@
+---
+// matematik-kursu.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Matematik Kursu | Matematik Öğren | İstanbul Eğitim Merkezi',
+  description: 'Matematik kursu ile matematik öğrenin. İlkokul, ortaokul, lise matematik kursu, TYT, AYT, KPSS matematik hazırlık.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Matematik Kursu</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <p class="text-lg text-gray-700 mb-6">
+          Matematik kursu ile matematiği sevin, sınavlarda başarıyı yakalayın. Uzman matematik eğitmenlerimizle 
+          her seviyede matematik eğitimi.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Matematik Kursu İçerikleri</h2>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>İlkokul matematik (1-4. sınıf)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>Ortaokul matematik (5-8. sınıf)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>Lise matematik (9-12. sınıf)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>TYT, AYT, YKS matematik hazırlık</span>
+          </li>
+        </ul>
+        
+        <a href="/dersler" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+          Matematik Eğitmenlerini Gör
+        </a>
+      </div>
+      
+      <div class="bg-indigo-50 rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Matematik Kursu Avantajları</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">🧮</span>
+            <span>Birebir özel ders seçeneği</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">📊</span>
+            <span>Size özel çalışma programı</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">🎯</span>
+            <span>Sınavlara yönelik taktikler</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">📝</span>
+            <span>Deneyimli matematik eğitmenleri</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

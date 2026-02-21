@@ -1,0 +1,67 @@
+---
+// fransizca-kursu.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Fransızca Kursu | Fransızca Öğren | İstanbul Eğitim Merkezi',
+  description: 'Fransızca kursu ile Fransızca öğrenin. A1-C2 seviye Fransızca eğitimi, DELF, DALF sınav hazırlık, konuşma pratiği.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Fransızca Kursu</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <p class="text-lg text-gray-700 mb-6">
+          Fransızca kursu ile Fransızca öğrenin, Fransa'da eğitim ve kariyer fırsatları yakalayın. 
+          Uzman Fransızca eğitmenlerimizle A1'den C2'ye tüm seviyelerde eğitim.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Fransızca Kursu Seviyeleri</h2>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>A1 - A2: Başlangıç ve temel Fransızca</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>B1 - B2: Orta seviye ve günlük konuşma</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span>C1 - C2: İleri seviye ve akademik Fransızca</span>
+          </li>
+        </ul>
+        
+        <a href="/dil-egitimleri" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+          Fransızca Eğitmenlerini Gör
+        </a>
+      </div>
+      
+      <div class="bg-indigo-50 rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Fransızca Kursu Avantajları</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">🇫🇷</span>
+            <span>Native Fransızca eğitmenler</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">📝</span>
+            <span>DELF, DALF sınavlarına hazırlık</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">🎭</span>
+            <span>Fransız kültürü ve edebiyatı</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl">🌍</span>
+            <span>Fransızca konuşulan ülkelerde fırsatlar</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

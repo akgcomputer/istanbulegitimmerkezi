@@ -1,0 +1,359 @@
+---
+// mobbing-farkindalik-egitimi.astro
+import Layout from '../layouts/Layout.astro';
+
+// Meta bilgiler
+const meta = {
+  title: 'Mobbing Farkındalık Eğitimi | İstanbul Eğitim Merkezi & MEYAD',
+  description: 'İstanbul Eğitim Merkezi ve MEYAD iş birliğiyle "Kimse Yalnız Kalmayacak" misyonuyla mobbing farkındalık eğitimi. Bireysel ve kurumsal katılım için hemen kayıt olun.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <!-- Hero Section - Güçlü ve Dikkat Çekici -->
+  <section class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-black">
+    <div class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <!-- Sol Taraf - Başlık ve Logolar -->
+        <div class="lg:w-2/3">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="bg-white backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
+              🤝 ÖNEMLİ İŞ BİRLİĞİ
+            </div>
+            <div class="bg-orange-500/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
+              #KimseYalnızKalmayacak
+            </div>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Mobbing Farkındalık Eğitimi
+          </h1>
+          
+          <div class="flex items-center gap-4 mb-8">
+            <span class="text-2xl font-light">İstanbul Eğitim Merkezi</span>
+            <span class="text-3xl text-orange-400">&</span>
+            <span class="text-2xl font-light">MEYAD</span>
+          </div>
+          
+          <p class="text-xl text-indigo-100 mb-8 max-w-2xl">
+            <span class="text-green-400 font-bold">“Kimse Yalnız Kalmayacak”</span> misyonuyla, 
+            çalışma hayatının en kritik sorunlarından biri olan mobbinge karşı bilinçlenme 
+            ve müdahale becerisi kazanın.
+          </p>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="#kayit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+              Hemen Kayıt Ol
+            </a>
+            <a href="https://mobbingdernegi.org.tr/" target="_blank" class="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-indigo-900 text-white font-bold py-4 px-8 rounded-full transition">
+              MEYAD'ı Keşfet
+            </a>
+          </div>
+        </div>
+        
+        <!-- Sağ Taraf - Logo ve Rozet -->
+        <div class="lg:w-1/3">
+          <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-32 h-32 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center mb-6 shadow-2xl">
+                <span class="text-5xl">🤝</span>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">MOBFARK Projesi</h3>
+              <p class="text-black text-sm mb-4">T.C. İçişleri Bakanlığı & ÇASGEM Destekli</p>
+              <div class="w-full h-px bg-white/20 my-4"></div>
+              <div class="flex justify-center gap-3">
+                <span class="text-xs bg-white/10 px-3 py-1 rounded-full">#MobbingFarkındalığı</span>
+                <span class="text-xs bg-white/10 px-3 py-1 rounded-full">#MobbingsizİşYerleri</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giriş Metni - Neden Mobbing Farkındalığı -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Neden Mobbing Farkındalığı?
+          </h2>
+          <div class="space-y-4 text-lg text-gray-700">
+            <p class="flex items-start gap-3">
+              <span class="text-orange-500 font-bold text-2xl">•</span>
+              <span>Psikolojik şiddettir</span>
+            </p>
+            <p class="flex items-start gap-3">
+              <span class="text-orange-500 font-bold text-2xl">•</span>
+              <span>İnsan onuruna saldırıdır</span>
+            </p>
+            <p class="flex items-start gap-3">
+              <span class="text-orange-500 font-bold text-2xl">•</span>
+              <span>Hukuki sonuçları olan bir ihlaldir</span>
+            </p>
+            <p class="flex items-start gap-3">
+              <span class="text-orange-500 font-bold text-2xl">•</span>
+              <span class="font-bold">Ve en önemlisi:</span> Sessizlikle beslenen bir toplumsal vebadır.
+            </p>
+          </div>
+          <p class="mt-6 text-gray-600 italic border-l-4 border-orange-400 pl-4">
+            MEYAD'ın yürüttüğü MOBFARK Projesi, T.C. İçişleri Bakanlığı Sivil Toplumla İlişkiler Genel Müdürlüğü ve ÇASGEM desteğiyle bu sessizliği bozmak için yola çıktı.
+          </p>
+        </div>
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8">
+          <div class="text-center mb-6">
+            <span class="text-6xl">🤝</span>
+          </div>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            <span class="font-bold text-indigo-600">İstanbul Eğitim Merkezi</span> olarak, bu farkındalık hareketine 
+            eğitim altyapımız, deneyimli eğitmen kadromuz ve yüz yüze/online esnek eğitim modellerimizle 
+            destek oluyoruz.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitim Detayları -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+        Eğitimde Neler Öğreneceksiniz?
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-2xl">⚠️</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Mobbing ve Siber Mobbing</h3>
+          <p class="text-gray-600">Nedir ve hangi durumlar mobbing değildir? Sınır çizgileri</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-2xl">📊</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Psikolojik ve Fizyolojik Etkiler</h3>
+          <p class="text-gray-600">Birey ve kurum üzerindeki yıkıcı sonuçlar</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 text-2xl">⚖️</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Hukuki Boyut</h3>
+          <p class="text-gray-600">Mağdurun hakları ve yasal süreçler</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-2xl">👥</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Tanık Olmanın Sorumluluğu</h3>
+          <p class="text-gray-600">Sessiz kalmak suça ortak olmaktır</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-2xl">🏢</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Kurumsal Politikalar</h3>
+          <p class="text-gray-600">Önleyici politikalar nasıl oluşturulur?</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+          <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4 text-2xl">🎭</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Vaka Analizleri</h3>
+          <p class="text-gray-600">Rol oyunları ile pratik müdahale teknikleri</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitmenler -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+        Eğitmenlerimiz
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Eğitim, MEYAD tarafından yetkilendirilmiş MOBFARK Eğitici Eğitimi'nden mezun, alanında uzman eğitmenler tarafından verilecektir.
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <!-- Eğitmen 1 -->
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 text-center">
+          <div class="w-24 h-24 bg-indigo-200 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+            👨‍🏫
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">M. Fatih Akgün</h3>
+          <p class="text-indigo-600 font-medium">MOBFARK Eğitici Eğitmeni</p>
+        </div>
+        
+        <!-- Eğitmen 2 -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 text-center">
+          <div class="w-24 h-24 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+            👨‍🏫
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Mustafa Öztürk</h3>
+          <p class="text-purple-600 font-medium">MOBFARK Eğitici Eğitmeni</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kurumsal Ünvan -->
+  <section class="py-16 bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <div class="inline-block bg-orange-500 px-6 py-2 rounded-full text-sm font-bold mb-6">
+        ÖZEL ÜNVAN
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        “Mobbingle Mücadelede Örnek Kurum”
+      </h2>
+      <p class="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
+        Eğitime katılan ve somut adımlar atan kurumlarımıza bu özel ünvan verilecektir.
+      </p>
+      
+      <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <span class="text-3xl block mb-2">🎯</span>
+          <p class="text-sm">Etik çalışma kültürüne verilen önem</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <span class="text-3xl block mb-2">🛡️</span>
+          <p class="text-sm">Çalışanlara sağlanan psikolojik güven</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+          <span class="text-3xl block mb-2">🏆</span>
+          <p class="text-sm">Toplumsal sorumluluk bilinci</p>
+        </div>
+      </div>
+      
+      <div class="mt-8 bg-white/5 border border-white/20 rounded-xl p-6 max-w-2xl mx-auto">
+        <p class="text-lg">
+          Ünvan, hem MEYAD hem de İstanbul Eğitim Merkezi resmi platformlarında duyurulacak, 
+          ayrıca kurumlarımıza özel sertifika-tabela verilerek çalışma alanlarında sergilenmesi sağlanacaktır.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eğitim Formatları -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+        Eğitim Formatı: Sana Özel, Esnek ve Kalıcı
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center p-4">
+          <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🏛️</div>
+          <h3 class="font-bold text-gray-900">Yüz Yüze</h3>
+          <p class="text-sm text-gray-600">İstanbul Eğitim Merkezi'nde</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🏢</div>
+          <h3 class="font-bold text-gray-900">Kurum İçi</h3>
+          <p class="text-sm text-gray-600">Şirketinizde özel eğitim</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">💻</div>
+          <h3 class="font-bold text-gray-900">Canlı Online</h3>
+          <p class="text-sm text-gray-600">Uzaktan katılım imkanı</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🎓</div>
+          <h3 class="font-bold text-gray-900">Butik Sınıf</h3>
+          <p class="text-sm text-gray-600">Sınırlı katılımcı, kaliteli etkileşim</p>
+        </div>
+      </div>
+      
+      <div class="mt-8 text-center">
+        <div class="inline-block bg-indigo-100 text-indigo-700 px-6 py-3 rounded-full font-semibold">
+          Katılım Belgesi: MEYAD iş birliğiyle
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kimler Katılmalı -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+        Eğitim Kimler İçin?
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-3">
+          <span class="text-2xl">👥</span>
+          <span>Kamu ve özel sektör çalışanları</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-3">
+          <span class="text-2xl">📋</span>
+          <span>İnsan kaynakları uzmanları</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-3">
+          <span class="text-2xl">👔</span>
+          <span>Yöneticiler ve ekip liderleri</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-3">
+          <span class="text-2xl">📚</span>
+          <span>Eğitimciler, psikologlar</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-3">
+          <span class="text-2xl">⚖️</span>
+          <span>Avukatlar ve hukuk öğrencileri</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-3">
+          <span class="text-2xl">💪</span>
+          <span>Adil iş ortamı hayal eden herkes!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim ve Kayıt -->
+  <section id="kayit" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Kayıt ve Bilgi İçin
+      </h2>
+      <p class="text-lg text-gray-600 mb-8">
+        Eğitime ön kayıt yaptıranlara özel indirimler ve “Arkadaşını Getir” kampanyası ile fırsatlar devam ediyor!
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a href="/iletisim" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          Hemen İletişime Geç
+        </a>
+        <a href="/kurumsal-tanitim" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          Kurumsal Bilgi Al
+        </a>
+      </div>
+      
+      <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-2xl">
+        <div class="flex flex-wrap justify-center gap-3 text-sm text-gray-600">
+          <span class="bg-white px-3 py-1 rounded-full">#MobbingFarkındalığı</span>
+          <span class="bg-white px-3 py-1 rounded-full">#MobbingsizİşYerleri</span>
+          <span class="bg-white px-3 py-1 rounded-full">#KimseYalnızKalmayacak</span>
+          <span class="bg-white px-3 py-1 rounded-full">#İstanbulEğitimMerkezi</span>
+          <span class="bg-white px-3 py-1 rounded-full">#MEYAD</span>
+          <span class="bg-white px-3 py-1 rounded-full">#MOBFARK</span>
+        </div>
+        <p class="mt-6 text-xl font-light italic text-gray-700">
+          “Eğitim sadece kariyer değil, vicdan da inşa eder.”
+        </p>
+        <p class="text-sm text-gray-500">— İstanbul Eğitim Merkezi & MEYAD</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-xl font-light mb-4">Birlikte, sessizliği bozuyoruz. Birlikte, kimseyi yalnız bırakmıyoruz.</p>
+      <div class="flex justify-center gap-4 text-sm text-gray-400">
+        <span>İstanbul Eğitim Merkezi</span>
+        <span>•</span>
+        <span>MEYAD</span>
+        <span>•</span>
+        <span>MOBFARK</span>
+      </div>
+      <p class="text-xs text-gray-600 mt-8">© 2024 Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+</Layout>

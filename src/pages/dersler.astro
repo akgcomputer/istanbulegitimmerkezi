@@ -1,0 +1,356 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="İstanbul Eğitim Merkezi - Kategoriler">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center text-gray-900 mb-4">Eğitim Kategorileri</h1>
+    <p class="text-xl text-center text-gray-600 mb-12">Hayallerine giden yolda doğru eğitimi seç!</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Bilişim Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <!-- Yanıp sönen LED şerit (alt kısımda) -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">💻</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Bilişim</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Python, Java, C# Programlama</li>
+            <li>• Web & Mobil Geliştirme</li>
+            <li>• Siber Güvenlik, Veri Bilimi</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/bilisim-egitimleri" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Bilişim Eğitimlerini İncele
+            </a>
+            <a href="/egitmenler-bilisim" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Bilişim Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dil Eğitimi Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 via-green-400 to-green-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🗣️</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Dil Eğitimi</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• İngilizce (A1'den C2'ye)</li>
+            <li>• Almanca, Fransızca, İspanyolca</li>
+            <li>• Arapça, Rusça, Çince</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/dil-egitimleri" class="block text-center bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Dil Eğitimleri
+            </a>
+            <a href="/egitmenler-dil" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Dil Eğitmenleri İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- İlköğretim Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">📚</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">İlköğretim</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Matematik, Türkçe, Fen Bilgisi</li>
+            <li>• LGS Hazırlık, Okuma Yazma</li>
+            <li>• Robotik Kodlama (Çocuk)</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/ilkogretim-egitimleri" class="block text-center bg-indigo-600 hover:bg-yellow-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              İlköğretim Eğitimleri
+            </a>
+            <a href="/egitmenler-ilkogretim-ozel-ders" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              İlköğretim Eğitmenleri
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spor Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-red-400 to-red-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">⚽</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Spor</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Futbol, Basketbol, Voleybol</li>
+            <li>• Yüzme, Tenis, Golf</li>
+            <li>• Yoga, Pilates, Dövüş Sporları</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/spor-egitimleri" class="block text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Spor Eğitimleri
+            </a>
+            <a href="/egitmenler-spor" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Spor Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sanat Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🎨</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Sanat</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Resim, Heykel, Seramik</li>
+            <li>• Müzik (Piyano, Gitar, Keman)</li>
+            <li>• Tiyatro, Dans, Fotoğrafçılık</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/sanat-egitimleri" class="block text-center bg-blue-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Sanat Eğitimleri
+            </a>
+            <a href="/egitmenler-sanat" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Sanat Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sınav Hazırlık Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">📝</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Lise/Sınav Hazırlık</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• TYT-AYT Matematik, Edebiyat</li>
+            <li>• KPSS, YDS, YÖKDİL</li>
+            <li>• Eğitim Koçluğu, Motivasyon</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/lise-egitimleri" class="block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Sınav Hazırlık Eğitimleri
+            </a>
+            <a href="/egitmenler-lise" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Sınav Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diğer Kategoriler (Örnek: Dans, Direksiyon, Müzik vs.) -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">💃</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Dans</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Salsa, Tango, Bachata</li>
+            <li>• Oryantal, Hip-Hop, Break</li>
+            <li>• Çocuklar İçin Dans</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-red-600 hover:bg-pink-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Dans Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Dans Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direksiyon Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🚗</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Direksiyon</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• B Sınıfı, Otomatik/Manuel</li>
+            <li>• A Sınıfı Motosiklet</li>
+            <li>• İleri Sürüş Teknikleri</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-green-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Direksiyon Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Direksiyon Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Müzik & Enstrüman Kategorisi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🎸</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Müzik & Enstrüman</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Piyano, Gitar, Keman</li>
+            <li>• Bağlama, Ney, Ud</li>
+            <li>• Şan, Müzik Teorisi</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-indigo-600 hover:bg-cyan-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Müzik Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Müzik Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tiyatro & Oyunculuk -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-teal-400 to-teal-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🎭</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Tiyatro & Oyunculuk</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Temel Oyunculuk, Doğaçlama</li>
+            <li>• Kamera Önü Oyunculuk</li>
+            <li>• Seslendirme, Dublaj</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-blue-600 hover:bg-teal-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Tiyatro Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Tiyatro Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fotoğrafçılık -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">📸</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Fotoğrafçılık</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• Temel Fotoğrafçılık</li>
+            <li>• Portre, Manzara</li>
+            <li>• Düğün, Lightroom, Photoshop</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-red-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Fotoğraf Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Fotoğraf Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kişisel Gelişim -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-lime-500 via-lime-400 to-lime-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🌟</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Kişisel Gelişim</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• NLP, Hafıza Teknikleri</li>
+            <li>• Diksiyon, Etkili Konuşma</li>
+            <li>• Liderlik, Stres Yönetimi</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-green-600 hover:bg-lime-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Kişisel Gelişim Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Kişisel Gelişim Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Çocuk Gelişimi -->
+      <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:scale-105 transition-transform duration-300">
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 animate-pulse"></div>
+        <div class="p-6">
+          <div class="flex justify-center mb-4">
+            <span class="text-6xl">🧸</span>
+          </div>
+          <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Çocuk Gelişimi</h2>
+          <ul class="text-gray-600 space-y-2 mb-4 text-sm">
+            <li>• 0-3 Yaş, Okul Öncesi</li>
+            <li>• Oyun Terapisi, DEHB</li>
+            <li>• Aile Danışmanlığı</li>
+            <li class="font-semibold text-indigo-600">ve daha fazlası...</li>
+          </ul>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="/genel-egitimleri" class="block text-center bg-indigo-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition">
+              Çocuk Gelişimi Eğitimleri
+            </a>
+            <a href="/egitmenler-genel" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition">
+              Çocuk Gelişimi Eğitmenlerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Yanıp sönme animasyonu */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  /* Kartların aynı yükseklikte olması için */
+  .grid > div {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

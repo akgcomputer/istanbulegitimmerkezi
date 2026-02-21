@@ -1,0 +1,131 @@
+---
+// ozel-ders-vermeye-basla.astro (veya ozel-ders-vermek.astro - aynı içerik)
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Özel Ders Vermeye Başla | Eğitmen Ol | İstanbul Eğitim Merkezi',
+  description: 'Uzman olduğunuz alanda özel ders vermeye başlayın. Binlerce öğrenciye ulaşın, ek gelir elde edin.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Özel Ders Vermeye Başla</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+      <div>
+        <p class="text-lg text-gray-700 mb-6">
+          Uzman olduğunuz alanda bilginizi paylaşın, binlerce öğrenciye ulaşın ve ek gelir elde edin. 
+          İstanbul Eğitim Merkezi'nde eğitmen olmak çok kolay!
+        </p>
+        
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Geniş Kitle:</strong> Binlerce öğrenci profili</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Esneklik:</strong> Kendi fiyatınızı, programınızı belirleyin</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Ödeme Garantisi:</strong> Güvenli ödeme sistemi</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Destek:</strong> 7/24 teknik destek</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Online/Yüz Yüze:</strong> İstediğiniz formatta ders verin</span>
+          </li>
+        </ul>
+        
+        <a href="/egitmen-basvuru" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          Hemen Başvur
+        </a>
+      </div>
+      
+      <div class="bg-indigo-50 rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Eğitmen Olmanın Avantajları</h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">💰</span>
+            <div>
+              <p class="font-bold">Ek Gelir</p>
+              <p class="text-sm text-gray-600">Kendi fiyatınızı belirleyin, kazancınızı artırın</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">⏱️</span>
+            <div>
+              <p class="font-bold">Esnek Çalışma Saatleri</p>
+              <p class="text-sm text-gray-600">Size uygun saatlerde ders verin</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">🌍</span>
+            <div>
+              <p class="font-bold">Geniş Kitle</p>
+              <p class="text-sm text-gray-600">Türkiye'nin her yerinden öğrenci bulun</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">📚</span>
+            <div>
+              <p class="font-bold">Kendi Branşınızda Uzmanlaşın</p>
+              <p class="text-sm text-gray-600">Bilginizi paylaşarak daha da pekiştirin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Başvuru Süreci -->
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Başvuru Süreci</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      <div class="bg-white p-4 rounded-xl border border-gray-200 text-center">
+        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+        <h3 class="font-bold">Başvuru Formu</h3>
+        <p class="text-xs text-gray-600">Online başvuru formunu doldurun</p>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-gray-200 text-center">
+        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+        <h3 class="font-bold">Değerlendirme</h3>
+        <p class="text-xs text-gray-600">Uzmanlık alanınız değerlendirilir</p>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-gray-200 text-center">
+        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+        <h3 class="font-bold">Profil Oluşturma</h3>
+        <p class="text-xs text-gray-600">Profilinizi oluşturun, derslerinizi ekleyin</p>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-gray-200 text-center">
+        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">4</div>
+        <h3 class="font-bold">Ders Vermeye Başla</h3>
+        <p class="text-xs text-gray-600">Öğrenci taleplerini almaya başlayın</p>
+      </div>
+    </div>
+    
+    <!-- Sık Sorulan Sorular -->
+    <div class="bg-white rounded-2xl shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Sık Sorulan Sorular</h2>
+      <div class="space-y-4">
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer">Kimler eğitmen olabilir?</summary>
+          <p class="mt-2 text-sm text-gray-600">Alanında uzman, en az 2 yıl deneyimli, iyi iletişim becerilerine sahip herkes eğitmen olabilir. 
+            <br>Üniversite öğrencileri, mezunlar, profesyoneller, emekliler...</p>
+        </details>
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer">Ne kadar kazanabilirim?</summary>
+          <p class="mt-2 text-sm text-gray-600">Kazancınız tamamen size bağlı. Ders ücretlerinizi kendiniz belirliyorsunuz.</p>
+        </details>
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer">Online ders verebilir miyim?</summary>
+          <p class="mt-2 text-sm text-gray-600">Evet, online ders verebilirsiniz. Platformumuz Zoom/Teams üzerinden online dersler için idealdir.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</Layout>

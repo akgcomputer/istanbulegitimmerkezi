@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { courses as dilCourses } from '../data/courses-ilkogretim';
+
+// Tüm kursları tek bir diziye topla ve ana kategori ekle
+const tumKurslar = [
+  ...dilCourses.map(c => ({ ...c, anaKategori: 'İlköğretim' }))];
+
+// Kategorilere göre grupla
+const kategoriler = {};
+tumKurslar.forEach(kurs => {
+  const kat = kurs.anaKategori;
+  if (!kategoriler[kat]) kategoriler[kat] = [];
+  kategoriler[kat].push(kurs);
+});
+
+// Kategorileri istenen sıraya koy
+const kategoriSirasi = ['Bilişim', 'Dil Eğitimi', 'İlköğretim', 'Spor', 'Sanat', 'Sınav Hazırlık', 'Diğer'];
+---
+
+<Layout title="Tüm Eğitimler | İstanbul Eğitim Merkezi">
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">İlköğretim Eğitimleri</h1>
+    <p class="text-gray-600 mb-8">Kariyerinize yön verin, kurslarımızı ve profesyonel eğitmenlerimizi keşfedin.</p>
+
+    <!-- Kategoriler -->
+    <div class="space-y-12">
+      {kategoriSirasi.map(kategoriAdi => {
+        const kurslar = kategoriler[kategoriAdi];
+        if (!kurslar || kurslar.length === 0) return null;
+
+        // Kategori için ikon belirle
+        const ikon = {
+          'Bilişim': '💻',
+          'Dil Eğitimi': '🗣️',
+          'İlköğretim': '📚',
+          'Spor': '⚽',
+          'Sanat': '🎨',
+          'Sınav Hazırlık': '📝',
+          'Diğer': '🔧'
+        }[kategoriAdi] || '📘';
+
+        // Kategori için slug (linklerde kullanılacak) - DÜZELTME BURADA
+        // Manuel eşleme yaparak istediğiniz kısa isimleri kullanabilirsiniz.
+        let kategoriSlug = '';
+        if (kategoriAdi === 'Dil Eğitimi') kategoriSlug = 'dil';
+        else if (kategoriAdi === 'Bilişim') kategoriSlug = 'bilisim';
+        else if (kategoriAdi === 'İlköğretim') kategoriSlug = 'ilkogretim-5-6-7-8-siniflar';
+        else if (kategoriAdi === 'Spor') kategoriSlug = 'spor';
+        else if (kategoriAdi === 'Sanat') kategoriSlug = 'sanat';
+        else if (kategoriAdi === 'Sınav Hazırlık') kategoriSlug = 'sinav';
+        else if (kategoriAdi === 'Diğer') kategoriSlug = 'diger';
+        else kategoriSlug = kategoriAdi.toLowerCase().replace(/ /g, '-'); // yedek
+
+        return (
+          <section key={kategoriAdi}>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-indigo-200 flex items-center gap-2">
+              <span>{ikon}</span>
+              <span>{kategoriAdi}</span>
+              <span class="text-sm font-normal text-gray-500 ml-2">({kurslar.length} kurs)</span>
+            </h2>
+
+            {/* Kart Grid Görünümü */}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {kurslar.map(kurs => {
+                // En düşük ve en yüksek fiyatı bul
+                const fiyatlar = kurs.instructors.map(i => i.privatePrice);
+                const minFiyat = Math.min(...fiyatlar);
+                const maxFiyat = Math.max(...fiyatlar);
+                const fiyatMetin = minFiyat === maxFiyat ? `${minFiyat}₺` : `${minFiyat}₺ - ${maxFiyat}₺`;
+
+                // Link: /kurs-kategoriadi/kurs-slug
+                const kursLink = `/kurs-${kategoriSlug}/${kurs.slug}`;
+
+                return (
+                  <a href={kursLink} class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
+                    <img src={kurs.image} alt={kurs.title} class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <div class="p-4">
+                      <div class="flex items-center gap-2 text-sm text-indigo-600 mb-1">
+                        <span>{ikon}</span>
+                        <span class="font-medium">{kurs.breadcrumb.split('>')[0]}</span>
+                      </div>
+                      <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors line-clamp-2">
+                        {kurs.title}
+                      </h3>
+                      <p class="text-sm text-gray-500 mt-2 line-clamp-2">{kurs.description}</p>
+                      <div class="mt-3 flex items-center justify-between">
+                        <span class="text-indigo-600 font-bold">{fiyatMetin}</span>
+                        <span class="text-xs text-gray-400">{kurs.instructors.length} eğitmen</span>
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Tailwind'de line-clamp yoksa ekleyelim */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

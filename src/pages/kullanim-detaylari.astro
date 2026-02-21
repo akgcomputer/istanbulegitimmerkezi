@@ -1,0 +1,88 @@
+---
+// kullanim-detaylari.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Kullanım Detayları | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi platformu kullanım detayları, hesap oluşturma, ders alma ve eğitmen olma süreçleri.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kullanım Detayları</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="prose prose-lg max-w-none">
+      <h2>İstanbul Eğitim Merkezi'ni Nasıl Kullanırım?</h2>
+      <p>Platformumuzu kullanarak özel ders alabilir, eğitmen olarak ders verebilir ve kurumsal eğitim çözümlerinden faydalanabilirsiniz.</p>
+      
+      <h2>1. Hesap Oluşturma</h2>
+      <ol>
+        <li>Üye Olmak zorunda değilsiniz.</li>
+        <li>Üye Olmak isterseniz, Adınız, soyadınız, e-posta adresiniz ve telefon numaranızı girerek sisteme kaydolabilirsiniz.</li>
+        <li>Üye Olurken güçlü bir şifre belirleyin.</li>
+        <li>E-posta adresinize gönderilen doğrulama linkine tıklayarak hesabınızı aktifleştirin.</li>
+      </ol>
+      
+      <h2>2. Öğrenci Olarak Ders Alma Süreci</h2>
+      <ol>
+        <li><strong>Ders Arama:</strong> Ana sayfada veya "Dersler" bölümünde ilgilendiğiniz dersi arayın.</li>
+        <li><strong>Eğitmen Seçimi:</strong> Ders sayfasında eğitmen profillerini inceleyin, puanlarını ve yorumlarını okuyun.</li>
+        <li><strong>Ders Talep Etme:</strong> İstediğiniz eğitmene ders talep butonu ile başvurun.</li>
+        <li><strong>Eğitmen Onayı:</strong> Eğitmen talebinizi onayladığında, ödeme sayfasına yönlendirilirsiniz.</li>
+        <li><strong>Ödeme:</strong> Kredi kartı veya banka havalesi ile ödemenizi yapın.</li>
+        <li><strong>Ders Programı:</strong> Eğitmen ile iletişime geçerek ders programınızı oluşturun.</li>
+        <li><strong>Ders Başlasın!</strong> Belirlenen gün ve saatte dersinize katılın.</li>
+      </ol>
+      
+      <h2>3. Eğitmen Olarak Ders Verme Süreci</h2>
+      <ol>
+        <li><strong>Başvuru:</strong> "Eğitmen Başvurusu" butonuna tıklayarak başvuru formunu doldurun.</li>
+        <li><strong>Değerlendirme:</strong> Başvurunuz ekibimiz tarafından değerlendirilir (2-3 iş günü).</li>
+        <li><strong>Onay ve Profil Oluşturma:</strong> Başvurunuz onaylandığında, eğitmen profilinizi oluşturun: uzmanlık alanlarınız, özgeçmişiniz, fiyatlandırmanız.</li>
+        <li><strong>Ders İlanı:</strong> Vermek istediğiniz dersleri sisteme ekleyin.</li>
+        <li><strong>Öğrenci Talepleri:</strong> Gelen ders taleplerini değerlendirin ve onaylayın.</li>
+        <li><strong>Dersleri Yönetin:</strong> Öğrencilerinizle iletişime geçin, ders programınızı oluşturun.</li>
+        <li><strong>Kazanç:</strong> Dersler tamamlandıkça kazancınız hesabınıza aktarılır.</li>
+      </ol>
+      
+      <h2>4. Kurumsal Eğitim Süreci</h2>
+      <ol>
+        <li>Kurumsal Eğitim sayfamızı ziyaret edin.</li>
+        <li>Şirketinizin ihtiyaçlarını belirten bir talep formu doldurun.</li>
+        <li>Uzman ekibimiz sizinle iletişime geçerek ihtiyaç analizi yapar.</li>
+        <li>Size özel eğitim programı ve fiyat teklifi sunulur.</li>
+        <li>Teklifi onaylamanız durumunda eğitim süreci başlar.</li>
+        <li>Eğitimler, şirketinizde, online veya hibrit olarak gerçekleştirilebilir.</li>
+      </ol>
+      
+      <h2>5. Ödeme ve Faturalandırma</h2>
+      <ul>
+        <li><strong>Ödeme Yöntemleri:</strong> Kredi kartı (tek çekim veya taksit), banka havalesi, EFT.</li>
+        <li><strong>Fatura:</strong> Ödeme işlemi tamamlandıktan sonra e-posta adresinize fatura gönderilir.</li>
+        <li><strong>Kurumsal Fatura:</strong> Kurumsal müşterilerimiz için şirket bilgileriyle fatura düzenlenir.</li>
+      </ul>
+      
+      <h2>6. Ders İptali ve İade</h2>
+      <ul>
+        <li>Ders iptalleri, ders saatinden en az 24 saat önce yapılmalıdır.</li>
+        <li>24 saat içinde yapılan iptallerde ders hakkı kullanılmış sayılır.</li>
+        <li>İade talepleriniz, İade Şartları sayfamızdaki politikalara göre değerlendirilir.</li>
+      </ul>
+      
+      <h2>7. Puanlama ve Yorumlar</h2>
+      <p>Ders tamamlandıktan sonra eğitmeninizi puanlayabilir ve yorum yapabilirsiniz. Bu yorumlar, diğer öğrencilerin doğru eğitmeni seçmesine yardımcı olur.</p>
+      
+      <h2>8. Sık Sorulan Sorular</h2>
+      <p>Daha fazla bilgi için SSS sayfamızı ziyaret edebilir veya müşteri hizmetlerimizle iletişime geçebilirsiniz.</p>
+      
+      <div class="mt-8 p-4 bg-indigo-50 rounded-lg">
+        <h3 class="font-bold text-indigo-900 mb-2">📞 İletişim</h3>
+        
+        E-posta: iletisim @ istanbulEgitimMerkezi.com<br>
+        
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,301 @@
+---
+// src/components/Footer.astro
+
+// Mevcut yılı al
+const currentYear = new Date().getFullYear();
+
+// Şehirler listesi
+const sehirler = [
+  'İstanbul', 'Ankara', 'İzmir', 'Bursa', 'Kocaeli', 'Antalya', 'Muğla', 
+  'Mersin', 'Tekirdağ', 'Van', 'Hatay', 'Kayseri', 'Eskişehir', 'Erzurum', 'Adana'
+];
+
+// Spor & Hobi
+const sporHobi = [
+  { name: 'Yüzme Dersi', href: '/spor-egitimleri' },
+  { name: 'Fitness Dersi', href: '/spor-egitimleri' },
+  { name: 'Boyama Dersi', href: '/spor-egitimleri' },
+  { name: 'Satranç Dersi', href: '/spor-egitimleri' }
+];
+
+// Okul ve Sınav Hazırlık
+const okulDersleri = [
+  { name: 'Zihinden Matematik Dersi', href: '/kurs-ilkogretim-5-6-7-8-siniflar/zihinden-matematik' },
+  { name: 'TYT-AYT Fizik', href: '/kurs-lise/tyt-ayt-fizik-avrupa' },
+  { name: 'KPSS', href: '/kurs-lise/kpss-genel-yetenek-genel-kultur-egitim-bilimleri-avrupa' },
+  { name: 'TYT-AYT Matematik, Geometri', href: '/kurs-lise/tyt-ayt-matematik-geometri-avrupa' }
+];
+
+// Yabancı Diller
+const yabanciDiller = [
+  { name: 'İngilizce Kursu', href: '/ingilizce-kursu' },
+  { name: 'Fransızca Kursu', href: '/fransizca-kursu' },
+  { name: 'Arapça Kursu', href: '/almanca-kursu' },
+  { name: 'Rusça Kursu', href: '/ispanyolca-kursu' }
+];
+
+// Müzik
+const muzik = [
+  { name: 'Piyano Dersi', href: '/sanat-egitimleri' },
+  { name: 'Keman Dersi', href: '/sanat-egitimleri' },
+  { name: 'Gitar Dersi', href: '/sanat-egitimleri' },
+  { name: 'Yan Flüt Dersi', href: '/sanat-egitimleri' }
+];
+
+// Online Dersler
+const onlineDersler = [
+  { name: 'SEO, Arama Sonuçlarında Yükselme Dersi Seç', href: '/arama-sonuclarinda-yukselme' },
+  { name: 'Online Matematik Dersi Seç', href: '/egitmenler-lise' },
+  { name: 'Online İngilizce Dersi Seç', href: '/egitmenler-dil' },
+  { name: 'Online Yapay Zeka Dersi', href: '/egitmenler-bilisim' },
+  { name: 'Online Yazılım Dersi Seç', href: '/egitmenler-yazilim' },
+  { name: 'Online Karakalem Dersi Seç', href: '/sanat-egitimleri' },
+  { name: 'Online Yazılım Dersi Seç', href: '/egitmenler-yazilim' },
+  { name: 'Online Basketbol Dersi Seç', href: '/spor-egitimleri' }
+];
+
+// Kurumsal & Hızlı Linkler
+const kurumsalLinkler = [
+  { name: 'Hakkımızda', href: '/hakkimizda' },
+  { name: 'Kullanım Şartları', href: '/kullanim-sartlari' },
+  { name: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
+  { name: 'Mesafeli Satış Sözleşmesi', href: '/mesafeli-satis-sozlesmesi' },
+  { name: 'İade Şartları', href: '/iade-sartlari' },
+  { name: 'Online Akademi Şartları', href: '/online-akademi-sartlari' },
+  { name: 'Online Akademi Başarılarımız', href: '/online-akademi-basarilarimiz' },
+  { name: 'Kullanım Detayları', href: '/kullanim-detaylari' }
+];
+
+// Fırsatlar & Destek
+const firsatlar = [
+  { name: 'Eğitmen Ol', href: '/egitmen-basvuru' },
+  { name: 'Kurumsal Eğitim', href: '/ders-ucreti-isveren' },
+  { name: 'Şirketine Öner', href: '/sirketine-oner' },
+  { name: 'Arkadaşlarına Öner', href: '/arkadaslarina-oner' },
+  { name: 'Reklam Ver', href: '/reklam-ver' },
+  { name: 'Özel Ders Verenler', href: '/ozel-ders-verenler' },
+  { name: 'Online Ders', href: '/online-ders' }
+];
+
+// İletişim Bilgileri
+const iletisim = {
+  telefon: '0212 444 0 123',
+  email: 'info@istanbulegitim.com',
+  whatsapp: '0555 555 55 55',
+  adres: 'İstanbul, Türkiye'
+};
+---
+
+<footer class="bg-gray-900 text-gray-400 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    
+    <!-- Ana Mesaj - Konumuza en yakın öğretmenler -->
+    <div class="text-center mb-12 pb-8 border-b border-gray-800">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Konumuza En Yakın Öğretmenleri ve Dersleri Bulun</h2>
+      <p class="text-gray-400 max-w-3xl mx-auto">
+        Türkiye geneli özel ders almak isteyen öğrenciler ile özel ders vermek isteyen eğitimcileri doğrudan bir araya getirmekteyiz. 
+        Öğretmenler sistem üzerinden uzman oldukları branşlarda profil oluşturabilir ve ders talebi alabilirler. 
+        Öğrenciler ve veliler de <b>"ders almak istiyorum"</b> kaydı oluşturup, konumuna en yakın öğretmenleri inceleyebilir, 
+        sistem üzerinden mesajlaşabilir ve uygun gördüğü öğretmen ile iletişime geçebilir.
+      </p>
+    </div>
+
+    <!-- Ana Kategoriler Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+      
+      <!-- Sütun 1: Spor Hobi & Okul Dersleri -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          SPOR & HOBİ
+        </h3>
+        <ul class="space-y-2 text-sm">
+          {sporHobi.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="text-white text-lg font-semibold mt-6 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          OKUL VE SINAVLARA HAZIRLIK
+        </h3>
+        <ul class="space-y-2 text-sm">
+          {okulDersleri.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Sütun 2: Yabancı Diller & Müzik -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+          YABANCI DİLLER
+        </h3>
+        <ul class="space-y-2 text-sm mb-8">
+          {yabanciDiller.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+          </svg>
+          MÜZİK
+        </h3>
+        <ul class="space-y-2 text-sm">
+          {muzik.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Sütun 3: Şehirler & Online Dersler -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          ŞEHİRLER
+        </h3>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-8">
+          {sehirler.map((sehir) => (
+            <a 
+              href={`/sehirler#${sehir.toLowerCase()}`} 
+              class="hover:text-white transition-colors duration-200"
+            >
+              {sehir}
+            </a>
+          ))}
+        </div>
+
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          EVİNİZ KONFORUNDA DERSLER ALIN
+        </h3>
+        <ul class="space-y-2 text-sm">
+          {onlineDersler.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Sütun 4: Kurumsal & İletişim -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+          KURUMSAL
+        </h3>
+        <ul class="space-y-2 text-sm mb-6">
+          {kurumsalLinkler.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 019.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          </svg>
+          FIRSATLAR & DESTEK
+        </h3>
+        <ul class="space-y-2 text-sm mb-6">
+          {firsatlar.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        
+      </div>
+    </div>
+
+    <!-- Alt Bilgi Mesajı -->
+    <div class="bg-gray-800/50 rounded-xl p-6 mb-8 text-center">
+      <p class="text-gray-300 text-sm leading-relaxed">
+        <span class="text-white font-semibold">En İyi Öğretmenlerden Online Veya Yüz Yüze Dersler Alın</span><br>
+        Türkiye geneli özel ders almak isteyen öğrenciler ile özel ders vermek isteyen eğitimcileri doğrudan bir araya getirmekteyiz. 
+        Öğretmenler sistem üzerinden uzman oldukları branşlarda profil oluşturabilir ve ders talebi alabilirler. 
+        Öğrenciler ve veliler de "ders almak istiyorum" kaydı oluşturup, konumuna en yakın öğretmenleri inceleyebilir, 
+        sistem üzerinden mesajlaşabilir ve uygun gördüğü öğretmen ile iletişime geçebilir.
+      </p>
+    </div>
+
+    <!-- Alt Banner - Dikkat Çekici Mesaj -->
+    <div class="border-t border-gray-800 pt-8">
+      <div class="grid md:grid-cols-3 gap-4 text-center text-sm">
+        <div class="flex items-center justify-center gap-2 text-gray-500">
+          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>7/24 Online Destek</span>
+        </div>
+        <div class="flex items-center justify-center gap-2 text-gray-500">
+          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Güvenli Ödeme</span>
+        </div>
+        <div class="flex items-center justify-center gap-2 text-gray-500">
+          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          <span>Sertifikalı Eğitimler</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telif Hakkı -->
+    <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
+      <p>&copy; {currentYear} İstanbul Eğitim Merkezi. Tüm hakları saklıdır.</p>
+      <p class="mt-2 text-xs text-gray-600">
+        İstanbul Eğitim Merkezi, MeetWork Üyesidir.
+      </p>
+    </div>
+  </div>
+</footer>

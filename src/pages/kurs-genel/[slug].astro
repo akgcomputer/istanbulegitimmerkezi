@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactButtons from '../../components/ContactButtons.astro';
+import { courses } from '../../data/courses-genel';
+
+
+export async function getStaticPaths() {
+  return courses.map((course) => ({
+    params: { slug: course.slug },
+    props: { course: { ...course, image: "/images/populer-egitimler.jpg" } }, // Ana kurs resmini güncelle
+  }));
+}
+
+const { course } = Astro.props;
+
+const renderStars = (rating) => {
+  if (!rating) return '';
+  const fullStars = Math.floor(rating);
+  return '★'.repeat(fullStars);
+};
+
+// Benzer eğitimler (en fazla 3)
+const similarCourses = courses
+  .filter(c => c.category === course.category && c.slug !== course.slug)
+  .slice(0, 3)
+  .map(c => ({ ...c, image: "/images/populer-egitimler.jpg" })); // Benzer kurs resimlerini güncelle
+
+// Eğitmen renkleri için (yanıp sönen noktalar)
+const instructorColors = ['bg-red-500', 'bg-orange-500', 'bg-green-500'];
+---
+
+<Layout title={`${course.title} | İstanbul Eğitim Merkezi`}>
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Üst Kısım: Resim + Başlık/Eğitmenler -->
+    <div class="flex flex-col lg:flex-row gap-8 mb-12">
+      <!-- Sol: Resim (kırmızı led) -->
+      <div class="lg:w-2/5">
+        <div class="sticky top-24 shadow-[0_10px_30px_-5px_rgba(220,38,38,0.6)] rounded-2xl overflow-hidden">
+          <img 
+            src={course.image} 
+            alt={course.title} 
+            class="w-full h-auto object-cover aspect-[3/2]"
+            width="750" 
+            height="420" 
+          />
+        </div>
+      </div>
+
+      <!-- Sağ: Başlık, eğitmenler, butonlar -->
+      <div class="lg:w-3/5">
+        <div class="mb-6">
+          <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">
+            {course.breadcrumb}
+          </span>
+          <h1 class="text-4xl font-bold text-gray-900 mt-2 leading-tight">
+            {course.title}
+          </h1>
+        </div>
+
+        <!-- Eğitmenler bölümü (ilk 3 + bağlantılar) -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="text-yellow-400 text-2xl">⭐</span>
+            Eğitmenler ve Ücretler
+          </h2>
+
+          <div class="overflow-x-auto rounded-xl border border-gray-200">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-4 py-3 text-left font-medium text-gray-600">Eğitmen</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-600">Özel</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-600">Grup</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-600">Kurumsal</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-600">Online</th>
+                  <th class="px-4 py-3 text-left font-medium text-gray-600">Lokasyon</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                {course.instructors?.slice(0, 3).map((ins, index) => (
+                  <tr class="hover:bg-gray-50 transition">
+                    <td class="px-4 py-3">
+                      <a href={`/egitmen/${ins.slug}`} class="flex items-center gap-2 group">
+                        <span class={`w-2 h-2 rounded-full animate-pulse ${instructorColors[index % 3]}`}></span>
+                        <span class="font-medium text-gray-900 group-hover:text-indigo-600">
+                          {ins.name}
+                        </span>
+                      </a>
+                      <div class="text-xs text-gray-500 mt-1">{ins.since}'den beri</div>
+                    </td>
+                    <td class="px-4 py-3 font-semibold text-indigo-600">{ins.privatePrice}₺</td>
+                    <td class="px-4 py-3">{ins.groupPrice}₺</td>
+                    <td class="px-4 py-3">
+                      <span class={ins.corporate ? "text-green-600 text-lg" : "text-red-600 text-lg"}>
+                        {ins.corporate ? '✓' : '✗'}
+                      </span>
+                    </td>
+                    <td class="px-4 py-3">
+                      <span class={ins.online ? "text-green-600 text-lg" : "text-red-600 text-lg"}>
+                        {ins.online ? '✓' : '✗'}
+                      </span>
+                    </td>
+                    <td class="px-4 py-3 text-gray-600">{ins.location}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Alt bağlantılar -->
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-4 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl">
+            <div class="flex items-center gap-2">
+              <span class="text-indigo-600 font-bold">{Math.max(0, course.instructors.length - 3)}+</span>
+              <span>eğitmen daha bu dersi veriyor.</span>
+              <a href="/egitmenler" class="text-indigo-600 hover:text-indigo-800 font-semibold underline decoration-2 underline-offset-2">
+                Tümünü Gör →
+              </a>
+            </div>
+            <a 
+              href="/egitmen-basvuru" 
+              target="_blank"
+              class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all shadow-md hover:shadow-lg"
+            >
+              <span class="text-lg">✨</span>
+              Siz de eğitmen olun
+              <span class="text-xs opacity-70">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Butonlar: Derse Kaydol + WhatsApp + Ara -->
+        <div class="space-y-3">
+                     
+            <ContactButtons courseTitle={course.title} />
+          </div>
+          <p class="text-sm text-gray-500 italic">
+            * Derse kaydol adımını takip ederek başvuru formunu doldurup derse kaydolabilir,
+            <br>formda eğitmen tercihinde bulunabilirsiniz.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alt Kısım: Açıklama kutuları -->
+    <div class="space-y-8 mt-16">
+      <!-- Eğitim Hakkında (sarı led) -->
+      <div class="bg-white rounded-2xl p-8 shadow-[0_10px_30px_-5px_rgba(250,204,21,0.6)] border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Eğitim Hakkında</h2>
+        <p class="text-gray-700 leading-relaxed text-lg">{course.description}</p>
+      </div>
+
+      <!-- Üçlü grid: Neden, İstihdam, Gereksinimler -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Neden Almalısınız? (mavi led) -->
+        <div class="bg-white rounded-2xl p-6 shadow-[0_10px_30px_-5px_rgba(37,99,235,0.6)] border border-gray-100">
+          <h3 class="font-semibold text-gray-900 text-lg mb-2 flex items-center gap-2">
+            <span>🎯</span> Neden Almalısınız?
+          </h3>
+          <p class="text-gray-700">{course.whyTake}</p>
+        </div>
+
+        <!-- İstihdam Alanları (pembe led) -->
+        <div class="bg-white rounded-2xl p-6 shadow-[0_10px_30px_-5px_rgba(219,39,119,0.6)] border border-gray-100">
+          <h3 class="font-semibold text-gray-900 text-lg mb-2 flex items-center gap-2">
+            <span>💼</span> İstihdam Alanları
+          </h3>
+          <p class="text-gray-700">{course.employmentAreas}</p>
+        </div>
+
+        <!-- Gereksinimler (pembe led - aynı renk, istersen değişiriz) -->
+        <div class="bg-white rounded-2xl p-6 shadow-[0_10px_30px_-5px_rgba(219,39,119,0.6)] border border-gray-100">
+          <h3 class="font-semibold text-gray-900 text-lg mb-2 flex items-center gap-2">
+            <span>📋</span> Gereksinimler
+          </h3>
+          <p class="text-gray-700">{course.requirements || "Herhangi bir ön koşul bulunmamaktadır."}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benzer Eğitimler (başlık yeşil led, kartlar kırmızı led) -->
+    {similarCourses.length > 0 && (
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 inline-block shadow-[0_8px_20px_-5px_rgba(34,197,94,0.6)] p-2 rounded-lg">
+          🔍 Bu eğitimi inceleyenler şunları da inceledi
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          {similarCourses.map((similar) => (
+            <a 
+              href={`/kurs/${similar.slug}`} 
+              class="group bg-white rounded-xl shadow-[0_8px_20px_-5px_rgba(220,38,38,0.5)] border border-gray-200 overflow-hidden hover:shadow-[0_12px_30px_-5px_rgba(220,38,38,0.7)] transition-all"
+            >
+              <img 
+                src={similar.image} 
+                alt={similar.title} 
+                class="w-full h-40 object-cover"
+                width="400" 
+                height="200" 
+              />
+              <div class="p-4">
+                <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600">
+                  {similar.title}
+                </h3>
+                <p class="text-sm text-gray-500 mt-1">{similar.breadcrumb}</p>
+                <div class="mt-2 flex items-center justify-between">
+                  <span class="text-indigo-600 font-bold">{similar.instructors[0].privatePrice}₺'den</span>
+                  <span class="text-xs text-gray-400">{similar.instructors.length} eğitmen</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Alt not -->
+    <div class="mt-12 text-center text-sm text-gray-500 border-t pt-8">
+      * Fiyatlar eğitmene ve eğitim tipine göre değişiklik gösterebilir.
+    </div>
+  </div>
+</Layout>

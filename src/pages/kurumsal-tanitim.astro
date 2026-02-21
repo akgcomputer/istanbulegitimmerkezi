@@ -1,0 +1,419 @@
+---
+// kurumsal-tanitim.astro
+import Layout from '../layouts/Layout.astro';
+
+// Meta bilgiler (isteğe bağlı)
+const meta = {
+  title: 'Kurumsal Dil Eğitimi | İstanbul Eğitim Merkezi',
+  description: 'Şirketiniz için özel tasarlanmış online dil eğitimleri. Birebir dersler, uzman eğitmenler, yapay zeka destekli takip sistemi.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <!-- NAVBAR (isteğe bağlı, layout zaten var ama içerikte üst menüyü belirtmek için) -->
+  <!-- Bu kısım layout'ta zaten varsa tekrar eklemeye gerek yok, ancak Preply'deki gibi bir header görünümü isterseniz layout'u düzenleyebilirsiniz. -->
+  
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16 md:py-20">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Büyüyen küresel ekipler için tasarlanmış iş dili eğitimi.
+          </h1>
+          <p class="text-lg md:text-xl text-indigo-100 mb-8">
+            Yapay zeka tarafından desteklenen ve kuruluşunuz genelinde tamamen ölçülebilen, insan liderliğinde kişiselleştirilmiş eğitim. İstanbul Eğitim Merkezi Kurumsal, teknoloji odaklı ekiplere güvenle ölçeklenmeleri için dil becerileri kazandırır.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/kurumsal-talep" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+              Tanıtım talep et
+            </a>
+            <a href="#nasil-calisir" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-indigo-900 font-bold py-4 px-8 rounded-full transition">
+              Nasıl çalışır?
+            </a>
+          </div>
+          <p class="mt-8 text-indigo-200 text-sm flex items-center gap-2">
+            <span class="bg-green-400 w-2 h-2 rounded-full"></span>
+            Öğrencilerin %92'si İstanbul Eğitim Merkezi'nin iş performanslarını artırdığını söylüyor
+          </p>
+        </div>
+        <div class="hidden md:block">
+          <!-- Mobil telefon görseli -->
+          <div class="relative flex justify-center">
+            <div class="relative w-64 h-[500px] bg-gray-800 rounded-[40px] border-4 border-gray-700 shadow-2xl overflow-hidden">
+              <!-- Telefon ekranı -->
+              <div class="absolute inset-1 bg-gradient-to-b from-indigo-400 to-purple-600 rounded-[32px] overflow-hidden">
+                <div class="p-4 text-white">
+                  <div class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-white/20 rounded-full"></div>
+                    <div class="flex-1">
+                      <div class="h-2 bg-white/30 rounded w-20 mb-1"></div>
+                      <div class="h-2 bg-white/20 rounded w-16"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="bg-white/10 rounded-xl p-3">
+                      <div class="h-2 bg-white/40 rounded w-24 mb-2"></div>
+                      <div class="h-2 bg-white/30 rounded w-full"></div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-3">
+                      <div class="h-2 bg-white/40 rounded w-20 mb-2"></div>
+                      <div class="h-2 bg-white/30 rounded w-full"></div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-3">
+                      <div class="h-2 bg-white/40 rounded w-28 mb-2"></div>
+                      <div class="h-2 bg-white/30 rounded w-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Telefon kamerası -->
+              <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full flex items-center justify-center">
+                <div class="w-2 h-2 bg-gray-700 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Müşteri logoları -->
+      <div class="mt-12 border-t border-indigo-700 pt-6">
+        <p class="text-center text-indigo-200 mb-4">+1500 şirket İstanbul Eğitim Merkezi ile büyüyor</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EKİBİNİZİN AKICILIĞINI SAĞLAYIN (3x / 1.5x / 3x / 100% verileri) -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            Ekibinizin akıcı iş yapmasını sağlayın.
+          </h2>
+          <p class="text-lg text-gray-600 mb-8">
+            İstanbul Eğitim Merkezi kullanan küresel teknoloji şirketleri sınır ötesinde iş birliğinin daha güçlü olduğunu, iletişim kopukluğunun daha az yaşandığını ve anlaşmaların daha hızlı tamamlandığını bildiriyor. Bunu mümkün kılan ise ekipler, pazarlar ve zaman dilimleri arasında iç uyumun daha net ve iletişimin daha dışa dönük olması.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <div class="text-4xl font-bold text-indigo-600">3X</div>
+              <p class="text-sm text-gray-500">daha hızlı ekip akıcılık ilerlemesi</p>
+            </div>
+            <div>
+              <div class="text-4xl font-bold text-indigo-600">1.5X</div>
+              <p class="text-sm text-gray-500">daha hızlı uluslararası genişleme</p>
+            </div>
+            <div>
+              <div class="text-4xl font-bold text-indigo-600">3X</div>
+              <p class="text-sm text-gray-500">daha uzun süreli katılım (grup veya uygulama programlarına göre)</p>
+            </div>
+            <div>
+              <div class="text-4xl font-bold text-indigo-600">100%</div>
+              <p class="text-sm text-gray-500">gerçek zamanlı görünürlük (öğrenci gelişimi ve kullanımı üzerinde)</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 mt-4">* İstanbul Eğitim Merkezi kurumsal öğrencilerinden ve şirketlerinden gelen sürekli 360° geri bildirimlere dayanmaktadır.</p>
+        </div>
+        <div>
+          <!-- Mobil uygulama görseli -->
+          <div class="relative flex justify-center">
+            <div class="relative w-64 h-[500px] bg-gray-800 rounded-[40px] border-4 border-gray-700 shadow-2xl overflow-hidden">
+              <!-- Telefon ekranı - farklı renk -->
+              <div class="absolute inset-1 bg-gradient-to-b from-green-400 to-blue-500 rounded-[32px] overflow-hidden">
+                <div class="p-4 text-white">
+                  <!-- Üst bilgi çubuğu -->
+                  <div class="flex justify-between items-center mb-8">
+                    <span class="text-sm font-semibold">9:41</span>
+                    <div class="flex gap-1">
+                      <div class="w-4 h-4 bg-white/30 rounded-full"></div>
+                      <div class="w-4 h-4 bg-white/30 rounded-full"></div>
+                    </div>
+                  </div>
+                  <!-- İlerleme grafiği -->
+                  <div class="mb-6">
+                    <div class="text-lg font-bold mb-2">İlerleme</div>
+                    <div class="h-32 bg-white/20 rounded-xl flex items-end p-2">
+                      <div class="w-1/3 h-16 bg-orange-400 rounded-t-lg mx-1"></div>
+                      <div class="w-1/3 h-24 bg-yellow-400 rounded-t-lg mx-1"></div>
+                      <div class="w-1/3 h-20 bg-green-400 rounded-t-lg mx-1"></div>
+                    </div>
+                  </div>
+                  <!-- Ders listesi -->
+                  <div class="space-y-3">
+                    <div class="bg-white/20 rounded-lg p-2 flex items-center gap-2">
+                      <div class="w-8 h-8 bg-white/30 rounded-full"></div>
+                      <div class="flex-1">
+                        <div class="h-2 bg-white/40 rounded w-24"></div>
+                      </div>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-2 flex items-center gap-2">
+                      <div class="w-8 h-8 bg-white/30 rounded-full"></div>
+                      <div class="flex-1">
+                        <div class="h-2 bg-white/40 rounded w-20"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Telefon kamerası -->
+              <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full flex items-center justify-center">
+                <div class="w-2 h-2 bg-gray-700 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEDEN BİZ? (Karşılaştırma maddeleri) -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
+        Tüm dil programları ölçeklenemez.
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Bir dil programı seçerken neler önemli birlikte bakalım.
+      </p>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Sol sütun: özellikler listesi -->
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0 mt-1">✓</div>
+            <div>
+              <h3 class="font-semibold text-xl text-gray-800">Rol ve hedeflere göre kişiselleştirilmiş</h3>
+              <p class="text-gray-600">Her çalışanın seviyesine, mesleğine ve öğrenme hedeflerine uygun birebir dersler.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0 mt-1">✓</div>
+            <div>
+              <h3 class="font-semibold text-xl text-gray-800">Tutarlı, alakalı ve ilgi çekici gerçek öğretmenlerin yönetmesi</h3>
+              <p class="text-gray-600">Yapay zeka destekli eşleştirme ile alanında uzman, ana dil seviyesinde eğitmenler.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0 mt-1">✓</div>
+            <div>
+              <h3 class="font-semibold text-xl text-gray-800">Öğrenci ilerlemesini ve yönetici analizlerini desteklemek için yapay zeka ile geliştirilmesi</h3>
+              <p class="text-gray-600">Ders özetleri, seviye atlama raporları, katılım ve memnuniyet takibi.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0 mt-1">✓</div>
+            <div>
+              <h3 class="font-semibold text-xl text-gray-800">Dahili takip ve sade yönetici araçlarıyla kolay yönetilmesi</h3>
+              <p class="text-gray-600">Tek bir panelden tüm ekibin derslerini, harcamalarını ve gelişimini görün.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0 mt-1">✓</div>
+            <div>
+              <h3 class="font-semibold text-xl text-gray-800">Akıcılık, güven ve iş birliğinde yarattığı etkinin kanıtlanmış olması</h3>
+              <p class="text-gray-600">Referanslarımız ve vaka çalışmalarımızla kanıtlanmış başarı.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Sağ sütun: boş bırakıldı -->
+        <div class="bg-white p-8 rounded-3xl shadow-lg">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Kurumsal Çözümlerimiz</h3>
+          <p class="text-gray-600">Şirketinizin ihtiyaçlarına özel olarak tasarlanmış dil eğitimi programları ile ekibinizin uluslararası başarısını artırın.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRUP DERSLERİ vs 1:1, YÜZ YÜZE vs ONLINE, UYGULAMA vs ÖĞRETMEN (3 kart) -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        Neden İstanbul Eğitim Merkezi?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Grup Dersleri vs 1:1 -->
+        <div class="bg-gray-50 rounded-3xl p-8">
+          <div class="flex items-center justify-between mb-4">
+            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">Grup Dersi</span>
+            <span class="text-3xl">👥</span>
+          </div>
+          <p class="text-gray-700 mb-4">Karışık seviyeler, az konuşma süresi, yavaş gelişim</p>
+          <div class="border-t border-gray-200 my-4"></div>
+          <div class="flex items-center justify-between">
+            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">İEM 1:1</span>
+            <span class="text-3xl">🧑‍🏫</span>
+          </div>
+          <p class="text-gray-700 mt-4">Odaklanmış seanslar, daha fazla pratik, 3 kat daha hızlı sonuç</p>
+        </div>
+        <!-- Yüz Yüze vs Online -->
+        <div class="bg-gray-50 rounded-3xl p-8">
+          <div class="flex items-center justify-between mb-4">
+            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">Yüz yüze ders</span>
+            <span class="text-3xl">🏢</span>
+          </div>
+          <p class="text-gray-700 mb-4">Yüksek maliyet, planlamada pürüzler, ölçeklendirmesi zor</p>
+          <div class="border-t border-gray-200 my-4"></div>
+          <div class="flex items-center justify-between">
+            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">İEM Online</span>
+            <span class="text-3xl">💻</span>
+          </div>
+          <p class="text-gray-700 mt-4">Esnek online planlama, küresel erişim, ölçeklendirmesi kolay</p>
+        </div>
+        <!-- Bireysel Öğrenme Uygulamaları vs Öğretmen -->
+        <div class="bg-gray-50 rounded-3xl p-8">
+          <div class="flex items-center justify-between mb-4">
+            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">Bireysel uygulama</span>
+            <span class="text-3xl">📱</span>
+          </div>
+          <p class="text-gray-700 mb-4">Yüksek bırakma oranı, kişisel değil, hesap verebilirlik yok</p>
+          <div class="border-t border-gray-200 my-4"></div>
+          <div class="flex items-center justify-between">
+            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">İEM Öğretmen</span>
+            <span class="text-3xl">🎓</span>
+          </div>
+          <p class="text-gray-700 mt-4">Gerçek öğretmenler ile daha fazla tamamlama, kişiselleştirilmiş, hesap verebilirlik</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÜŞTERİ REFERANSLARI (slider veya grid) -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
+        Küresel Ekipler. Gerçek Sonuçlar.
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        İstanbul Eğitim Merkezi şirketlerin iletişimi daha hızlı ölçeklendirmelerine nasıl yardımcı oluyor
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- referans -->
+        <div class="bg-white p-8 rounded-3xl shadow-md">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl font-bold text-gray-400">Miro Tekstil</span>
+          </div>
+          <p class="text-gray-600 italic mb-4">"Kurumumuz yurtdışı ofisleri ve muhatapları ile iletişimde önemli sorun yaşayan personelimizi sorunları çözdük,
+            Farklı zaman dilimlerine ve sürekli değişen programlara uyum sağlama esnekliği ve sektörümüze özgü terminolojiye hakim ana dilini öğreten öğretmenler, küresel işletmemiz için çok önemli bir kazanım sağladı.."</p>
+          <p class="font-semibold">Yulia Bross</p>
+          <p class="text-sm text-gray-500">İnsan Programları Uzmanı</p>
+        </div>
+        <!-- referans -->
+        <div class="bg-white p-8 rounded-3xl shadow-md">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl font-bold text-gray-400">Hür Makina</span>
+          </div>
+          <p class="text-gray-600 italic mb-4">"Çalışanlarımız İstanbul Eğitim Merkezi'nden gerçekten memnun. Esnek ders saatleri sistemi ve bireysel öğrenim yaklaşımı sayesinde sonunda herkesin programına uygun bir dil eğitim hizmeti bulduk."</p>
+          <p class="font-semibold">Serkan Gezici</p>
+          <p class="text-sm text-gray-500">İK Uzmanı, Öğrenme ve Gelişim Müdürü</p>
+        </div>
+        <!-- referans -->
+        <div class="bg-white p-8 rounded-3xl shadow-md">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl font-bold text-gray-400">Beykent Gıda</span>
+          </div>
+          <p class="text-gray-600 italic mb-4">"Preply'nin çalışanlar için benzersiz bir seçenek olduğunu düşünüyoruz çünkü herkes kendi yöntemiyle, kendi zaman diliminde, seçtiği öğretmenle istediği şekilde ders yapabiliyor."</p>
+          <p class="font-semibold">Berrin Sözcü</p>
+          <p class="text-sm text-gray-500">Ofis Müdürü</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- HERKES İÇİN TASARLANMIŞ DİL ÖĞRENİMİ (öğrenciler / yöneticiler) -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        Herkes için tasarlanmış dil öğrenimi
+      </h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-indigo-50 p-8 rounded-3xl">
+          <span class="text-4xl mb-4 block">🎓</span>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Öğrenciler için</h3>
+          <p class="text-gray-700">Kişiselleştirilmiş bire bir seanslarla daha hızlı öğrenin. Uzman öğretmenler, her dersi rolünüze ve hedeflerinize göre uyarlar. Yapay zeka tarafından oluşturulan özetler, önemli noktaları pekiştirir ve zaman içindeki gelişiminizi takip eder.</p>
+        </div>
+        <div class="bg-indigo-50 p-8 rounded-3xl">
+          <span class="text-4xl mb-4 block">📊</span>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Yöneticiler için</h3>
+          <p class="text-gray-700">Tam görünürlük, mikro yönetim yok. Yapay zeka destekli panolar, manuel izleme veya takip olmaksızın ekip katılımı, CEFR ilerlemesi ve öğrenci etkinliği hakkında gerçek zamanlı analiz sağlar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BİRKAÇ GÜNE BAŞLATIN, ETKİSİNİ HAFTALARDA GÖRÜN -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+           Eğitimi şimdi başlatın. Etkisini haftalar içinde görün.
+          </h2>
+          <p class="text-gray-300 text-lg mb-8">
+            Yoğun bir kurulum veya karmaşık bir oryantasyon süreci yok. 
+            <br>Eğtim alacak katılımcılar birkaç gün içinde, yüzyüze yada canlı oturumlara katılır ve siz de etkisini takip etmeye başlarsınız.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Oryantasyon süreci
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Etkinlik ve ders geçmişi
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Dil hedeflerine doğru ilerleme
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> Ekipler arasında program memnuniyeti
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- Dashboard görseli -->
+          <div class="bg-gray-800 rounded-3xl p-6 shadow-2xl">
+            <div class="h-64 bg-gray-700 rounded-2xl flex items-center justify-center text-6xl text-gray-500">📈</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   
+
+  <!-- SSS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        Sıkça sorulan sorular
+      </h2>
+      <div class="space-y-4">
+        <details class="border border-gray-200 rounded-2xl p-6">
+          <summary class="font-semibold text-lg cursor-pointer">Kurumsal dil eğitimi nedir?</summary>
+          <p class="mt-4 text-gray-600">Şirketlerin çalışanlarına yönelik, iş hedefleri doğrultusunda tasarlanmış dil eğitim programlarıdır.</p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6">
+          <summary class="font-semibold text-lg cursor-pointer">En iyi kurumsal dil eğitim programını nasıl seçebilirsiniz?</summary>
+          <p class="mt-4 text-gray-600">İhtiyaç analizi, eğitmen kalitesi, esneklik, bütçe ve takip araçları gibi kriterlere bakmalısınız.</p>
+        </details>
+        <!-- Diğer sorular eklenebilir -->
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- DİĞER DİLLER / FOOTER benzeri (opsiyonel) -->
+  <section class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="text-center text-gray-700 mb-4">Kurumsal eğitimlerimiz şu dillerde de mevcut</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">İngilizce</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">İspanyolca</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">Almanca</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">Çince</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">Japonca</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">Korece</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">Fransızca</a>
+        <a href="/dil-egitimleri" class="bg-white px-4 py-2 rounded-full shadow-sm hover:shadow">ve dahası..</a>
+        
+      </div>
+    </div>
+  </section>
+</Layout>

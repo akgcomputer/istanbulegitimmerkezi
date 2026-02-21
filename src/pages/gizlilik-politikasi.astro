@@ -1,0 +1,80 @@
+---
+// gizlilik-politikasi.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Gizlilik Politikası | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi gizlilik politikası, kişisel verilerin korunması ve işlenmesi hakkında bilgiler.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Gizlilik Politikası</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    <p class="text-sm text-gray-500 mb-8">Bilgileriniz önemlidir ve gizliliğiniz korunur.</p>
+    
+    <div class="prose prose-lg max-w-none">
+      <h2><b>1. Giriş</b></h2>
+      <p>İstanbul Eğitim Merkezi olarak, kişisel verilerinizin güvenliğine önem veriyoruz. Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda hangi bilgileri topladığımızı, bu bilgileri nasıl kullandığımızı ve koruduğumuzu açıklar.</p>
+      
+      <h2><b>2. Toplanan Bilgiler</b></h2>
+      <p>Aşağıdaki bilgileri toplayabiliriz:</p>
+      <ul>
+        <li><strong>Kimlik Bilgileri:</strong> Ad, soyad, kullanıcı adı</li>
+        <li><strong>İletişim Bilgileri:</strong> E-posta adresi, telefon numarası</li>
+        <li><strong>Hesap Bilgileri:</strong> Ödeme bilgileri, işlem geçmişi</li>
+        <li><strong>Teknik Bilgiler:</strong> IP adresi, tarayıcı bilgileri, çerezler</li>
+        <li><strong>Kullanım Bilgileri:</strong> Ziyaret ettiğiniz sayfalar, tıklamalar</li>
+      </ul>
+      
+      <h2><b>3. Bilgilerin Kullanımı</b></h2>
+      <p>Topladığımız bilgileri şu amaçlarla kullanırız:</p>
+      <ul>
+        <li>Hizmetlerimizi sağlamak ve yönetmek</li>
+        <li>Hesabınızı oluşturmak ve yönetmek</li>
+        <li>Ödemeleri işlemek</li>
+        <li>Size uygun eğitmenleri önermek</li>
+        <li>İletişim kurmak ve destek sağlamak</li>
+        <li>Hizmetlerimizi iyileştirmek</li>
+        <li>Yasal yükümlülükleri yerine getirmek</li>
+      </ul>
+      
+      <h2><b>4. Bilgilerin Paylaşımı</b></h2>
+      <p>Kişisel bilgilerinizi aşağıdaki durumlar dışında üçüncü taraflarla paylaşmayız:</p>
+      <ul>
+        <li>Açık izniniz olduğunda</li>
+        <li>Hizmet sağlayıcılarımızla (ödeme işlemleri, hosting vb.)</li>
+        <li>Yasal zorunluluk halinde</li>
+        <li>Haklarımızı korumak için</li>
+      </ul>
+      
+      <h2><b>5. Veri Güvenliği</b></h2>
+      <p>Kişisel verilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. SSL sertifikası, şifreleme, güvenli sunucular ve düzenli güvenlik kontrolleri ile verilerinizi koruyoruz.</p>
+      
+      <h2><b>6. Çerezler (Cookies)</b></h2>
+      <p>Web sitemizde çerezler kullanıyoruz. Çerezler, size daha iyi bir kullanıcı deneyimi sunmamıza yardımcı olur. Tarayıcı ayarlarından çerezleri kontrol edebilir veya silebilirsiniz.</p>
+      
+      <h2><b>7. Haklarınız</b></h2>
+      <p>KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
+      <ul>
+        <li>Verilerinizi görüntüleme</li>
+        <li>Verilerinizi düzeltme</li>
+        <li>Verilerinizi silme</li>
+        <li>Veri işlemeye itiraz etme</li>
+        <li>Verilerinizi taşıma</li>
+      </ul>
+      <p>Bu haklarınızı kullanmak için info@istanbulegitim.com adresine e-posta gönderebilirsiniz.</p>
+      
+      <h2><b>8. Çocukların Gizliliği</b></h2>
+      <p>Hizmetlerimiz 13 yaş altı çocuklara yönelik değildir. 13 yaş altı çocuklardan bilerek kişisel veri toplamayız.</p>
+      
+      <h2><b>9. Değişiklikler</b></h2>
+      <p>Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişikliklerde sizi bilgilendiririz.</p>
+      
+      <h2><b>10. İletişim</b></h2>
+      <p>Gizlilik politikamız hakkında sorularınız varsa:</p>
+      
+    </div>
+  </div>
+</Layout>

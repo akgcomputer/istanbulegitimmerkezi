@@ -1,0 +1,160 @@
+---
+// reklam-ver.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Reklam Ver | Dersini Tanıt & Site Reklamı | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi\'nde reklam verin. Eğitmen olarak derslerinizi tanıtın veya sitenizde reklam gösterin.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <!-- Başlık -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Reklam Ver</h1>
+      <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        İstanbul Eğitim Merkezi'nde iki farklı reklam seçeneği ile hedef kitlenize ulaşın.
+      </p>
+    </div>
+
+    <!-- İki Seçenekli Kartlar -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <!-- Seçenek 1: Eğitmen Reklamı -->
+      <div class="bg-white rounded-2xl shadow-xl border-2 border-indigo-100 hover:border-indigo-300 transition overflow-hidden">
+        <div class="bg-gradient-to-r from-indigo-600 to-green-500 text-white p-6 text-center">
+          <span class="text-6xl mb-3 block">👨‍🏫</span>
+          <h2 class="text-2xl md:text-3xl font-bold">Eğitmen Reklamı</h2>
+          <p class="text-indigo-200">Derslerini tanıt, öğrenci bul</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-4 mb-6">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Profil Öne Çıkarma:</strong> Eğitmen profilin ana sayfada ve kategorilerde üst sıralarda gösterilsin</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Özel Rozet:</strong> "Öne Çıkan Eğitmen" rozeti ile profilin vurgulansın</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Daha Fazla Görünürlük:</strong> Arama sonuçlarında ilk sıralarda yer al</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Hedef Kitle:</strong> Sadece senin branşınla ilgilenen öğrencilere ulaş</span>
+            </li>
+          </ul>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg mb-6">
+            <p class="text-sm text-gray-700">
+              <span class="font-bold">Kimler İçin?</span> Platformda aktif olarak ders veren ve daha fazla öğrenciye ulaşmak isteyen eğitmenler.
+            </p>
+          </div>
+          
+          <a href="/iletisim?konu=egitmen-reklami" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold py-3 px-4 rounded-lg transition">
+            Eğitmen Reklamı İçin Bilgi Al
+          </a>
+        </div>
+      </div>
+
+      <!-- Seçenek 2: Site İçi Reklam -->
+      <div class="bg-white rounded-2xl shadow-xl border-2 border-orange-100 hover:border-orange-300 transition overflow-hidden">
+        <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 text-center">
+          <span class="text-6xl mb-3 block">📢</span>
+          <h2 class="text-2xl md:text-3xl font-bold">Site İçi Reklam</h2>
+          <p class="text-orange-200">Markanı, ürününü veya hizmetini tanıt</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-4 mb-6">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Banner Reklamlar:</strong> Ana sayfa, kategori sayfaları, blog gibi yüksek trafikli alanlarda banner</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Hedefli Reklam:</strong> Belirli kategorilerde (bilişim, dil, sanat) gösterim imkanı</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>E-posta Bülteni:</strong> 50.000+ aboneye e-posta gönderimi</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Sponsorlu İçerik:</strong> Blog yazısı, röportaj, özel içerik</span>
+            </li>
+          </ul>
+          
+          <div class="bg-orange-50 p-4 rounded-lg mb-6">
+            <p class="text-sm text-gray-700">
+              <span class="font-bold">Kimler İçin?</span> Eğitim kurumları, kitap yayınevleri, eğitim teknolojileri şirketleri, yazılım firmaları ve eğitim sektörüne hitap eden tüm markalar.
+            </p>
+          </div>
+          
+          <a href="/iletisim?konu=site-reklami" class="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center font-semibold py-3 px-4 rounded-lg transition">
+            Site Reklamı İçin Bilgi Al
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reklam Seçenekleri Karşılaştırması -->
+    <div class="bg-white rounded-2xl shadow-md p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Reklam Seçenekleri Karşılaştırması</h2>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-4 py-3 text-left font-medium text-gray-600">Özellik</th>
+              <th class="px-4 py-3 text-left font-medium text-gray-600">Eğitmen Reklamı</th>
+              <th class="px-4 py-3 text-left font-medium text-gray-600">Site İçi Reklam</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="px-4 py-3 font-medium">Hedef Kitle</td>
+              <td class="px-4 py-3">Eğitim almak isteyen öğrenciler</td>
+              <td class="px-4 py-3">Tüm site ziyaretçileri (aylık 200K+)</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Gösterim Yerleri</td>
+              <td class="px-4 py-3">Eğitmen profilleri, arama sonuçları</td>
+              <td class="px-4 py-3">Ana sayfa, kategoriler, blog, sidebar</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Hedefleme</td>
+              <td class="px-4 py-3">Branş bazlı</td>
+              <td class="px-4 py-3">Sayfa bazlı, kategori bazlı</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">Fiyatlandırma</td>
+              <td class="px-4 py-3">Aylık sabit ücret</td>
+              <td class="px-4 py-3">Gösterim veya süre bazlı</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bize Ulaşın -->
+    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 text-center">
+      <h3 class="text-2xl font-bold text-gray-900 mb-3">Reklam ve Tanıtım İçin Bize Ulaşın</h3>
+      <p class="text-gray-600 mb-6">Size özel reklam paketleri ve fiyatlandırma için iletişime geçin.</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="/iletisim" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition">
+          İletişim Formu
+        </a>
+        
+      </div>
+      
+      <p class="text-sm text-gray-500">
+        
+        📧 E-posta: iletisim @ istanbulEgitimMerkezi.com
+      </p>
+    </div>
+  </div>
+</Layout>

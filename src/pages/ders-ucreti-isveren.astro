@@ -1,0 +1,283 @@
+---
+// ders-ucreti-isveren.astro
+import Layout from '../layouts/Layout.astro';
+
+// Meta bilgiler
+const meta = {
+  title: 'İşverenler İçin Dil Eğitimi | Çalışanlarınıza Yatırım Yapın | İstanbul Eğitim Merkezi',
+  description: 'Çalışanlarınız için dil eğitimi artık çok daha hesaplı. Kurumsal planlarımızla ekibinizin uluslararası başarısını artırın.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <!-- Hero Section - Minimal ve Etkileyici -->
+  <section class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16 md:py-20">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Çalışanlarınıza Yapacağınız En Değerli Yatırım
+        </h1>
+        <p class="text-xl text-indigo-100 mb-8">
+          Dil eğitimi, ekibinizin uluslararası başarısı için en hızlı geri dönen yatırımdır.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/derse-kaydol?tip=kurumsal" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+            Hemen Teklif Alın
+          </a>
+          <a href="#yatirim-hesapla" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-indigo-900 font-bold py-4 px-8 rounded-full transition">
+            Yatırımı Hesapla
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yatırımın Geri Dönüşü - 3 Basit Madde -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
+        Dil Eğitimi Bir Maliyet Değil, Yatırımdır
+      </h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Çalışanlarınızın dil becerileri geliştikçe şirketinizin uluslararası başarısı katlanarak artar.
+      </p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">📈</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">%40 Daha Fazla İhracat</h3>
+          <p class="text-gray-600">Dil bilen ekipler, uluslararası pazarlarda %40 daha fazla ihracat hacmine ulaşıyor.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🤝</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">%60 Daha Az İletişim Hatası</h3>
+          <p class="text-gray-600">Uluslararası müşterilerle yaşanan iletişim problemleri %60 oranında azalır.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🚀</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">3 Kat Daha Hızlı Büyüme</h3>
+          <p class="text-gray-600">Dil eğitimine yatırım yapan şirketler, rakiplerinden 3 kat daha hızlı büyüyor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yatırım Hesaplama (Basit ve Etkili) -->
+  <section id="yatirim-hesapla" class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+        <div class="grid md:grid-cols-2">
+          <!-- Sol Taraf: Açıklama -->
+          <div class="bg-indigo-600 text-white p-8 md:p-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Bir Çalışanın Size Maliyeti Ne Kadar?</h2>
+            <p class="text-indigo-100 mb-6 text-lg">Gelin birlikte hesaplayalım.</p>
+            
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">💰</span>
+                <div>
+                  <div class="font-semibold">Aylık Brüt Maaş: 50.000₺ - 100.000₺</div>
+                  <p class="text-sm text-indigo-200">Ortalama bir çalışanın şirkete aylık maliyeti</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">⏱️</span>
+                <div>
+                  <div class="font-semibold">Dil Eğitimi: Haftada 2 Saat</div>
+                  <p class="text-sm text-indigo-200">Toplam iş saatine oranı sadece %5</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">📊</span>
+                <div>
+                  <div class="font-semibold">Yatırımın Geri Dönüşü: 6-8 Ay</div>
+                  <p class="text-sm text-indigo-200">Yapılan yatırım 1 yıl içinde katlanarak geri döner</p>
+                </div>
+
+              </div>
+
+              <p class="text-indigo-100 mb-6 text-lg">* Ücretlendirme eğitmelere göre değişlik göstermektedir. 
+                <br> Online (uzaktan) eğitimler için ortalama hesap yapılmıştır.
+                <br> İşletmenin kendi hizmet merkezlerinde eğitmenin gelmesi ile yapılan eğitimlerin ücretleri farklıdır.
+                <br> KDV eklenecektir. 
+                <br> Net fiyat için iletişime geçiniz.</p>
+               
+
+            </div>
+          </div>
+          
+          <!-- Sağ Taraf: Hesaplama Özeti -->
+          <div class="p-8 md:p-12">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Kurumsal Paketlerimiz</h3>
+            
+            <div class="space-y-6">
+              <!-- Başlangıç Paketi -->
+              <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full">Başlangıç</span>
+                    <h4 class="font-bold text-gray-800 mt-2">5-10 Çalışan</h4>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-indigo-600">ortalama 2.250₺</div>
+                    <div class="text-xs text-gray-500">kişi başı / ay</div>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">Haftada 2 saat birebir online ders + AI takip sistemi</p>
+              </div>
+              
+              <!-- Profesyonel Paket -->
+              <div class="border-2 border-indigo-200 rounded-xl p-5 bg-indigo-50 hover:shadow-md transition">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <span class="bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">En Popüler</span>
+                    <h4 class="font-bold text-gray-800 mt-2">11-25 Çalışan</h4>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-indigo-600">ortalama 2.050₺</div>
+                    <div class="text-xs text-gray-500">kişi başı / ay</div>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">Haftada 2 saat birebir online ders + AI takip + Yönetici paneli</p>
+              </div>
+              
+              <!-- Kurumsal Paket -->
+              <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <span class="bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">Kurumsal</span>
+                    <h4 class="font-bold text-gray-800 mt-2">25+ Çalışan</h4>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold text-indigo-600">ortalama 1.800₺</div>
+                    <div class="text-xs text-gray-500">kişi başı / ay</div>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">Özelleştirilmiş program + Özel eğitmen kadrosu + API entegrasyonu</p>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+              <div class="flex justify-between items-center mb-4">
+                <span class="font-semibold text-gray-800">10 Çalışan için aylık toplam:</span>
+                <span class="text-2xl font-bold text-indigo-600">ortalama 30.000₺</span>
+              </div>
+              <p class="text-sm text-gray-500 mb-4">* Bir çalışanın aylık maliyetinin sadece %2-5'i</p>
+              <a href="/derse-kaydol?tip=kurumsal" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold py-3 px-6 rounded-xl transition">
+                Hemen Teklif Alın
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden İşverenler Bizi Tercih Ediyor? -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        İşverenler Neden İstanbul Eğitim Merkezi'ni Tercih Ediyor?
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">✓</div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">SGK Teşvikleri</h3>
+            <p class="text-gray-600">Kurumsal eğitim harcamalarınızı vergiden düşebilir, devlet teşviklerinden yararlanabilirsiniz.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">✓</div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Esnek Ödeme Planları</h3>
+            <p class="text-gray-600">Şirketinizin nakit akışına uygun, aylık, 3 aylık veya yıllık ödeme seçenekleri.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">✓</div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Detaylı Raporlama</h3>
+            <p class="text-gray-600">Her çalışanın gelişimini anlık takip edin, yatırımınızın geri dönüşünü ölçün.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">✓</div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Ücretsiz Deneme</h3>
+            <p class="text-gray-600">İlk ay 3 çalışanınız için ücretsiz deneme dersi, kararınızı verin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Başarı Hikayesi -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg">
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <div class="md:w-1/3">
+            <div class="w-32 h-32 bg-indigo-100 rounded-full flex items-center justify-center text-5xl mx-auto">🏭</div>
+          </div>
+          <div class="md:w-2/3">
+            <p class="text-lg text-gray-700 italic mb-4">
+              "15 çalışanımızı İstanbul Eğitim Merkezi'nde 6 ay İngilizce eğitimi aldık. 
+              Bu sürede yurtdışı müşterilerimizle yaşadığımız iletişim problemlerimiz büyük oranda azaldı, 
+              ihracatımız arttırdık. Yatırımımızı çok kısa zamanda amorti ettik."
+            </p>
+            <p class="font-bold text-gray-800">Ahmet Yılmazer</p>
+            <p class="text-sm text-gray-500">Mako Tekstil, Genel Müdür</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sık Sorulan Sorular (İşverenler İçin) -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        İşverenler İçin Sık Sorulan Sorular
+      </h2>
+      
+      <div class="space-y-4">
+        <details class="border border-gray-200 rounded-2xl p-6">
+          <summary class="font-semibold text-lg cursor-pointer">Eğitim masraflarını vergiden düşebilir miyim?</summary>
+          <p class="mt-4 text-gray-600">Evet, kurumsal eğitim harcamaları vergi matrahından düşülebilir. Detaylı bilgi için mali müşavirlerimiz size yardımcı olacaktır.</p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6">
+          <summary class="font-semibold text-lg cursor-pointer">Çalışanlarımın gelişimini nasıl takip edebilirim?</summary>
+          <p class="mt-4 text-gray-600">Yönetici panelinizden tüm çalışanlarınızın ders katılımını, seviye atlamalarını ve memnuniyet oranlarını anlık olarak takip edebilirsiniz.</p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6">
+          <summary class="font-semibold text-lg cursor-pointer">Farklı seviyelerdeki çalışanlar için program nasıl işliyor?</summary>
+          <p class="mt-4 text-gray-600">Her çalışanımız önce seviye tespit sınavına girer, ardından kendi seviyesine ve mesleğine uygun eğitmenle eşleştirilir.</p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6">
+          <summary class="font-semibold text-lg cursor-pointer">Toplu sözleşmelerde özel indirim imkanınız var mı?</summary>
+          <p class="mt-4 text-gray-600">Evet, 25+ çalışan için özel fiyatlandırma ve ek hizmetler sunuyoruz. Hemen iletişime geçin.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Harekete Geçirici Mesaj (Minimal) -->
+  <section class="py-16 bg-indigo-600">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ekibinizin Geleceğine Yatırım Yapın
+      </h2>
+      <p class="text-indigo-100 text-lg mb-8">
+        15 dakikalık bir görüşme ile şirketinize özel teklifinizi alın.
+      </p>
+      <a href="/derse-kaydol?tip=kurumsal" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+        Hemen Teklif Alın
+      </a>
+      
+    </div>
+  </section>
+
+  
+</Layout>

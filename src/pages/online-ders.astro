@@ -1,0 +1,134 @@
+---
+// online-ders.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Online Ders | Canlı Birebir Eğitim | İstanbul Eğitim Merkezi',
+  description: 'Online ders ile dilediğiniz yerden canlı birebir eğitim alın. Uzman eğitmenler, esnek saatler, kayıtlı dersler.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Online Ders</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <div class="grid md:grid-cols-2 gap-12 mb-12">
+      <div>
+        <p class="text-lg text-gray-700 mb-6">
+          Online ders ile dilediğiniz yerden, dilediğiniz saatte, uzman eğitmenlerden canlı birebir eğitim alın. 
+          Coğrafi sınırlar olmadan kaliteli eğitime erişin.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Online Ders Avantajları</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Coğrafi Sınır Yok:</strong> Türkiye'nin her yerinden, dünyanın herhangi bir noktasından ders alın</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Esnek Saatler:</strong> Size uygun saatte ders programı oluşturun</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Kayıtlı Dersler:</strong> Dersleri kaydedin, tekrar izleyin</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Birebir Eğitim:</strong> Eğitmenin tüm dikkati sizde</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Zaman Tasarrufu:</strong> Yol masrafı ve zaman kaybı yok</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500">✓</span>
+            <span><strong>Teknoloji:</strong> Ekran paylaşımı, interaktif beyaz tahta, anlık dosya paylaşımı</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-indigo-50 rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Popüler Online Dersler</h3>
+        <div class="space-y-3">
+          <a href="/ingilizce-ozel-ders" class="block bg-white p-3 rounded-lg hover:shadow-md transition">
+            <span class="font-bold">İngilizce</span> - Konuşma, sınav hazırlık, iş İngilizcesi
+          </a>
+          <a href="/almanca-kursu" class="block bg-white p-3 rounded-lg hover:shadow-md transition">
+            <span class="font-bold">Almanca</span> - Goethe, TELC hazırlık
+          </a>
+          <a href="/python-egitimi" class="block bg-white p-3 rounded-lg hover:shadow-md transition">
+            <span class="font-bold">💻 Python</span> - Sıfırdan ileri seviye programlama
+          </a>
+          <a href="/matematik-ozel-ders" class="block bg-white p-3 rounded-lg hover:shadow-md transition">
+            <span class="font-bold">📐 Matematik</span> - TYT, AYT, KPSS, ALES
+          </a>
+          <a href="/fransizca-kursu" class="block bg-white p-3 rounded-lg hover:shadow-md transition">
+            <span class="font-bold">Fransızca</span> - DELF, DALF hazırlık
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Online Ders Nasıl İşliyor? -->
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Online Ders Nasıl İşliyor?</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold text-indigo-600">1</div>
+        <h3 class="font-bold text-gray-900 mb-2">Ders Seç</h3>
+        <p class="text-sm text-gray-600">İlgilendiğiniz dersi ve eğitmeni seçin</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold text-indigo-600">2</div>
+        <h3 class="font-bold text-gray-900 mb-2">Talep Gönder</h3>
+        <p class="text-sm text-gray-600">Ders talebi oluşturun ve ödemeyi tamamlayın</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold text-indigo-600">3</div>
+        <h3 class="font-bold text-gray-900 mb-2">Bağlantı Al</h3>
+        <p class="text-sm text-gray-600">E-posta ile ders bağlantınızı alın</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold text-indigo-600">4</div>
+        <h3 class="font-bold text-gray-900 mb-2">Derse Katıl</h3>
+        <p class="text-sm text-gray-600">Belirlenen saatte canlı derse katılın</p>
+      </div>
+    </div>
+    
+    <!-- Teknik Gereksinimler -->
+    <div class="bg-white rounded-2xl shadow-md p-6 mb-8">
+      <h3 class="text-xl font-bold text-gray-900 mb-4">Teknik Gereksinimler</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="flex items-start gap-2">
+          <span class="text-2xl">💻</span>
+          <div>
+            <p class="font-semibold">Cihaz</p>
+            <p class="text-sm text-gray-600">Bilgisayar, tablet veya telefon</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-2xl">📶</span>
+          <div>
+            <p class="font-semibold">İnternet</p>
+            <p class="text-sm text-gray-600">En az 5 Mbps download hızı</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-2xl">🎥</span>
+          <div>
+            <p class="font-semibold">Kamera & Mikrofon</p>
+            <p class="text-sm text-gray-600">İletişim için gerekli</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="/dersler" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+        Online Dersleri Keşfet
+      </a>
+    </div>
+  </div>
+</Layout>

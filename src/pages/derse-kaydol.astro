@@ -1,0 +1,206 @@
+---
+// derse-kaydol.astro
+import Layout from '../layouts/Layout.astro';
+
+// URL'den parametreleri al (eğer varsa)
+const urlParams = Astro.url.searchParams;
+const tip = urlParams.get('tip') || 'bireysel';
+const paket = urlParams.get('paket') || '';
+const kurs = urlParams.get('kurs') || '';
+
+// Meta bilgiler
+const meta = {
+  title: 'Derse Kaydol | Başvuru ve Bilgi | İstanbul Eğitim Merkezi',
+  description: 'İstanbul Eğitim Merkezi\'nde derse kaydolmak için hemen başvurun. Size en uygun eğitmen ve ders programı için iletişime geçin.'
+};
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+    
+    <!-- Başlık -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Derse Kaydol</h1>
+      <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        İstanbul Eğitim Merkezi'nde size en uygun eğitmen ve ders programı için hemen başvurun. 
+        Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.
+      </p>
+    </div>
+
+    <!-- İki Seçenekli Kartlar -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      
+      <!-- Seçenek 1: Bireysel Kayıt -->
+      <div class={`bg-white rounded-2xl shadow-xl border-2 ${tip === 'bireysel' ? 'border-indigo-500 ring-2 ring-indigo-200' : 'border-gray-200'} hover:border-indigo-300 transition-all overflow-hidden`}>
+        <div class="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-6 text-center">
+          <span class="text-5xl mb-3 block">👤</span>
+          <h2 class="text-2xl md:text-3xl font-bold">Bireysel Kayıt</h2>
+          <p class="text-indigo-200">Kendiniz için ders almak istiyorum</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Kişiye Özel:</strong> Size özel ders programı</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Esnek Saatler:</strong> Size uygun zamanlarda ders</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Seviye Tespiti:</strong> Başlangıç seviyeniz belirlenir</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Online/Yüz Yüze:</strong> İstediğiniz formatta eğitim</span>
+            </li>
+          </ul>
+          
+          <div class="space-y-3">
+            
+            <a href="/iletisim" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold py-3 px-4 rounded-lg transition">
+              📞 İletişime geç
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seçenek 2: Kurumsal Kayıt -->
+      <div class={`bg-white rounded-2xl shadow-xl border-2 ${tip === 'kurumsal' ? 'border-orange-500 ring-2 ring-orange-200' : 'border-gray-200'} hover:border-orange-300 transition-all overflow-hidden`}>
+        <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 text-center">
+          <span class="text-5xl mb-3 block">🏢</span>
+          <h2 class="text-2xl md:text-3xl font-bold">Kurumsal Kayıt</h2>
+          <p class="text-orange-200">Şirketim/ekibim için ders almak istiyorum</p>
+        </div>
+        <div class="p-6">
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Özel Fiyatlandırma:</strong> Kurumsal indirimler</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Toplu Kayıt:</strong> Birden fazla çalışan için tek başvuru</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Raporlama:</strong> Gelişim takibi ve yönetici paneli</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 text-xl">✓</span>
+              <span><strong>Şirket İçi Eğitim:</strong> Kendi ofisinizde eğitim</span>
+            </li>
+          </ul>
+          
+          <div class="space-y-3">
+           
+            <a href="/ders-ucreti-isveren" class="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center font-semibold py-3 px-4 rounded-lg transition">
+              Kurumsal Bilgi Al
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popüler Kurslar - Hızlı Kayıt -->
+    <div class="bg-indigo-50 rounded-2xl p-8 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Popüler Kurslar İçin Hızlı Başvuru</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="https://wa.me/905555555555?text=İngilizce%20kursu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="bg-white p-4 rounded-xl hover:shadow-md transition flex flex-col items-center text-center">
+          <span class="text-3xl mb-2">🇬🇧</span>
+          <span class="font-semibold text-gray-900">İngilizce Kursu</span>
+          <span class="text-xs text-green-600 mt-1">WhatsApp'tan Bilgi Al</span>
+        </a>
+        <a href="https://wa.me/905555555555?text=Almanca%20kursu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="bg-white p-4 rounded-xl hover:shadow-md transition flex flex-col items-center text-center">
+          <span class="text-3xl mb-2">🇩🇪</span>
+          <span class="font-semibold text-gray-900">Almanca Kursu</span>
+          <span class="text-xs text-green-600 mt-1">WhatsApp'tan Bilgi Al</span>
+        </a>
+        <a href="https://wa.me/905555555555?text=Python%20kursu%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="bg-white p-4 rounded-xl hover:shadow-md transition flex flex-col items-center text-center">
+          <span class="text-3xl mb-2">🐍</span>
+          <span class="font-semibold text-gray-900">Python Kursu</span>
+          <span class="text-xs text-green-600 mt-1">WhatsApp'tan Bilgi Al</span>
+        </a>
+        <a href="https://wa.me/905555555555?text=Matematik%20özel%20ders%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="bg-white p-4 rounded-xl hover:shadow-md transition flex flex-col items-center text-center">
+          <span class="text-3xl mb-2">📐</span>
+          <span class="font-semibold text-gray-900">Matematik Özel Ders</span>
+          <span class="text-xs text-green-600 mt-1">WhatsApp'tan Bilgi Al</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Kayıt Süreci Adımları -->
+    <div class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8">Kayıt Süreci</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-indigo-600">1</div>
+          <h3 class="font-bold text-gray-900 mb-2">Başvuru</h3>
+          <p class="text-sm text-gray-600">WhatsApp veya telefon ile bize ulaşın</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-indigo-600">2</div>
+          <h3 class="font-bold text-gray-900 mb-2">Danışmanlık</h3>
+          <p class="text-sm text-gray-600">Uzmanlarımız ihtiyaçlarınızı dinler, size en uygun programı önerir</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-indigo-600">3</div>
+          <h3 class="font-bold text-gray-900 mb-2">Eğitmen Eşleştirme</h3>
+          <p class="text-sm text-gray-600">Size en uygun eğitmen ile eşleştirilirsiniz</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-indigo-600">4</div>
+          <h3 class="font-bold text-gray-900 mb-2">Ders Başlangıcı</h3>
+          <p class="text-sm text-gray-600">Ders programınız oluşturulur, eğitim başlar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neden Bizi Seçmelisiniz? -->
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Neden Bizi Seçmelisiniz?</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="text-center">
+          <span class="text-4xl mb-2 block">👨‍🏫</span>
+          <h3 class="font-bold mb-1">1500+ Uzman Eğitmen</h3>
+          <p class="text-sm text-indigo-200">Alanında deneyimli eğitmenler</p>
+        </div>
+        <div class="text-center">
+          <span class="text-4xl mb-2 block">🎓</span>
+          <h3 class="font-bold mb-1">8000+ Mezun</h3>
+          <p class="text-sm text-indigo-200">Mutlu öğrenciler, başarılı kariyerler</p>
+        </div>
+        <div class="text-center">
+          <span class="text-4xl mb-2 block">⏱️</span>
+          <h3 class="font-bold mb-1">Esnek Program</h3>
+          <p class="text-sm text-indigo-200">Size uygun saatlerde ders imkanı</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sık Sorulan Sorular -->
+    <div class="bg-white rounded-2xl shadow-md p-6">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Sık Sorulan Sorular</h2>
+      <div class="space-y-3">
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer text-gray-900">Kayıt işlemi ne kadar sürer?</summary>
+          <p class="mt-2 text-sm text-gray-600">Başvurunuzu aldıktan sonra gün içinde uzmanlarımız sizinle iletişime geçer. Eğitmen eşleştirme ve program oluşturma süreci ortalama 3-4 iş günü içinde tamamlanır.</p>
+        </details>
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer text-gray-900">Ödeme nasıl yapılıyor?</summary>
+          <p class="mt-2 text-sm text-gray-600">Ödemeler kredi kartı, banka havalesi veya EFT ile yapılabilir. Kurumsal müşterilerimize fatura düzenlenmektedir.</p>
+        </details>
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer text-gray-900">Dersleri online alabilir miyim?</summary>
+          <p class="mt-2 text-sm text-gray-600">Evet, dilediğiniz dersi online olarak alabilirsiniz. Zoom/Teams üzerinden canlı dersler gerçekleştirilmektedir.</p>
+        </details>
+        <details class="border border-gray-200 rounded-lg p-4">
+          <summary class="font-semibold cursor-pointer text-gray-900">Eğitmen değişikliği yapabilir miyim?</summary>
+          <p class="mt-2 text-sm text-gray-600">Memnun kalmadığınız durumda eğitmen değişikliği talep edebilirsiniz. Size daha uygun bir eğitmen ile eşleştirme yapılır.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</Layout>

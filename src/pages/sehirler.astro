@@ -1,0 +1,62 @@
+---
+// sehirler.astro
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Eğitim Verdiğimiz Şehirler | İstanbul Eğitim Merkezi',
+  description: 'İstanbul, Ankara, İzmir, Bursa, Antalya ve daha birçok şehirde yüz yüze ve online eğitim imkanı. Size en yakın eğitmeni bulun.'
+};
+
+const sehirler = [
+  { name: 'İstanbul', count: '500+', icon: '🏛️', desc: 'Anadolu ve Avrupa yakası' },
+  { name: 'Ankara', count: '200+', icon: '🏛️', desc: 'Başkent' },
+  { name: 'İzmir', count: '150+', icon: '🏖️', desc: 'Ege\'nin incisi' },
+  { name: 'Bursa', count: '80+', icon: '🏞️', desc: 'Yeşil Bursa' },
+  { name: 'Antalya', count: '60+', icon: '🌴', desc: 'Akdeniz\'in parlayan yıldızı' },
+  { name: 'Adana', count: '50+', icon: '🌾', desc: 'Çukurova' },
+  { name: 'Konya', count: '40+', icon: '🕌', desc: 'Bilim ve kültür şehri' },
+  { name: 'Gaziantep', count: '30+', icon: '🍴', desc: 'Gastronomi başkenti' },
+  { name: 'Kayseri', count: '25+', icon: '🏔️', desc: 'Anadolu\'nun kalbi' },
+  { name: 'Eskişehir', count: '35+', icon: '🎓', desc: 'Öğrenci şehri' },
+  { name: 'Samsun', count: '20+', icon: '🌊', desc: 'Karadeniz\'in incisi' },
+  { name: 'Trabzon', count: '15+', icon: '⛰️', desc: 'Yeşilin maviyle buluştuğu şehir' },
+  { name: 'Diyarbakır', count: '15+', icon: '🏰', desc: 'Suriçi\'nin büyüsü' },
+  { name: 'Erzurum', count: '10+', icon: '❄️', desc: 'Kış sporları şehri' },
+  { name: 'Muğla', count: '20+', icon: '🏖️', desc: 'Turizm cenneti' },
+  { name: 'Denizli', count: '15+', icon: '🦢', desc: 'Pamukkale' }
+];
+---
+
+<Layout title={meta.title} description={meta.description}>
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Eğitim Verdiğimiz Şehirler</h1>
+    <div class="w-24 h-1 bg-indigo-600 mb-8"></div>
+    
+    <p class="text-lg text-gray-700 mb-8 max-w-3xl">
+      İstanbul Eğitim Merkezi olarak Türkiye'nin dört bir yanında yüz yüze ve online eğitim veriyoruz. 
+      Size en yakın şehirdeki eğitmenlerimizle iletişime geçin.
+    </p>
+    
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {sehirler.map((sehir) => (
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+          <div class="text-4xl mb-3">{sehir.icon}</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-1">{sehir.name}</h2>
+          <p class="text-sm text-indigo-600 font-semibold mb-2">{sehir.count} eğitmen</p>
+          <p class="text-xs text-gray-500">{sehir.desc}</p>
+          <a href={`/egitmenler?sehir=${sehir.name.toLowerCase()}`} class="mt-3 text-indigo-600 text-sm font-medium hover:underline inline-block">
+            Eğitmenleri Gör →
+          </a>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 text-center">
+      <h2 class="text-2xl font-bold mb-3">Şehriniz listede yok mu?</h2>
+      <p class="mb-4">Online eğitim ile dilediğiniz yerden ders alabilirsiniz.</p>
+      <a href="/dersler" class="inline-block bg-white text-indigo-600 font-semibold py-2 px-6 rounded-full hover:bg-indigo-50 transition">
+        Online Dersleri İncele
+      </a>
+    </div>
+  </div>
+</Layout>
