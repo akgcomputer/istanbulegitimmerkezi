@@ -8,6 +8,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^11.2.0",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^4.16.18",
     "resend": "^4.0.0",
