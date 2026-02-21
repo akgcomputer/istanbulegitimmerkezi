@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "cf-build": "astro build"
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
