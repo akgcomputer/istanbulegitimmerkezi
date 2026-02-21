@@ -12,6 +12,10 @@ import { courses as sporCourses } from '../../data/courses-spor';
 import { courses as sanatCourses } from '../../data/courses-sanat';
 import { courses as genelCourses } from '../../data/courses-genel';
 
+// DEBUG: Importların geldiğini kontrol et
+console.log('Bilişim kurs sayısı:', bilisimCourses?.length);
+console.log('Dil kurs sayısı:', dilCourses?.length);
+
 export async function getStaticPaths() {
   // Tüm kursları tek bir dizide topla (burada tanımla)
   const tumKurslar = [

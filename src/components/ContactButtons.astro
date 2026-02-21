@@ -1,11 +1,19 @@
 ---
-import { siteConfig } from '../data/siteConfig';
+// import { siteConfig } from '../data/siteConfig';  // BUNU GEÇİCİ KAPATTIK
+
+// siteConfig'i 
+const siteConfig = {
+  phone: "905412465429",
+  whatsapp: "905412465429",
+  email: "iletisim@istanbulegitimmerkezi.com"
+};
 
 const { courseTitle } = Astro.props;
 const defaultMsg = "Bilgi almak istiyorum.";
 const message = courseTitle ? `${courseTitle} dersi hakkında bilgi almak istiyorum.` : defaultMsg;
 const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
 const telUrl = `tel:${siteConfig.phone}`;
+
 ---
 
 <div class="flex flex-wrap gap-4 my-6">
