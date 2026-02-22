@@ -11,8 +11,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { slug } = Astro.params;
-const course = courses.find(c => c.slug === slug);
+const { course } = Astro.props;  // ✅ Props'tan doğrudan al
 
 const renderStars = (rating) => {
   if (!rating) return '';

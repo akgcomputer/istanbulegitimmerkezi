@@ -1,81 +1,29 @@
 ---
-// egitmen/[slug].astro
-
+// src/pages/egitmen/[slug].astro
 import Layout from '../../layouts/Layout.astro';
-import ContactButtons from '../../components/ContactButtons.astro';
+import { getAllInstructors } from '../../lib/instructors';
 
-// Tüm kurs dosyalarını import et
-import { courses as bilisimCourses } from '../../data/courses-bilisim';
-import { courses as dilCourses } from '../../data/courses-dil';
-import { courses as ilkogretimCourses } from '../../data/courses-ilkogretim';
-import { courses as liseCourses } from '../../data/courses-lise';
-import { courses as sporCourses } from '../../data/courses-spor';
-import { courses as sanatCourses } from '../../data/courses-sanat';
-import { courses as genelCourses } from '../../data/courses-genel';
-
-// Tüm kursları tek bir dizide topla
-const tumKurslar = [
-  ...bilisimCourses,
-  ...dilCourses,
-  ...ilkogretimCourses,
-  ...liseCourses,
-  ...sporCourses,
-  ...sanatCourses,
-  ...genelCourses
-];
-
-// Tüm eğitmenleri topla (benzersiz)
-const tumEgitmenler = [];
-const egitmenSlugSet = new Set();
-
-tumKurslar.forEach(kurs => {
-  if (kurs.instructors && Array.isArray(kurs.instructors)) {
-    kurs.instructors.forEach(egitmen => {
-      if (!egitmenSlugSet.has(egitmen.slug)) {
-        egitmenSlugSet.add(egitmen.slug);
-        
-        // Eğitmenin verdiği tüm kursları bul
-        const verdigiKurslar = tumKurslar.filter(k => 
-          k.instructors && Array.isArray(k.instructors) && 
-          k.instructors.some(i => i.slug === egitmen.slug)
-        ).map(k => ({
-          slug: k.slug,
-          title: k.title,
-          category: k.category,
-          breadcrumb: k.breadcrumb,
-          image: k.image,
-          instructorInfo: k.instructors.find(i => i.slug === egitmen.slug)
-        }));
-        
-        tumEgitmenler.push({
-          ...egitmen,
-          verdigiKurslar
-        });
-      }
-    });
-  }
-});
-
+// ✅ getStaticPaths: Utility fonksiyonunu kullan
 export async function getStaticPaths() {
-  return tumEgitmenler.map((egitmen) => ({
+  const egitmenler = getAllInstructors();
+  
+  return egitmenler.map((egitmen) => ({
     params: { slug: egitmen.slug },
     props: { egitmen },
   }));
 }
 
-// BU KISMI DEĞİŞTİR - 2. koddaki mantıkla!
-const { slug } = Astro.params;
-const egitmen = tumEgitmenler.find(e => e.slug === slug);
+// ✅ Props üzerinden eğitmeni al (Astro.params DEĞİL!)
+const { egitmen } = Astro.props;
 
-// Eğer eğitmen bulunamazsa 404'e yönlendir
+// Güvenlik kontrolü
 if (!egitmen) {
-  return Astro.redirect('/404');
+  throw new Error('Eğitmen bulunamadı');
 }
 
-// İsmin baş harfini al
-const nameInitial = egitmen.name ? egitmen.name.charAt(0).toUpperCase() : '?';
+// Yardımcı değişkenler
+const nameInitial = egitmen.name?.charAt(0).toUpperCase() ?? '?';
 
-// Eğitmenin uzmanlık alanları için renkler
 const specialtyColors = [
   'bg-orange-100 text-orange-700',
   'bg-blue-100 text-blue-700',
@@ -88,148 +36,83 @@ const specialtyColors = [
 
 <Layout title={`${egitmen.name || 'Eğitmen'} | Eğitmen Profili | İstanbul Eğitim Merkezi`}>
   <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Üst Bölüm (Hero Section) - Gradient Arka Plan -->
-    <div class="bg-gray-900 from-orange-50 to-amber-50 rounded-2xl shadow-lg border border-orange-100 p-6 md:p-8 mb-8">
+    
+    {/* HERO SECTION */}
+    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-lg p-6 md:p-8 mb-8">
       <div class="flex flex-col md:flex-row gap-8 items-start">
-        <!-- Profil Fotoğrafı (İsmin Baş Harfi ile) - Turuncu tonlar -->
         <div class="flex-shrink-0">
-          <div class="w-32 h-32 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+          <div class="w-32 h-32 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-lg">
             <span class="text-5xl font-bold text-white">{nameInitial}</span>
           </div>
         </div>
-
-        <!-- Profil Bilgileri -->
         <div class="flex-1">
-          <div class="flex flex-wrap items-start justify-between gap-4 mb-3">
-            <div>
-              <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">{egitmen.name}</h1>
-              <div class="flex flex-wrap items-center gap-4">
-                <!-- Lokasyon -->
-                {egitmen.location && (
-                  <div class="flex items-center gap-1 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
-                    <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <span class="text-gray-700 font-medium">{egitmen.location}</span>
-                  </div>
-                )}
-                
-                <!-- Aktiflik Durumu -->
-                <div class="flex items-center gap-1 bg-green-50 px-3 py-1 rounded-full shadow-sm">
-                  <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
-                  <span class="text-green-700 font-medium">Ders Verebilir</span>
-                </div>
-                
-                <!-- Deneyim -->
-                {egitmen.since && (
-                  <div class="flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full shadow-sm">
-                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span class="text-blue-700 font-medium">{new Date().getFullYear() - egitmen.since} yıllık deneyim</span>
-                  </div>
-                )}
-
-                <!-- Puan -->
-                {egitmen.rating && (
-                  <div class="flex items-center gap-1 bg-purple-50 px-3 py-1 rounded-full shadow-sm">
-                    <span class="text-yellow-400 text-lg">⭐</span>
-                    <span class="font-semibold text-purple-700">{egitmen.rating}</span>
-                  </div>
-                )}
-              </div>
-            </div>
+          <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">{egitmen.name}</h1>
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            {egitmen.location && (
+              <span class="bg-white/90 px-3 py-1 rounded-full text-sm text-gray-700">
+                📍 {egitmen.location}
+              </span>
+            )}
+            {egitmen.rating && (
+              <span class="bg-yellow-100 px-3 py-1 rounded-full text-sm text-yellow-800">
+                ⭐ {egitmen.rating}
+              </span>
+            )}
           </div>
+          {egitmen.bio && <p class="text-gray-300 leading-relaxed">{egitmen.bio}</p>}
         </div>
       </div>
     </div>
 
-    <!-- 2. Hakkında Bölümü - Mavi tonlar -->
-    {egitmen.bio && (
-      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <span class="text-blue-500 text-3xl">📋</span>
-          Eğitmen Hakkında
-        </h2>
-        <p class="text-gray-700 leading-relaxed mb-6 text-lg">{egitmen.bio}</p>
-        
-        <!-- Uzmanlık Alanları (Tags) -->
-        {egitmen.specialties && egitmen.specialties.length > 0 && (
-          <div>
-            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
-              <span class="text-blue-500">⚡</span>
-              Uzmanlık Alanları
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              {egitmen.specialties.map((specialty, index) => (
-                <span 
-                  key={index}
-                  class={`px-4 py-2 rounded-full text-sm font-medium shadow-sm ${specialtyColors[index % specialtyColors.length]}`}
-                >
-                  {specialty}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+    {/* UZMANLIK ALANLARI */}
+    {egitmen.specialties?.length > 0 && (
+      <div class="bg-blue-50 rounded-xl p-6 mb-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-3">⚡ Uzmanlık Alanları</h2>
+        <div class="flex flex-wrap gap-2">
+          {egitmen.specialties.map((specialty: string, index: number) => (
+            <span 
+              key={index}
+              class={`px-4 py-2 rounded-full text-sm font-medium ${specialtyColors[index % specialtyColors.length]}`}
+            >
+              {specialty}
+            </span>
+          ))}
+        </div>
       </div>
     )}
 
-    <!-- 3. Verdiği Dersler - Yeşil tonlar -->
-    {egitmen.verdigiKurslar && egitmen.verdigiKurslar.length > 0 && (
-      <div class="bg-gray-800 from-orange to-emerald-50 rounded-2xl shadow-lg border border-green-100 p-6 md:p-8 mb-8">
-        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-          <span class="text-green-500 text-3xl">📚</span>
-          Verdiği Dersler
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {egitmen.verdigiKurslar.map((kurs) => {
-            // Kategoriye göre link oluştur
-            let kategoriLink = 'genel';
-            if (kurs.category?.toLowerCase().includes('bilişim') || kurs.category?.toLowerCase().includes('yazılım')) {
-              kategoriLink = 'bilisim';
-            } else if (kurs.category?.toLowerCase().includes('dil')) {
-              kategoriLink = 'dil';
-            } else if (kurs.category?.toLowerCase().includes('spor')) {
-              kategoriLink = 'spor';
-            } else if (kurs.category?.toLowerCase().includes('sanat')) {
-              kategoriLink = 'sanat';
-            } else if (kurs.category?.toLowerCase().includes('lise')) {
-              kategoriLink = 'lise';
-            } else if (kurs.category?.toLowerCase().includes('ilköğretim')) {
-              kategoriLink = 'ilkogretim';
-            }
+    {/* VERDİĞİ KURSLAR */}
+    {egitmen.verdigiKurslar?.length > 0 && (
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">📚 Verdiği Dersler</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {egitmen.verdigiKurslar.map((kurs: any) => {
+            const getKategoriPrefix = (category: string) => {
+              const cat = category?.toLowerCase() || '';
+              if (cat.includes('bilişim') || cat.includes('yazılım')) return 'bilisim';
+              if (cat.includes('dil')) return 'dil';
+              if (cat.includes('spor')) return 'spor';
+              if (cat.includes('sanat')) return 'sanat';
+              if (cat.includes('lise')) return 'lise';
+              if (cat.includes('ilköğretim')) return 'ilkogretim';
+              return 'genel';
+            };
+            const prefix = getKategoriPrefix(kurs.category);
+            const instructorInfo = kurs.instructorInfo;
             
             return (
               <a 
-                href={`/kurs-${kategoriLink}/${kurs.slug}`}
-                class="group bg-white hover:bg-green-50 rounded-xl overflow-hidden hover:shadow-xl transition-all border border-green-200 hover:border-green-300"
+                href={`/kurs-${prefix}/${kurs.slug}`}
+                class="block bg-white rounded-xl p-4 shadow hover:shadow-lg transition border border-gray-100"
               >
-                <div class="p-5">
-                  <div class="flex items-center gap-2 text-sm text-green-600 mb-2">
-                    <span class="px-3 py-1 bg-green-100 rounded-full text-xs font-medium">
-                      {kurs.breadcrumb ? kurs.breadcrumb.split('>')[0] : 'Kurs'}
-                    </span>
-                  </div>
-                  <h3 class="font-semibold text-gray-800 group-hover:text-green-600 mb-3 line-clamp-2 text-lg">
-                    {kurs.title}
-                  </h3>
-                  <div class="flex items-center justify-between text-sm">
-                    <div class="flex items-center gap-2">
-                      {kurs.instructorInfo && kurs.instructorInfo.corporate && (
-                        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full">
-                          Kurumsal
-                        </span>
-                      )}
-                      {kurs.instructorInfo && kurs.instructorInfo.online && (
-                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
-                          Online
-                        </span>
-                      )}
-                    </div>
-                    <span class="text-base font-bold text-orange-500">{kurs.instructorInfo?.privatePrice}₺</span>
+                <div class="flex items-start gap-3">
+                  <img src={kurs.image} alt={kurs.title} class="w-16 h-16 rounded-lg object-cover flex-shrink-0" />
+                  <div class="flex-1 min-w-0">
+                    <h3 class="font-semibold text-gray-800 line-clamp-2 hover:text-indigo-600">{kurs.title}</h3>
+                    <p class="text-xs text-gray-500 mt-1">{kurs.category}</p>
+                    {instructorInfo?.privatePrice && (
+                      <p class="text-orange-600 font-bold mt-2">{instructorInfo.privatePrice}₺</p>
+                    )}
                   </div>
                 </div>
               </a>
@@ -239,99 +122,23 @@ const specialtyColors = [
       </div>
     )}
 
-    <!-- 4. Ders Seçenekleri (Kurumsal ve Online) - Mor tonlar -->
-    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl shadow-lg border border-purple-100 p-6 md:p-8 mb-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-        <span class="text-purple-500 text-3xl">⚙️</span>
-        Ders Seçenekleri
-      </h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Kurumsal Eğitim -->
-        <div class="flex items-start gap-4 p-5 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all border border-purple-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Kurumsal Eğitim</h3>
-            <p class="text-gray-600 mb-3">
-              {egitmen.corporate 
-                ? 'Şirketiniz için özel programlar ve kurumsal indirimler mevcut.' 
-                : 'Şu anda kurumsal eğitim vermiyor.'}
-            </p>
-            <div class="flex items-center gap-2">
-              <span class={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium ${egitmen.corporate ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                <span class={`w-2 h-2 rounded-full ${egitmen.corporate ? 'bg-green-500' : 'bg-gray-400'}`}></span>
-                {egitmen.corporate ? 'Kurumsal eğitim veriyor' : 'Kurumsal eğitim vermiyor'}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Online Eğitim -->
-        <div class="flex items-start gap-4 p-5 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all border border-purple-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Online Eğitim</h3>
-            <p class="text-gray-600 mb-3">
-              {egitmen.online
-                ? 'Derslerinizi online olarak, dilediğiniz yerden alabilirsiniz.'
-                : 'Şu anda sadece yüz yüze eğitim veriyor.'}
-            </p>
-            <div class="flex items-center gap-2">
-              <span class={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium ${egitmen.online ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                <span class={`w-2 h-2 rounded-full ${egitmen.online ? 'bg-green-500' : 'bg-gray-400'}`}></span>
-                {egitmen.online ? 'Online ders veriyor' : 'Online ders vermiyor'}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- İletişim Butonları - Turuncu gradient -->
-    <div class="bg-gray-900 from-orange-500 to-amber-500 rounded-2xl shadow-xl p-8 mb-8">
-      <div class="text-center mb-6">
-        <h2 class="text-3xl font-bold text-white mb-3">Hemen İletişime Geçin</h2>
-        <p class="text-orange-100 text-lg">
-          {egitmen.name} ile iletişime geçerek dersler hakkında detaylı bilgi alabilirsiniz.
-        </p>
-      </div>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <!-- WhatsApp Butonu -->
+    {/* İLETİŞİM BUTONLARI */}
+    <div class="bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl p-6 text-center">
+      <h3 class="text-xl font-bold text-white mb-4">📞 Hemen İletişime Geçin</h3>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a 
           href={`https://wa.me/905555555555?text=${encodeURIComponent(`${egitmen.name} hocamdan eğitim almak istiyorum.`)}`}
           target="_blank"
-          class="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          rel="noopener noreferrer"
+          class="bg-white text-orange-600 hover:bg-orange-50 px-6 py-3 rounded-full font-semibold transition"
         >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.177.181-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.087.277.072.379-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087.159.058 1.011.477 1.184.564.173.087.289.13.332.202.043.072.043.419-.101.824z"/>
-          </svg>
-          WhatsApp'tan Yaz
+          💬 WhatsApp'tan Yaz
         </a>
-        
-        <!-- Ders Talep Butonu -->
-        <a 
-          href="/derse-kaydol"
-          class="inline-flex items-center justify-center gap-3 bg-white hover:bg-orange-50 text-orange-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          Ders Talep Et
+        <a href="/derse-kaydol" class="bg-orange-700 text-white hover:bg-orange-800 px-6 py-3 rounded-full font-semibold transition">
+          📝 Ders Talep Et
         </a>
       </div>
-      
-      <p class="text-center text-orange-100 text-sm mt-6">
-        * WhatsApp hattımız aracılığı ile bilgi alabilir, Ders Talep Et butonuna tıklayarak başvuru formunu doldurabilirsiniz.
-      </p>
     </div>
+
   </div>
 </Layout>
