@@ -20,6 +20,16 @@ const { title, description = "İstanbul Eğitim Merkezi – Bilişim ve teknoloj
     <title>{title}</title>
     <meta name="description" content={description} />
     
+
+<!-- 🎨 Favicon: SVG ile "İST" yazısı (resim dosyası gerekmez) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f97316'/%3E%3Ctext x='50' y='72' font-family='system-ui, sans-serif' font-size='56' font-weight='700' fill='white' text-anchor='middle'%3EİST%3C/text%3E%3C/svg%3E" />
+  
+  <!-- PNG fallback (isteğe bağlı) -->
+  <link rel="icon" type="image/png" href="/images/fav.png" />
+  
+  <!-- Apple Touch Icon (iOS için) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fav.png" />
+  
     <!-- Font Awesome (Bu kalabilir, harici bir kütüphane) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     

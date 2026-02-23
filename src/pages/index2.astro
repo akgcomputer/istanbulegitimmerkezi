@@ -19,30 +19,6 @@ const allCourses = [
   ...digerCourses
 ];
 
-// Kategoriye göre link prefix'i belirleme fonksiyonu
-const getKursLink = (course) => {
-  // Kategori kontrolü
-  if (course.category?.toLowerCase().includes('bilişim') || 
-      course.category?.toLowerCase().includes('yazılım') ||
-      course.category?.toLowerCase().includes('bilisim')) {
-    return `/kurs-bilisim/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('dil')) {
-    return `/kurs-dil/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('spor')) {
-    return `/kurs-spor/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('sanat')) {
-    return `/kurs-sanat/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('lise') || 
-             course.category?.toLowerCase().includes('sınav')) {
-    return `/kurs-lise/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('ilköğretim')) {
-    return `/kurs-ilkogretim-5-6-7-8-siniflar/${course.slug}`;
-  } else {
-    // Varsayılan genel
-    return `/kurs-genel/${course.slug}`;
-  }
-};
-
 // Rastgele 12 kurs seç (sayfa her yenilendiğinde değişir)
 const randomCourses = allCourses.sort(() => 0.5 - Math.random()).slice(0, 12);
 
@@ -68,32 +44,27 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
     
     <div class="relative max-w-7xl mx-auto px-4 py-20 sm:py-28 text-center">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight animate-fade-in">
-  <span class="text-yellow-300">Öğrenmek</span> ve <span class="text-yellow-300">Öğretmek</span> 
-  <br>İçin Doğru Adres
-</h1>
-
-<p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto animate-fade-in delay-200">
-  İster yeni bir şey öğrenmek isteyen bir öğrenci, ister bilginizi paylaşmak isteyen bir eğitmen olun,
-  <br class="hidden md:block" />Türkiye'nin ilk eğitim pazaryerinde buluşuyoruz.
-</p>
-
-<p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto">
-  <span class="font-bold text-yellow-300">Öğrenciler:</span> Size en uygun eğitmeni bulun, hedeflerinize ulaşın.
-  <br />
-  <span class="font-bold text-yellow-300">Eğitmenler:</span> %0 komisyonla derslerinizi yayınlayın, kazancınızın tamamı size kalsın.
-</p>
-
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-  <a href="/dersler" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-    📚 Kursları Keşfet
-  </a>
-  <a href="/egitmen-basvuru" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1">
-    🎓 Eğitmen Ol
-  </a>
-</div>
-<p class="mt-8 text-indigo-200 text-sm text-bold">
-  ⭐ İstanbul<span  class="font-bold text-yellow-300">Egitim</span>Merkezi.com'a başvuru yapan 1500+ uzman eğitmen, 8000+ mutlu öğrenci. Siz de aramıza katılın!
-</p>
+        Eğitmenler <span class="text-yellow-300">Öğretmenler</span> Hocalar
+      </h1>
+	  
+	  <p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto animate-fade-in delay-200">
+		Bilgi paylaştıkça çoğalır; şimdi sıra kazancı çoğaltmakta.
+      <p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto">
+        Siz nasıl isterseniz öyle olsun dedik,
+		<br>Türkiye'nin ilk eğitim pazaryerinde, komisyonsuz kazanç ile fırsat sunuyoruz!
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/dersler" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+          Kursları Keşfet
+        </a>
+        <a href="/egitmen-basvuru" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1">
+          Eğitmen Ol
+        </a>
+      </div>
+      <p class="mt-8 text-indigo-200 text-sm">
+        ⭐ Değerli Eğitim Gönüllüsü Arkadaşım Sizi de Aramızda Görmek İsteriz!
+      </p>
+    </div>
   </section>
 
   <!-- Eğitmen Slider'ı (manuel kaydırma butonlu) -->
@@ -102,7 +73,7 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
       <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
       Öne Çıkan Eğitmenler
     </h2>
-    <p class="text-gray-600 mb-8">Alanında uzman eğitmenlerimizden bazıları ile tanışın.</p>
+    <p class="text-gray-600 mb-8">Alanında uzman eğitmenlerimizle tanışın.</p>
 
     <div class="relative">
       <div id="instructor-slider" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 pb-4">
@@ -148,7 +119,7 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
   <!-- Eğitmenler İçin Fırsat Bölümü -->
 <section class="bg-gray-900 text-white py-16 my-12 rounded-3xl">
   <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-    <div class="md:w-2/3">
+    <div class="md:w-1/2">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
         Eğitmen misiniz? <span class="text-orange-400">%0 Komisyon</span> ile derslerinizi yayınlayın!
       </h2>
@@ -161,9 +132,6 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
         </a>
         <a href="/egitmenler" class="bg-transparent border border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition">
           Eğitmenlerimizi Keşfedin
-        </a>
-        <a href="/fiyatlar" class="bg-green-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl">
-          Fiyatlandırma ve Modeller →
         </a>
       </div>
       <p class="text-sm text-gray-400 mt-4">
@@ -186,16 +154,15 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
       <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
       Popüler Kurslar
     </h2>
-    <p class="text-gray-600 mb-8">En çok ilgi gören eğitimlerimiz siz de inceleyebilirsiniz.</p>
+    <p class="text-gray-600 mb-8">En çok ilgi gören eğitimlerimiz.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {popularCourses.map(course => {
         const minPrice = Math.min(...course.instructors.map(i => i.privatePrice));
         const maxPrice = Math.max(...course.instructors.map(i => i.privatePrice));
         const priceText = minPrice === maxPrice ? `${minPrice}₺` : `${minPrice}₺ - ${maxPrice}₺`;
-        const kursLink = getKursLink(course);
         return (
-          <a href={kursLink} class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
+          <a href={`/kurs/${course.slug}`} class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
             <img src={course.image} alt={course.title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
             <div class="p-5">
               <h3 class="text-lg font-semibold text-gray-800 group-hover:text-indigo-600 line-clamp-2">{course.title}</h3>
@@ -304,9 +271,8 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {randomCourses.map(course => {
         const minPrice = Math.min(...course.instructors.map(i => i.privatePrice));
-        const kursLink = getKursLink(course);
         return (
-          <a href={kursLink} class="group bg-white rounded-xl shadow hover:shadow-lg transition-all border border-gray-100 overflow-hidden">
+          <a href={`/kurs/${course.slug}`} class="group bg-white rounded-xl shadow hover:shadow-lg transition-all border border-gray-100 overflow-hidden">
             <img src={course.image} alt={course.title} class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
             <div class="p-4">
               <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600 line-clamp-1">{course.title}</h3>

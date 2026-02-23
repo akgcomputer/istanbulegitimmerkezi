@@ -1,0 +1,558 @@
+---
+// src/pages/fiyatlar.astro
+import Layout from '../layouts/Layout.astro';
+
+// SEO Meta Bilgileri
+const pageTitle = "Eğitmen Fiyatlandırma | İstanbul Eğitim Merkezi";
+const pageDescription = "İstanbul Eğitim Merkezi'nde eğitmen olun! %0 komisyonlu paketler veya tek ödeme %10 komisyonlu seçenek ile derslerinizi yayınlayın. Esnek kazanç modelleri.";
+const pageKeywords = "eğitmen fiyatları, özel ders platformu, eğitmen üyelik, komisyon oranları, eğitim pazaryeri, istanbul eğitim merkezi";
+const canonicalUrl = "https://istanbulegitimmerkezi.com/fiyatlar";
+const ogImage = "https://istanbulegitimmerkezi.com/images/fiyatlar-og.jpg";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json" set:html={`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "${pageTitle}",
+      "description": "${pageDescription}",
+      "publisher": {
+        "@type": "Organization",
+        "name": "İstanbul Eğitim Merkezi",
+        "url": "https://istanbulegitimmerkezi.com"
+      },
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Komisyonlu modelde ne kadar ödeyeceğim?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Komisyonlu modelde tek seferlik 50 TL üyelik ücreti ödersiniz. Yıllık ücret yoktur. Her ders satışından %10 komisyon kesilir."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Komisyonsuz modelde nasıl ödeme yapılır?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Komisyonsuz modelde aylık paket ücreti ödersiniz. Kazancınızdan herhangi bir komisyon kesilmez, kazancınızın tamamı size kalır."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Modelimi daha sonra değiştirebilir miyim?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Evet, dilediğiniz zaman komisyonlu veya komisyonsuz model arasında geçiş yapabilirsiniz. Değişiklikler bir sonraki faturalandırma döneminde geçerli olur."
+            }
+          }
+        ]
+      }
+    }
+  `} />
+
+  <main class="flex-grow">
+    
+    <!-- HERO: Model Seçimi -->
+    <section class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white py-12 md:py-16">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-4">
+          🎓 Değerli Öğretmen Arkadaşım
+        </span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+          Kazanç Modelinizi <span class="text-yellow-300">Kendin SEÇ</span>
+        </h1>
+        <p class="text-lg text-indigo-100 mb-8 max-w-2xl mx-auto">
+          Esnek kazanç modellerimizle, size en uygun şekilde derslerinizi yayınlayın. 
+          <br class="hidden md:block" />İster komisyonlu, ister komisyonsuz — karar sizin!
+        </p>
+      </div>
+    </section>
+
+    <!-- MODEL SEÇİM KARTLARI (Sayfa Üstü - Anchor Link) -->
+    <section class="max-w-6xl mx-auto px-4 -mt-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- 🔹 Komisyonlu Model -->
+        <a 
+          href="#komisyonlu" 
+          class="group bg-white rounded-2xl shadow-lg border border-gray-200 p-6 hover:shadow-xl hover:border-orange-300 transition-all block"
+        >
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-orange-200 transition">
+              <span class="text-2xl">💼</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition">
+                💰 Komisyonlu Model
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Yıllık ücret <strong class="text-green-600">yok</strong>. 
+                Her satıştan <strong class="text-orange-600">%10 komisyon</strong>.
+              </p>
+              <span class="inline-flex items-center text-orange-600 text-sm font-medium group-hover:gap-2 transition-all">
+                Detayları Gör →
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 🔹 Komisyonsuz Model -->
+        <a 
+          href="#komisyonsuz" 
+          class="group bg-white rounded-2xl shadow-lg border border-gray-200 p-6 hover:shadow-xl hover:border-indigo-300 transition-all block"
+        >
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-200 transition">
+              <span class="text-2xl">✨</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition">
+                🎯 %0 Komisyonlu Model
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">
+                Aylık <strong class="text-indigo-600">paket ücreti</strong> ödersiniz. 
+                Kazancınızdan <strong class="text-green-600">hiçbir komisyon kesilmez</strong>. 
+                Kazancınızın tamamı size kalır.
+              </p>
+              <span class="inline-flex items-center text-indigo-600 text-sm font-medium group-hover:gap-2 transition-all">
+                Detayları Gör →
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- KOMİSYONLU MODEL DETAY -->
+    <section id="komisyonlu" class="py-16 md:py-20 bg-white border-t">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+            <span class="text-2xl">💼</span>
+          </div>
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Komisyonlu Model</h2>
+            <p class="text-gray-500">Tek ödeme, esnek kullanım</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          
+          <!-- Sol: Özet Kart -->
+          <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 md:p-8 border border-orange-200">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">📋 Özet</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="text-orange-500 mt-1">✓</span>
+                <span class="text-gray-700"><strong>Tek seferlik 50 TL</strong> üyelik ücreti</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-orange-500 mt-1">✓</span>
+                <span class="text-gray-700"><strong>Yıllık ücret yok</strong> — tekrar ödeme yapmazsınız</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-orange-500 mt-1">✓</span>
+                <span class="text-gray-700">Her ders satışından <strong>%10 komisyon</strong></span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-orange-500 mt-1">✓</span>
+                <span class="text-gray-700">Profil listeleme + temel öğrenci eşleştirme</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-orange-500 mt-1">✓</span>
+                <span class="text-gray-700">Sınırsız ders ilanı ekleme</span>
+              </li>
+            </ul>
+            
+            <div class="mt-6 p-4 bg-white rounded-xl border border-orange-100">
+              <p class="text-sm text-gray-600">
+                <strong class="text-orange-600">💡 Örnek:</strong> 200 TL'lik bir ders sattığınızda, 
+                <strong>180 TL</strong> size, <strong>20 TL</strong> platform komisyonu olur.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sağ: Kimler İçin Uygun? -->
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 Kimler İçin Uygun?</h3>
+            <ul class="space-y-3">
+              
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">•</span>
+                <span class="text-gray-700">Yeni başlayan ve düşük riskle denemek isteyen eğitmenler</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">•</span>
+                <span class="text-gray-700">Düzensiz ders veren, ayda 1-2 öğrenci ile çalışanlar</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">•</span>
+                <span class="text-gray-700">Başlangıçta sabit ücret ödemek istemeyenler</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">•</span>
+                <span class="text-gray-700">"Önce deneyeyim, beğenirsem yükseltirim" diyenler</span>
+              </li>
+            </ul>
+
+            <div class="mt-8 p-5 bg-gray-50 rounded-xl border">
+              <h4 class="font-semibold text-gray-800 mb-2">⚠️ Dikkat Edilmesi Gerekenler</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Amacımız eğitmenlerimizin en yüksek oranda fayda almasıdır.
+                    <br>%10 Komisyon yüksek bir oran ise üyelik tercih edebilirsiniz.</li>
+                <li>• Profiliniz "Standart" görünümdedir, öne çıkarma özelliği yoktur</li>
+                <li>• İstediğiniz zaman komisyonsuz modele geçiş yapabilirsiniz</li>
+                <li>• Mutlaka reklam için harcama yapmalısınız.</li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <a 
+                href="/egitmen-basvuru" 
+                class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition shadow-md hover:shadow-lg"
+              >
+                Bu Modelle Başvur →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KOMİSYONSUZ MODEL DETAY -->
+    <section id="komisyonsuz" class="py-16 md:py-20 bg-gray-50 border-t">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+            <span class="text-2xl">✨</span>
+          </div>
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800">%0 Komisyonlu Model</h2>
+            <p class="text-gray-500">En Çok Tercih Edilen Kullanım, Aylık Paket, Maksimum Kazanç</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          
+          <!-- Sol: Paket Kartları -->
+          <div class="space-y-4">
+            
+            <!-- 🌱 Başlangıç -->
+            <div class="bg-white rounded-xl p-5 border border-gray-200 hover:border-indigo-300 transition">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-bold text-gray-800">🌱 Başlangıç</h4>
+                <span class="text-lg font-bold text-indigo-600">49₺<span class="text-sm font-normal text-gray-500">/ay</span></span>
+              </div>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Profil listeleme
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Temel öğrenci eşleştirme
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> <strong>1 ders ilanı</strong> yayınlama
+                </li>
+                <li class="flex items-start gap-2 text-gray-400">
+                  <span>✗</span> Öne çıkan profil
+                </li>
+              </ul>
+            </div>
+
+            <!-- 🚀 Profesyonel (Önerilen) -->
+            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-5 border-2 border-indigo-300 relative">
+              <span class=" -top-3 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                ⭐ En Popüler
+              </span>
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-bold text-gray-800">🚀 Profesyonel</h4>
+                <span class="text-lg font-bold text-indigo-600">99₺<span class="text-sm font-normal text-gray-500">/ay</span></span>
+              </div>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> <strong>Öne çıkan profil</strong> (ana sayfada)
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Profil listeleme + gelişmiş eşleştirme
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> <strong>3 ders ilanı</strong> yayınlama
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Reklam desteği (haftalık öne çıkarma)
+                </li>
+              </ul>
+            </div>
+
+            <!-- 🏆 Kurumsal -->
+            <div class="bg-white rounded-xl p-5 border border-gray-200 hover:border-indigo-300 transition">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-bold text-gray-800">🏆 Kurumsal</h4>
+                <span class="text-lg font-bold text-indigo-600">199₺<span class="text-sm font-normal text-gray-500">/ay</span></span>
+              </div>
+              <ul class="text-sm text-gray-600 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Tüm Profesyonel özellikler
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> <strong>8 ders ilanı</strong> yayınlama
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Özel landing page + öncelikli destek
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-500">✓</span> Aylık performans danışmanlığı
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Sağ: Açıklama + Avantajlar -->
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 Neden Komisyonsuz Model?</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="text-indigo-500 mt-1">✓</span>
+                <span class="text-gray-700"><strong>Kazancınızın tamamı size kalır</strong> — hiçbir kesinti yok</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-indigo-500 mt-1">✓</span>
+                <span class="text-gray-700">Yüksek hacimde ders satıyorsanız çok daha karlı</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-indigo-500 mt-1">✓</span>
+                <span class="text-gray-700">Öne çıkan profil ile daha fazla öğrenciye ulaşın</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-indigo-500 mt-1">✓</span>
+                <span class="text-gray-700">Dilediğiniz zaman paketinizi yükseltebilir veya düşürebilirsiniz</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-indigo-500 mt-1">✓</span>
+                <span class="text-gray-700">Ödemeler yıllık yapılmaktadır, kdv eklenecektir.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-indigo-500 mt-1">✓</span>
+                <span class="text-gray-700">Her iki model için de eğitim alacak tarafından yapılacak ödemelerde banka kesintileri ve vergilendirmeler düşüldükten sonra tarafınıza ödeme yapılır.</span>
+              </li>
+            </ul>
+
+            <div class="mt-6 p-4 bg-white rounded-xl border border-indigo-100">
+              <p class="text-sm text-gray-600">
+                <strong class="text-indigo-600">💡 Örnek:</strong> Ayda 10 ders x 2.000 TL = 20.000 TL kazanç. 
+                Komisyonlu modelde ayda 2.000 TL. yılda 24.000 TL komisyon ödersiniz. 
+                <br>Komisyonsuz modelde ayda 99₺ paket <strong>yılda 1.188 TL</strong> ödeme yaparsınız ve %2000 (yüzde ikibin) daha fazla kazanırsınız!
+                <br>Bu sadece bir örnektir, kazancınız sattığınız ders sayısına ve fiyatına göre değişir. Ancak yüksek hacimli satışlarda <strong>%0 komisyonun </strong>yani komisyonsuz modelin ne kadar avantajlı olduğunu görebilirsiniz.
+              </p>
+            </div>
+
+            <div class="mt-8 p-5 bg-gray-100 rounded-xl">
+              <h4 class="font-semibold text-gray-800 mb-2">🔄 Model Değiştirme</h4>
+              <p class="text-sm text-gray-600">
+                İstediğiniz zaman komisyonlu ↔ komisyonsuz model arasında geçiş yapabilirsiniz. 
+                Değişiklikler bir sonraki faturalandırma döneminde geçerli olur.
+              </p>
+            </div>
+
+            <div class="mt-8">
+              <a 
+                href="/egitmen-basvuru" 
+                class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition shadow-md hover:shadow-lg"
+              >
+                Bu Modelle Başvur →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KARŞILAŞTIRMA TABLOSU -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-10">
+          Modelleri Karşılaştır
+        </h2>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full bg-gray-50 rounded-xl border">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-6 py-4 text-left font-semibold text-gray-700">Özellik</th>
+                <th class="px-6 py-4 text-center font-semibold text-orange-600">Komisyonlu</th>
+                <th class="px-6 py-4 text-center font-semibold text-indigo-600">Komisyonsuz</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Başlangıç Ücreti</td>
+                <td class="px-6 py-4 text-center font-medium">50 TL (tek seferlik)</td>
+                <td class="px-6 py-4 text-center text-gray-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Aylık / Yıllık Ücret</td>
+                <td class="px-6 py-4 text-center text-green-600 font-medium">Yok</td>
+                <td class="px-6 py-4 text-center">49₺ - 199₺ / ay</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Komisyon Oranı</td>
+                <td class="px-6 py-4 text-center font-medium text-orange-600">%10</td>
+                <td class="px-6 py-4 text-center font-medium text-green-600">%0</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Kazanç Dağılımı (Örneğin 2000 TL ders)</td>
+                <td class="px-6 py-4 text-center">1800 TL size, 200 TL platform</td>
+                <td class="px-6 py-4 text-center text-green-600 font-medium">2000 TL size</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Profil Görünürlüğü</td>
+                <td class="px-6 py-4 text-center">Standart</td>
+                <td class="px-6 py-4 text-center text-indigo-600">Öne çıkan (Profesyonel+)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Ders İlan Hakkı</td>
+                <td class="px-6 py-4 text-center font-medium">Sınırsız</td>
+                <td class="px-6 py-4 text-center font-medium">1 - 8 (pakete göre)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Reklam / Öne Çıkarma</td>
+                <td class="px-6 py-4 text-center text-gray-400">—</td>
+                <td class="px-6 py-4 text-center text-indigo-600">✅ (Profesyonel+)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-gray-700">Model Değiştirme</td>
+                <td class="px-6 py-4 text-center text-green-600">✅ İstediğiniz zaman</td>
+                <td class="px-6 py-4 text-center text-green-600">✅ İstediğiniz zaman</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIK SORULAN SORULAR -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-10">
+          Sık Sorulan Sorular
+        </h2>
+        
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details class="group bg-white rounded-xl p-5 cursor-pointer">
+            <summary class="flex justify-between items-center font-semibold text-gray-800 list-none">
+              <span>Hangi modeli seçmeliyim?</span>
+              <span class="transition group-open:rotate-180">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+              Ayda 1-2 ders veriyorsanız <strong>Komisyonlu</strong> model daha ekonomik olabilir. 
+              Haftada birkaç ders veya düzenli öğrenciniz varsa <strong>Komisyonsuz</strong> model uzun vadede çok daha karlıdır. 
+              Karar veremediyseniz, Komisyonlu modelle başlayıp sonra geçiş yapabilirsiniz.
+            </p>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="group bg-white rounded-xl p-5 cursor-pointer">
+            <summary class="flex justify-between items-center font-semibold text-gray-800 list-none">
+              <span>Ödemeler nasıl ve ne zaman yapılır?</span>
+              <span class="transition group-open:rotate-180">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+              <strong>Komisyonlu:</strong> 50 TL üyelik ücreti, başvuru onayından sonra tek seferlik ödenir. 
+              <strong>Komisyonsuz:</strong> Aylık paket ücreti, her ayın 1'inde otomatik tahsil edilir. 
+              Öğrencilerden aldığınız ders ücretleri, ders tamamlandıktan sonra 3 iş günü içinde hesabınıza yansır.
+            </p>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group bg-white rounded-xl p-5 cursor-pointer">
+            <summary class="flex justify-between items-center font-semibold text-gray-800 list-none">
+              <span>Ödeme yapmazsam ne olur?</span>
+              <span class="transition group-open:rotate-180">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+              Komisyonsuz modelde ödeme yapılmadığında, profiliniz "Pasif" duruma geçer ve yeni öğrenci eşleşmeleri durur. 
+              Mevcut öğrencilerinizle derslerinize devam edebilirsiniz. 
+              Ödeme yaptığınız anda profiliniz tekrar aktif hale gelir.
+            </p>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group bg-white rounded-xl p-5 cursor-pointer">
+            <summary class="flex justify-between items-center font-semibold text-gray-800 list-none">
+              <span>KDV veya fatura kesiliyor mu?</span>
+              <span class="transition group-open:rotate-180">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+              Platform ücretleri (50 TL veya aylık paket) KDV dahildir ve otomatik faturalandırılır. 
+              Eğitmen olarak aldığınız ders ücretleri için fatura kesme sorumluluğu size aittir. 
+              Detaylı bilgi için <a href="/kullanim-sartlari" class="text-indigo-600 hover:underline">kullanım şartları</a> sayfamızı inceleyebilirsiniz.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA: Harekete Geçir -->
+    <section class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Hemen Başlayın, İlk Dersinizi Yayınlayın
+        </h2>
+        <p class="text-lg text-indigo-100 mb-8">
+          Binlerce öğrenci sizi bekliyor. Esnek kazanç modellerimizle 
+          eğitim kariyerinizi bir üst seviyeye taşıyın.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/egitmen-basvuru" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+            Ücretsiz Başvuru Yap
+          </a>
+          <a href="#komisyonlu" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition">
+            Modelleri Tekrar İncele ↓
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Smooth Scroll için küçük script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
+</Layout>
